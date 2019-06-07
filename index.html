@@ -174,14 +174,36 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>初始化 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init myblog</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init myblog  #此处myblog可任意，为MyBlog目录下的一个博客的根目录</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
-<li><p>此处myblog可任意，为test目录下的一个git库<br>进入myblog: </p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cd myblog  # 进入博客目录</span><br></pre></td></tr></table></figure>
-<p>  $ npm install  # 安装npm包<br>  $ hexo g  # 生成静态页面<br>  $ hexo s  # 开启本地预览服务<br>  <code>`</code></p>
+<li><p>登录github，用户名为’Zhev587’，新建repository，repository name必须为’用户名.github.io’的形式：<br>eg：Zhev587.github.io</p>
 </li>
+<li><p>进入myblog: </p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cd myblog  # 进入博客目录</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改配置文件’_config.yml’:</p>
+<ul>
+<li>title:浏览器标签页上的小标题</li>
+<li>重要的是最后的三项：  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">type: git</span><br><span class="line">repo: https://github.com/Zhev587/Zhev587.github.io  #即为新建的repository</span><br><span class="line">branch: master</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>完善：</p>
+<ul>
+<li>用’hexo new’新建的markdown源文件保存在source目录下的_posts文件夹下，进入目录打开即可编辑</li>
+<li>文章编辑完后可进行一下操作  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ npm install  # 安装npm包</span><br><span class="line">$ hexo g  # 生成静态页面</span><br><span class="line">$ hexo d  #部署页面</span><br><span class="line">$ hexo s  # 开启本地预览服务</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>主题修改：</p>
+<ul>
+<li><a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a>进入网页选择合适的主题根据各主题教程安装相应的主题。</li>
+<li>主题安装完成后打开配置文件’_config.yml’，找到theme: 并将其后面的主题名称改为新主题名称，重新生成静态页面并部署。</li>
+</ul>
+</li>
+<li>如果仅是修改文章内容则只需在每次编辑过后进行生成和部署即可：  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g    </span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure></li>
 </ul>
 
         </div>
