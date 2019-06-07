@@ -207,66 +207,6 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2019/06/06/kkk/">
-                kkk
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2019-06-06</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h1 id="Scoop与gow的安装与实现"><a href="#Scoop与gow的安装与实现" class="headerlink" title="Scoop与gow的安装与实现"></a>Scoop与gow的安装与实现</h1><h2 id="Scoop-在windows下的命令行式软件安装工具"><a href="#Scoop-在windows下的命令行式软件安装工具" class="headerlink" title="Scoop: 在windows下的命令行式软件安装工具"></a>Scoop: 在windows下的命令行式软件安装工具</h2><h3 id="安装scoop："><a href="#安装scoop：" class="headerlink" title="安装scoop："></a><strong><em>安装scoop：</em></strong></h3><ol>
-<li><p>在PowerShell中输入命令，设置允许本地脚本执行：  </p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ Set-ExecutionPolicy RemoteSigned -scope CurrentUser</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>执行安装命令：  </p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ iex (new-object net.webclient).downloadstring(&apos;https://get.scoop.sh&apos;)</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>注意：scoop要在PowerShell中使用，不能在cmd环境下使用。</p>
-<p>常用命令：</p>
-<ul>
-<li><p>搜索软件：’scoop search 软件名’ :</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ scoop search gcc</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装软件：’scoop install 软件名’ :</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ scoop install gcc</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装主库之外的软件：</p>
-<ul>
-<li><p>安装官方维护额库中的软件：<br>主库里没有的软件可以添加bucket去下载官方库中的软件，官方维护的库：<a href="https://github.com/lukesampson/scoop/blob/master/buckets.json" target="_blank" rel="noopener">https://github.com/lukesampson/scoop/blob/master/buckets.json</a></p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ scoop bucket add bucket名</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装社区维护的库中的软件：<br>社区维护的库：<a href="https://github.com/rasa/scoop-directory/blob/master/by-score.md" target="_blank" rel="noopener">https://github.com/rasa/scoop-directory/blob/master/by-score.md</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ scoop bucket add bucket名 bucket地址</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-<p>目录与环境变量：  </p>
-<p>安装Scoop后自动在用户目录创建scoop目录，scoop文件夹下的apps存放安装的所有应用。scoop是通过shim来软链接一些应用，并把shim添加到环境变量环境变量，保证应用互相独立。</p>
-<hr>
-<h2 id="Gow："><a href="#Gow：" class="headerlink" title="Gow："></a>Gow：</h2><p>Gow是GUN On Windows的缩写，给Linux软件提供Windows系统的运行环境，可通过Gow实现Linux命令在Windows PowerShell中执行，当然原本的Windows命令依然可以使用。</p>
-<p><strong><em>安装：</em></strong>  </p>
-<p>在安装好scoop的基础上打开命令行，输入安装命令：<br><code>scoop install gow</code>  </p>
-
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
             <a href="/2019/05/25/Report/">
                 The report of Boost.Python
             </a>
@@ -406,10 +346,6 @@
             
             <li>
                 <a class="footer-post" href="/2019/06/06/ScoopAndGow/">ScoopAndGow</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2019/06/06/kkk/">kkk</a>
             </li>
             
             <li>
