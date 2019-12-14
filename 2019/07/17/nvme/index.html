@@ -3,7 +3,7 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>WFU-无M.2的老台式实现nvme固态硬盘支持 | Gavin</title>
+  <title>WFU-无M.2的老台式实现NVME固态硬盘支持 | Gavin</title>
 
   <!-- keywords -->
   
@@ -11,18 +11,18 @@
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="无M.2的老台式实现nvme固态硬盘支持在升级自己老式台式机时总会遇见接口过于古老或协议不支持的情况，比如给一些老式主板升级的话不想接SATA这种相对Nvme慢一倍的固态硬盘，而主板上又没有M.2的接口，甚至不支持Nvme协议，老主板刷BIOS的话也会有风险，处境就非常尴尬。这篇就将介绍如何给无M.2接口甚至不支持Nvme协议的主板升级Nvme固态硬盘。 工具:  M.2转PCI-E转接卡 U盘">
+  <meta name="description" content="无M.2的老台式实现NVME固态硬盘支持在升级自己老式台式机时总会遇见接口过于古老或协议不支持的情况，比如给一些老式主板升级的话不想接SATA这种相对NVME慢几倍的固态硬盘，而主板上又没有M.2的接口，甚至不支持NVME协议，老主板刷BIOS的话也会有风险，处境就非常尴尬。这篇就将介绍如何给无M.2接口甚至不支持NVME协议的主板升级NVME固态硬盘。 工具:  M.2转PCI-E转接卡  U盘">
 <meta name="keywords" content="WFU">
 <meta property="og:type" content="article">
-<meta property="og:title" content="无M.2的老台式实现nvme固态硬盘支持">
+<meta property="og:title" content="无M.2的老台式实现NVME固态硬盘支持">
 <meta property="og:url" content="http://yoursite.com/2019/07/17/nvme/index.html">
 <meta property="og:site_name" content="Gavin">
-<meta property="og:description" content="无M.2的老台式实现nvme固态硬盘支持在升级自己老式台式机时总会遇见接口过于古老或协议不支持的情况，比如给一些老式主板升级的话不想接SATA这种相对Nvme慢一倍的固态硬盘，而主板上又没有M.2的接口，甚至不支持Nvme协议，老主板刷BIOS的话也会有风险，处境就非常尴尬。这篇就将介绍如何给无M.2接口甚至不支持Nvme协议的主板升级Nvme固态硬盘。 工具:  M.2转PCI-E转接卡 U盘">
+<meta property="og:description" content="无M.2的老台式实现NVME固态硬盘支持在升级自己老式台式机时总会遇见接口过于古老或协议不支持的情况，比如给一些老式主板升级的话不想接SATA这种相对NVME慢几倍的固态硬盘，而主板上又没有M.2的接口，甚至不支持NVME协议，老主板刷BIOS的话也会有风险，处境就非常尴尬。这篇就将介绍如何给无M.2接口甚至不支持NVME协议的主板升级NVME固态硬盘。 工具:  M.2转PCI-E转接卡  U盘">
 <meta property="og:locale" content="English & Chinese">
-<meta property="og:updated_time" content="2019-07-18T02:47:49.253Z">
+<meta property="og:updated_time" content="2019-07-29T02:39:22.399Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="无M.2的老台式实现nvme固态硬盘支持">
-<meta name="twitter:description" content="无M.2的老台式实现nvme固态硬盘支持在升级自己老式台式机时总会遇见接口过于古老或协议不支持的情况，比如给一些老式主板升级的话不想接SATA这种相对Nvme慢一倍的固态硬盘，而主板上又没有M.2的接口，甚至不支持Nvme协议，老主板刷BIOS的话也会有风险，处境就非常尴尬。这篇就将介绍如何给无M.2接口甚至不支持Nvme协议的主板升级Nvme固态硬盘。 工具:  M.2转PCI-E转接卡 U盘">
+<meta name="twitter:title" content="无M.2的老台式实现NVME固态硬盘支持">
+<meta name="twitter:description" content="无M.2的老台式实现NVME固态硬盘支持在升级自己老式台式机时总会遇见接口过于古老或协议不支持的情况，比如给一些老式主板升级的话不想接SATA这种相对NVME慢几倍的固态硬盘，而主板上又没有M.2的接口，甚至不支持NVME协议，老主板刷BIOS的话也会有风险，处境就非常尴尬。这篇就将介绍如何给无M.2接口甚至不支持NVME协议的主板升级NVME固态硬盘。 工具:  M.2转PCI-E转接卡  U盘">
   
     <link rel="alternative" href="/atom.xml" title="Gavin" type="application/atom+xml">
   
@@ -210,7 +210,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      无M.2的老台式实现nvme固态硬盘支持
+      无M.2的老台式实现NVME固态硬盘支持
       
     </h1>
   
@@ -224,7 +224,7 @@
         
           
 <div class="counter-tag counter">
-    <span id="/2019/07/17/nvme/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="无M.2的老台式实现nvme固态硬盘支持">
+    <span id="/2019/07/17/nvme/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="无M.2的老台式实现NVME固态硬盘支持">
          &nbsp;
         view
     </span>
@@ -237,18 +237,23 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="无M-2的老台式实现nvme固态硬盘支持"><a href="#无M-2的老台式实现nvme固态硬盘支持" class="headerlink" title="无M.2的老台式实现nvme固态硬盘支持"></a>无M.2的老台式实现nvme固态硬盘支持</h2><p>在升级自己老式台式机时总会遇见接口过于古老或协议不支持的情况，比如给一些老式主板升级的话不想接SATA这种相对Nvme慢一倍的固态硬盘，而主板上又没有M.2的接口，甚至不支持Nvme协议，老主板刷BIOS的话也会有风险，处境就非常尴尬。这篇就将介绍如何给无M.2接口甚至不支持Nvme协议的主板升级Nvme固态硬盘。</p>
+        <h2 id="无M-2的老台式实现NVME固态硬盘支持"><a href="#无M-2的老台式实现NVME固态硬盘支持" class="headerlink" title="无M.2的老台式实现NVME固态硬盘支持"></a>无M.2的老台式实现NVME固态硬盘支持</h2><p>在升级自己老式台式机时总会遇见接口过于古老或协议不支持的情况，比如给一些老式主板升级的话不想接SATA这种相对NVME慢几倍的固态硬盘，而主板上又没有M.2的接口，甚至不支持NVME协议，老主板刷BIOS的话也会有风险，处境就非常尴尬。这篇就将介绍如何给无M.2接口甚至不支持NVME协议的主板升级NVME固态硬盘。</p>
 <p>工具:</p>
 <ol>
-<li>M.2转PCI-E转接卡</li>
-<li>U盘</li>
-<li>软件：BD Utility(Boot Disk Utility)</li>
+<li><p>M.2转PCI-E转接卡</p>
+</li>
+<li><p>U盘</p>
+</li>
+<li><p>软件：BD Utility(Boot Disk Utility)</p>
+</li>
 </ol>
-<p>BDUtility的下载：官网为<a href="http://cvad-mac.narod.ru/index/bootdiskutility_exe/0-5" target="_blank" rel="noopener">http://cvad-mac.narod.ru/index/bootdiskutility_exe/0-5</a><br>这是个外网，需要翻墙才可以打开下载，不能翻墙下载的可以到我的网盘下载：链接：<a href="https://pan.baidu.com/s/1SVR6RPyh6U2pnNwYxPpQeQ" target="_blank" rel="noopener">https://pan.baidu.com/s/1SVR6RPyh6U2pnNwYxPpQeQ</a>提取码：wtn6</p>
+<p>BDUtility的下载：官网为<a href="http://cvad-mac.narod.ru/index/bootdiskutility_exe/0-5" target="_blank" rel="noopener">http://cvad-mac.narod.ru/index/bootdiskutility_exe/0-5</a><br>这是个外网，需要翻墙才可以打开下载，不能翻墙下载的可以到网盘下载：链接：<a href="https://pan.baidu.com/s/1SVR6RPyh6U2pnNwYxPpQeQ" target="_blank" rel="noopener">https://pan.baidu.com/s/1SVR6RPyh6U2pnNwYxPpQeQ</a>提取码：wtn6</p>
 <p>下载完成后解压，插上U盘，打开BDUtility，选择U盘，点击Format，软件会从服务器下载各种模块安装，等几分钟后显示All done就表示引导盘已经做好。</p>
-<p><strong><em>关键部分</em></strong>：BootDiskUtility将U盘分成了一个200MB的FAT32分区CLOVER和一个未分区区块，引导装在这个CLOVER分区中，打开它，找到EFI\CLOVER\drivers-Off\drivers64UEFI文件夹下NvmExpressDxe-64.efi文件,分别将它复制到：<br>EFI\CLOVER\drivers64<br>EFI\CLOVER\drivers64UEFI<br>两个目录下，就大功告成了！</p>
-<p>最后，重启电脑，进入BIOS，将刚做好的U盘引导盘作为第一启动盘，从U盘引导启动，启动后会出现引导菜单，默认第一个盘符就是Nvme的引导分区，按回车选择或者等待自动选择就会成功进入系统。</p>
-<p>至于固态硬盘中的系统，我的是在另一个电脑上装好之后才插到老台式上的，如果需要装系统的话，就正常操作，插上另一个系统引导盘按常规操作来就行，装系统时电脑上最好只有一个Nvme SSD存在。如果装系统时系统引导盘找不到Nvme的分区的话还是建议在另一台电脑上装好系统后直接引导。</p>
+<p><strong><em>关键部分</em></strong>：BootDiskUtility将U盘分成了一个200MB的FAT32分区CLOVER和一个未分区区块，引导装在这个CLOVER分区中，打开它，找到<code>EFI\CLOVER\drivers-Off\drivers64UEFI</code>文件夹下的<code>NVMExpressDxe-64.efi</code>文件, 分别将它复制到： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">EFI\CLOVER\drivers64  </span><br><span class="line">EFI\CLOVER\drivers64UEFI</span><br></pre></td></tr></table></figure>
+<p>两个目录下，就大功告成了！</p>
+<p>最后，重启电脑，进入BIOS，将刚做好的U盘引导盘作为第一启动盘，从U盘引导启动，启动后会出现引导菜单，默认第一个盘符就是NVME的引导分区，按回车选择或者等待自动选择就会成功进入系统。</p>
+<p>至于固态硬盘中的系统，我的是在另一个电脑上装好之后才插到老台式上的，如果需要装系统的话，就正常操作，插上另一个系统引导盘按常规操作来就行，装系统时电脑上最好只有一个NVME SSD存在。如果装系统时系统引导盘找不到NVME的分区的话还是建议在另一台电脑上装好系统后直接引导。</p>
 
       
     </div>
@@ -257,6 +262,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2019/07/28/高效学习计算机专业课程/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          高效学习计算机专业课程
+        
+      </div>
+    </a>
   
   
     <a href="/2019/06/08/HotKey/" id="article-nav-older" class="article-nav-link-wrap">
@@ -270,7 +284,7 @@
 </article>
 
 
-<div class="ds-share share" data-thread-key="nvme" data-title="无M.2的老台式实现nvme固态硬盘支持" data-url="http://yoursite.com/2019/07/17/nvme/" data-images="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b10000_10000&amp;sec=1559900879&amp;di=67671c36341616bd1b6402ded0e092e5&amp;src=http://img.zcool.cn/community/01f1c75544952a0000019ae95c440c.jpg" data-content="无M.2的老台式实现nvme固态硬盘支持">
+<div class="ds-share share" data-thread-key="nvme" data-title="无M.2的老台式实现NVME固态硬盘支持" data-url="http://yoursite.com/2019/07/17/nvme/" data-images="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b10000_10000&amp;sec=1559900879&amp;di=67671c36341616bd1b6402ded0e092e5&amp;src=http://img.zcool.cn/community/01f1c75544952a0000019ae95c440c.jpg" data-content="无M.2的老台式实现NVME固态硬盘支持">
     <div class="ds-share-inline">
       <ul class="ds-share-icons-16">
       	<li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
