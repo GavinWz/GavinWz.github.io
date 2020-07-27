@@ -19,19 +19,19 @@
 <meta property="og:site_name" content="Gavin">
 <meta property="og:description" content="CUDA Learning Record随着显卡的发展,GPU越来越强大,在计算上已经超过了通用的CPU.为了更大限度的利用GPU的运算能力,NVIDIA推出CUDA, 使得显卡可以用与图像计算之外的目的. CPU+GPU异构并行计算架构CPU与GPU是两个独立的处理器，之间通过PCIe总线相连。GPU不是一个独立的运行平台，而是CPU的一个协处理器。CPU所在位置称为主机端(host)，GPU所">
 <meta property="og:locale" content="English & Chinese">
-<meta property="og:image" content="https://weizhe.xyz/Pictures/nvcc编译过程.png">
-<meta property="og:image" content="https://weizhe.xyz/Pictures/线程分配.png">
-<meta property="og:image" content="https://weizhe.xyz/Pictures/内存类型.png">
-<meta property="og:updated_time" content="2020-05-07T13:55:52.390Z">
+<meta property="og:image" content="http://yoursite.com/Pictures/nvcc编译过程.png">
+<meta property="og:image" content="http://yoursite.com/Pictures/线程分配.png">
+<meta property="og:image" content="http://yoursite.com/Pictures/内存类型.png">
+<meta property="og:updated_time" content="2020-07-27T03:50:10.339Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CUDA学习记录">
 <meta name="twitter:description" content="CUDA Learning Record随着显卡的发展,GPU越来越强大,在计算上已经超过了通用的CPU.为了更大限度的利用GPU的运算能力,NVIDIA推出CUDA, 使得显卡可以用与图像计算之外的目的. CPU+GPU异构并行计算架构CPU与GPU是两个独立的处理器，之间通过PCIe总线相连。GPU不是一个独立的运行平台，而是CPU的一个协处理器。CPU所在位置称为主机端(host)，GPU所">
-<meta name="twitter:image" content="https://weizhe.xyz/Pictures/nvcc编译过程.png">
+<meta name="twitter:image" content="http://yoursite.com/Pictures/nvcc编译过程.png">
   
     <link rel="alternative" href="/atom.xml" title="Gavin" type="application/atom+xml">
   
   
-    <link rel="icon" href="https://weizhe.xyz/timg.ico">
+    <link rel="icon" href="/Pictures/timg.ico">
   
   <link rel="stylesheet" href="/css/style.css">
   
@@ -55,7 +55,7 @@
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
 			
-			<img lazy-src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b10000_10000&amp;sec=1559900879&amp;di=67671c36341616bd1b6402ded0e092e5&amp;src=http://img.zcool.cn/community/01f1c75544952a0000019ae95c440c.jpg" class="js-avatar">
+			<img lazy-src="/Picutures/timg.ico" class="js-avatar">
 			
 		</a>
 
@@ -124,7 +124,7 @@
 					<nav class="header-nav">
 						<div class="social">
 							
-								<a class="github" target="_blank" href="https://github.com/Zhev587/" title="github">github</a>
+								<a class="github" target="_blank" href="https://github.com/GavinWz/" title="github">github</a>
 					        
 						</div>
 					</nav>
@@ -169,7 +169,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img lazy-src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b10000_10000&amp;sec=1559900879&amp;di=67671c36341616bd1b6402ded0e092e5&amp;src=http://img.zcool.cn/community/01f1c75544952a0000019ae95c440c.jpg" class="js-avatar">
+				<img lazy-src="/Picutures/timg.ico" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author">Weizhe Yang</h1>
@@ -190,7 +190,7 @@
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="https://github.com/Zhev587/" title="github">github</a>
+						<a class="github" target="_blank" href="https://github.com/GavinWz/" title="github">github</a>
 			        
 				</div>
 			</nav>
@@ -273,7 +273,7 @@
 <ol>
 <li>nvcc的编译过程</li>
 </ol>
-<p><img src="https://weizhe.xyz/Pictures/nvcc编译过程.png" alt="nvcc编译过程"></p>
+<p><img src="/Pictures/nvcc编译过程.png" alt="nvcc编译过程"></p>
 <p>CUDA的编译器驱动nvcc先将全部源代码分离为主机(host)代码和设备(device)代码。主机代码完全支持C++语法，而设备代码只是部分支持。</p>
 <p>nvcc先将设备代码编译为PTX(Parallel Thread eXecution)伪汇编代码，再将PTX代码编译为二进制的cubin目标代码</p>
 <ol start="2">
@@ -298,7 +298,7 @@
 <li>CUDA程序的基本框架</li>
 </ol>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">头文件包含</span><br><span class="line">宏定义</span><br><span class="line">用户函数和CUDA核函数的声明</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    分配主机与设备内存</span><br><span class="line">    初始化主机中的数据</span><br><span class="line">    将某些数据从主机复制到设备</span><br><span class="line">    调用核函数在设备中进行计算</span><br><span class="line">    将某些数据从设备复制到机</span><br><span class="line">    释放主机与设备内存</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="CUDA-C语法"><a href="#CUDA-C语法" class="headerlink" title="CUDA C语法"></a>CUDA C语法</h3><p><img src="https://weizhe.xyz/Pictures/线程分配.png" alt="线程分配"></p>
+<h3 id="CUDA-C语法"><a href="#CUDA-C语法" class="headerlink" title="CUDA C语法"></a>CUDA C语法</h3><p><img src="/Pictures/线程分配.png" alt="线程分配"></p>
 <ul>
 <li>核函数中的线程常组织为若干个线程块(thread block)，每个线程块中有若干个线程(thread)。</li>
 <li>核函数中的全部线程块构成一个网格(grid)，线程块的个数记为网格大小(grid size)，每个线程块中有同样数目的线程，该数目称为线程块大小(block size)。</li>
@@ -366,7 +366,7 @@
 <ol start="5">
 <li>设备内存的分类</li>
 </ol>
-<p><img src="https://weizhe.xyz/Pictures/内存类型.png" alt="设备内存分类"></p>
+<p><img src="/Pictures/内存类型.png" alt="设备内存分类"></p>
 <p><strong>全局内存</strong></p>
 <p>全局内存的含义是核函数中的所有线程都能够访问其中的数据。主要作用是为核函数提供数据，并在主机与设备以及设备与设备之间传输数据。<br>全局内存的生命周期不是由核函数决定的，而是由主机端决定的</p>
 <p><strong>静态全局内存变量</strong></p>
@@ -486,7 +486,7 @@
 </article>
 
 
-<div class="ds-share share" data-thread-key="CUDA" data-title="CUDA学习记录" data-url="http://yoursite.com/2020/03/15/CUDA/" data-images="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b10000_10000&amp;sec=1559900879&amp;di=67671c36341616bd1b6402ded0e092e5&amp;src=http://img.zcool.cn/community/01f1c75544952a0000019ae95c440c.jpg" data-content="CUDA学习记录">
+<div class="ds-share share" data-thread-key="CUDA" data-title="CUDA学习记录" data-url="http://yoursite.com/2020/03/15/CUDA/" data-images="/Picutures/timg.ico" data-content="CUDA学习记录">
     <div class="ds-share-inline">
       <ul class="ds-share-icons-16">
       	<li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>

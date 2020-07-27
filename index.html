@@ -26,7 +26,7 @@
     <link rel="alternative" href="/atom.xml" title="Gavin" type="application/atom+xml">
   
   
-    <link rel="icon" href="https://weizhe.xyz/timg.ico">
+    <link rel="icon" href="/Pictures/timg.ico">
   
   <link rel="stylesheet" href="/css/style.css">
   
@@ -50,7 +50,7 @@
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
 			
-			<img lazy-src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b10000_10000&amp;sec=1559900879&amp;di=67671c36341616bd1b6402ded0e092e5&amp;src=http://img.zcool.cn/community/01f1c75544952a0000019ae95c440c.jpg" class="js-avatar">
+			<img lazy-src="/Picutures/timg.ico" class="js-avatar">
 			
 		</a>
 
@@ -119,7 +119,7 @@
 					<nav class="header-nav">
 						<div class="social">
 							
-								<a class="github" target="_blank" href="https://github.com/Zhev587/" title="github">github</a>
+								<a class="github" target="_blank" href="https://github.com/GavinWz/" title="github">github</a>
 					        
 						</div>
 					</nav>
@@ -164,7 +164,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img lazy-src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b10000_10000&amp;sec=1559900879&amp;di=67671c36341616bd1b6402ded0e092e5&amp;src=http://img.zcool.cn/community/01f1c75544952a0000019ae95c440c.jpg" class="js-avatar">
+				<img lazy-src="/Picutures/timg.ico" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author">Weizhe Yang</h1>
@@ -185,7 +185,7 @@
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="https://github.com/Zhev587/" title="github">github</a>
+						<a class="github" target="_blank" href="https://github.com/GavinWz/" title="github">github</a>
 			        
 				</div>
 			</nav>
@@ -1637,7 +1637,7 @@
 <ol>
 <li>nvcc的编译过程</li>
 </ol>
-<p><img src="https://weizhe.xyz/Pictures/nvcc编译过程.png" alt="nvcc编译过程"></p>
+<p><img src="/Pictures/nvcc编译过程.png" alt="nvcc编译过程"></p>
 <p>CUDA的编译器驱动nvcc先将全部源代码分离为主机(host)代码和设备(device)代码。主机代码完全支持C++语法，而设备代码只是部分支持。</p>
 <p>nvcc先将设备代码编译为PTX(Parallel Thread eXecution)伪汇编代码，再将PTX代码编译为二进制的cubin目标代码</p>
 <ol start="2">
@@ -1662,7 +1662,7 @@
 <li>CUDA程序的基本框架</li>
 </ol>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">头文件包含</span><br><span class="line">宏定义</span><br><span class="line">用户函数和CUDA核函数的声明</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    分配主机与设备内存</span><br><span class="line">    初始化主机中的数据</span><br><span class="line">    将某些数据从主机复制到设备</span><br><span class="line">    调用核函数在设备中进行计算</span><br><span class="line">    将某些数据从设备复制到机</span><br><span class="line">    释放主机与设备内存</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="CUDA-C语法"><a href="#CUDA-C语法" class="headerlink" title="CUDA C语法"></a>CUDA C语法</h3><p><img src="https://weizhe.xyz/Pictures/线程分配.png" alt="线程分配"></p>
+<h3 id="CUDA-C语法"><a href="#CUDA-C语法" class="headerlink" title="CUDA C语法"></a>CUDA C语法</h3><p><img src="/Pictures/线程分配.png" alt="线程分配"></p>
 <ul>
 <li>核函数中的线程常组织为若干个线程块(thread block)，每个线程块中有若干个线程(thread)。</li>
 <li>核函数中的全部线程块构成一个网格(grid)，线程块的个数记为网格大小(grid size)，每个线程块中有同样数目的线程，该数目称为线程块大小(block size)。</li>
@@ -1730,7 +1730,7 @@
 <ol start="5">
 <li>设备内存的分类</li>
 </ol>
-<p><img src="https://weizhe.xyz/Pictures/内存类型.png" alt="设备内存分类"></p>
+<p><img src="/Pictures/内存类型.png" alt="设备内存分类"></p>
 <p><strong>全局内存</strong></p>
 <p>全局内存的含义是核函数中的所有线程都能够访问其中的数据。主要作用是为核函数提供数据，并在主机与设备以及设备与设备之间传输数据。<br>全局内存的生命周期不是由核函数决定的，而是由主机端决定的</p>
 <p><strong>静态全局内存变量</strong></p>
@@ -1917,10 +1917,18 @@
 <ol start="8">
 <li>消息传递</li>
 </ol>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">MPI_Send</span><span class="params">(<span class="keyword">void</span>* msg_buf_p,<span class="comment">//发送缓冲区的起始地址；</span></span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">int</span> msg_size, <span class="comment">//缓冲区大小</span></span></span></span><br><span class="line"><span class="function"><span class="params">    MPI_Datatype msg_type, <span class="comment">//发送信息的数据类型</span></span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">int</span> dest, <span class="comment">//目标进程的id值</span></span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">int</span> tag, <span class="comment">//消息标签</span></span></span></span><br><span class="line"><span class="function"><span class="params">    MPI_Comm communicator<span class="comment">//通信子</span></span></span></span><br><span class="line"><span class="function"><span class="params">)</span></span>;</span><br></pre></td></tr></table></figure>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">MPI_Recv</span><span class="params">(<span class="keyword">void</span>* msg_buf_p, <span class="comment">//缓冲区的起始地址；</span></span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">int</span> buf_size, <span class="comment">//缓冲区大小；</span></span></span></span><br><span class="line"><span class="function"><span class="params">    MPI_Datatype msg_type, <span class="comment">//发送信息的数据类型；</span></span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">int</span> source, <span class="comment">//目标进程的id值；</span></span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">int</span> tag, <span class="comment">//消息标签；</span></span></span></span><br><span class="line"><span class="function"><span class="params">    MPI_Comm communicator， <span class="comment">//通信子；</span></span></span></span><br><span class="line"><span class="function"><span class="params">    MPI_Status *status_p)</span><span class="comment">//status_p对象，包含实际接收到的消息的有关信息</span></span></span><br></pre></td></tr></table></figure>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span>* msg_buf_p ： </span><br><span class="line"><span class="keyword">int</span> buf_size ： </span><br><span class="line">MPI_Datatype msg_type ： </span><br><span class="line"><span class="keyword">int</span> dest ：</span><br><span class="line"><span class="keyword">int</span> tag ： </span><br><span class="line">MPI_Comm communicator ： </span><br><span class="line">MPI_Status *status_p ：</span><br></pre></td></tr></table></figure>
-<ol start="9">
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">MPI_Send</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">void</span>* msg_buf_p,<span class="comment">//变量指针</span></span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">int</span> msg_size, <span class="comment">//数据量</span></span></span></span><br><span class="line"><span class="function"><span class="params">    MPI_Datatype send_type, <span class="comment">//发送信息的数据类型</span></span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">int</span> dest, <span class="comment">//目标进程的id值</span></span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">int</span> tag, <span class="comment">//消息标签，0打印，1计算</span></span></span></span><br><span class="line"><span class="function"><span class="params">    MPI_Comm communicator<span class="comment">//通信子</span></span></span></span><br><span class="line"><span class="function"><span class="params">)</span></span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">MPI_Recv</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">void</span>* msg_buf_p, <span class="comment">//变量指针</span></span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">int</span> buf_size, <span class="comment">//数据量</span></span></span></span><br><span class="line"><span class="function"><span class="params">    MPI_Datatype recv_type, <span class="comment">//发送信息的数据类型；</span></span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">int</span> source, <span class="comment">//接收的进程的id值；</span></span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">int</span> tag, <span class="comment">//消息标签；0打印，1计算</span></span></span></span><br><span class="line"><span class="function"><span class="params">    MPI_Comm communicator， <span class="comment">//通信子；</span></span></span></span><br><span class="line"><span class="function"><span class="params">    MPI_Status *status_p)</span><span class="comment">//status_p对象，包含实际接收到的消息的有关信息</span></span></span><br></pre></td></tr></table></figure>
+<p>通常情况下，满足以下条件，就可以成功发送和接收消息：</p>
+<pre><code>1. recv_type = send_type
+2. recv_buf_size &gt;= send_buf_size
+</code></pre><p>接收者的通配参数：</p>
+<ul>
+<li>MPI_ANY_SOURSE: 当第四个参数source为此变量时，代表任何一个完成工作的进程</li>
+<li>MPI_ANY_TAG: 当第五个参数tag为此变量时，代表接收任意形式的标签</li>
+</ul>
+<p>通配参数只有<code>接收者</code>可以使用</p>
+<ol>
 <li>地址偏移量</li>
 </ol>
 <p>MPI_ADDRESS: 获得一个位置在内存中的地址<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">MPI_Address</span><span class="params">(<span class="keyword">void</span> *location, MPI_Aint *address)</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line">void *location: 调用者的内存位置；</span><br><span class="line">MPI_Aint *address: 位置的对应地址</span><br></pre></td></tr></table></figure></p>

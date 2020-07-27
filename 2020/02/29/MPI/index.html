@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="Gavin">
 <meta property="og:description" content="MPI_Learning_Record环境下载:http://www.mpich.org/downloads/  程序的开始与结束  1int MPI_Init(int *argc, char **argv) 通过MPI_Init函数进入MPI环境并完成初始化工作，标志并行代码的开始, 前后两个参数为main函数的默认参数。1int MPI_Finalize(void) 通过MPI_Finaliz">
 <meta property="og:locale" content="English & Chinese">
-<meta property="og:updated_time" content="2020-05-07T14:08:26.695Z">
+<meta property="og:updated_time" content="2020-07-27T04:03:17.115Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MPI学习记录">
 <meta name="twitter:description" content="MPI_Learning_Record环境下载:http://www.mpich.org/downloads/  程序的开始与结束  1int MPI_Init(int *argc, char **argv) 通过MPI_Init函数进入MPI环境并完成初始化工作，标志并行代码的开始, 前后两个参数为main函数的默认参数。1int MPI_Finalize(void) 通过MPI_Finaliz">
@@ -27,7 +27,7 @@
     <link rel="alternative" href="/atom.xml" title="Gavin" type="application/atom+xml">
   
   
-    <link rel="icon" href="https://weizhe.xyz/timg.ico">
+    <link rel="icon" href="/Pictures/timg.ico">
   
   <link rel="stylesheet" href="/css/style.css">
   
@@ -51,7 +51,7 @@
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
 			
-			<img lazy-src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b10000_10000&amp;sec=1559900879&amp;di=67671c36341616bd1b6402ded0e092e5&amp;src=http://img.zcool.cn/community/01f1c75544952a0000019ae95c440c.jpg" class="js-avatar">
+			<img lazy-src="/Picutures/timg.ico" class="js-avatar">
 			
 		</a>
 
@@ -120,7 +120,7 @@
 					<nav class="header-nav">
 						<div class="social">
 							
-								<a class="github" target="_blank" href="https://github.com/Zhev587/" title="github">github</a>
+								<a class="github" target="_blank" href="https://github.com/GavinWz/" title="github">github</a>
 					        
 						</div>
 					</nav>
@@ -165,7 +165,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img lazy-src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b10000_10000&amp;sec=1559900879&amp;di=67671c36341616bd1b6402ded0e092e5&amp;src=http://img.zcool.cn/community/01f1c75544952a0000019ae95c440c.jpg" class="js-avatar">
+				<img lazy-src="/Picutures/timg.ico" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author">Weizhe Yang</h1>
@@ -186,7 +186,7 @@
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="https://github.com/Zhev587/" title="github">github</a>
+						<a class="github" target="_blank" href="https://github.com/GavinWz/" title="github">github</a>
 			        
 				</div>
 			</nav>
@@ -271,10 +271,18 @@
 <ol start="8">
 <li>消息传递</li>
 </ol>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">MPI_Send</span><span class="params">(<span class="keyword">void</span>* msg_buf_p,<span class="comment">//发送缓冲区的起始地址；</span></span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">int</span> msg_size, <span class="comment">//缓冲区大小</span></span></span></span><br><span class="line"><span class="function"><span class="params">    MPI_Datatype msg_type, <span class="comment">//发送信息的数据类型</span></span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">int</span> dest, <span class="comment">//目标进程的id值</span></span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">int</span> tag, <span class="comment">//消息标签</span></span></span></span><br><span class="line"><span class="function"><span class="params">    MPI_Comm communicator<span class="comment">//通信子</span></span></span></span><br><span class="line"><span class="function"><span class="params">)</span></span>;</span><br></pre></td></tr></table></figure>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">MPI_Recv</span><span class="params">(<span class="keyword">void</span>* msg_buf_p, <span class="comment">//缓冲区的起始地址；</span></span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">int</span> buf_size, <span class="comment">//缓冲区大小；</span></span></span></span><br><span class="line"><span class="function"><span class="params">    MPI_Datatype msg_type, <span class="comment">//发送信息的数据类型；</span></span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">int</span> source, <span class="comment">//目标进程的id值；</span></span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">int</span> tag, <span class="comment">//消息标签；</span></span></span></span><br><span class="line"><span class="function"><span class="params">    MPI_Comm communicator， <span class="comment">//通信子；</span></span></span></span><br><span class="line"><span class="function"><span class="params">    MPI_Status *status_p)</span><span class="comment">//status_p对象，包含实际接收到的消息的有关信息</span></span></span><br></pre></td></tr></table></figure>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span>* msg_buf_p ： </span><br><span class="line"><span class="keyword">int</span> buf_size ： </span><br><span class="line">MPI_Datatype msg_type ： </span><br><span class="line"><span class="keyword">int</span> dest ：</span><br><span class="line"><span class="keyword">int</span> tag ： </span><br><span class="line">MPI_Comm communicator ： </span><br><span class="line">MPI_Status *status_p ：</span><br></pre></td></tr></table></figure>
-<ol start="9">
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">MPI_Send</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">void</span>* msg_buf_p,<span class="comment">//变量指针</span></span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">int</span> msg_size, <span class="comment">//数据量</span></span></span></span><br><span class="line"><span class="function"><span class="params">    MPI_Datatype send_type, <span class="comment">//发送信息的数据类型</span></span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">int</span> dest, <span class="comment">//目标进程的id值</span></span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">int</span> tag, <span class="comment">//消息标签，0打印，1计算</span></span></span></span><br><span class="line"><span class="function"><span class="params">    MPI_Comm communicator<span class="comment">//通信子</span></span></span></span><br><span class="line"><span class="function"><span class="params">)</span></span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">MPI_Recv</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">void</span>* msg_buf_p, <span class="comment">//变量指针</span></span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">int</span> buf_size, <span class="comment">//数据量</span></span></span></span><br><span class="line"><span class="function"><span class="params">    MPI_Datatype recv_type, <span class="comment">//发送信息的数据类型；</span></span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">int</span> source, <span class="comment">//接收的进程的id值；</span></span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">int</span> tag, <span class="comment">//消息标签；0打印，1计算</span></span></span></span><br><span class="line"><span class="function"><span class="params">    MPI_Comm communicator， <span class="comment">//通信子；</span></span></span></span><br><span class="line"><span class="function"><span class="params">    MPI_Status *status_p)</span><span class="comment">//status_p对象，包含实际接收到的消息的有关信息</span></span></span><br></pre></td></tr></table></figure>
+<p>通常情况下，满足以下条件，就可以成功发送和接收消息：</p>
+<pre><code>1. recv_type = send_type
+2. recv_buf_size &gt;= send_buf_size
+</code></pre><p>接收者的通配参数：</p>
+<ul>
+<li>MPI_ANY_SOURSE: 当第四个参数source为此变量时，代表任何一个完成工作的进程</li>
+<li>MPI_ANY_TAG: 当第五个参数tag为此变量时，代表接收任意形式的标签</li>
+</ul>
+<p>通配参数只有<code>接收者</code>可以使用</p>
+<ol>
 <li>地址偏移量</li>
 </ol>
 <p>MPI_ADDRESS: 获得一个位置在内存中的地址<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">MPI_Address</span><span class="params">(<span class="keyword">void</span> *location, MPI_Aint *address)</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line">void *location: 调用者的内存位置；</span><br><span class="line">MPI_Aint *address: 位置的对应地址</span><br></pre></td></tr></table></figure></p>
@@ -494,7 +502,7 @@
 </article>
 
 
-<div class="ds-share share" data-thread-key="MPI" data-title="MPI学习记录" data-url="http://yoursite.com/2020/02/29/MPI/" data-images="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b10000_10000&amp;sec=1559900879&amp;di=67671c36341616bd1b6402ded0e092e5&amp;src=http://img.zcool.cn/community/01f1c75544952a0000019ae95c440c.jpg" data-content="MPI学习记录">
+<div class="ds-share share" data-thread-key="MPI" data-title="MPI学习记录" data-url="http://yoursite.com/2020/02/29/MPI/" data-images="/Picutures/timg.ico" data-content="MPI学习记录">
     <div class="ds-share-inline">
       <ul class="ds-share-icons-16">
       	<li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
