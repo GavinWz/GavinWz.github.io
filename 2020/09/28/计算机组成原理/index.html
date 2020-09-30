@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>Gavin-计算机组成原理.md | Blog</title>
+
+  <!-- keywords -->
+  
+    <meta name="keywords" content="Gavin">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="计算机组成原理第一章 计算机系统概论1.1. 计算机系统简介计算机的软硬件概念  计算机系统   硬件： 计算机的实体，如主机、外设等 软件： 具有各类特殊功能的信息（程序）组成 系统软件：用来管理整个计算机系统 语言处理程序、操作系统、服务性程序、数据库管理系统、网络软件  应用软件：按任务需要编制成的各种程序     计算机系统的层次结构   系统复杂性管理的方法：**抽象** 对于一个过程的">
+<meta name="keywords" content="学习记录">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机组成原理.md">
+<meta property="og:url" content="http://yoursite.com/2020/09/28/计算机组成原理/index.html">
+<meta property="og:site_name" content="Blog">
+<meta property="og:description" content="计算机组成原理第一章 计算机系统概论1.1. 计算机系统简介计算机的软硬件概念  计算机系统   硬件： 计算机的实体，如主机、外设等 软件： 具有各类特殊功能的信息（程序）组成 系统软件：用来管理整个计算机系统 语言处理程序、操作系统、服务性程序、数据库管理系统、网络软件  应用软件：按任务需要编制成的各种程序     计算机系统的层次结构   系统复杂性管理的方法：**抽象** 对于一个过程的">
+<meta property="og:locale" content="English & Chinese">
+<meta property="og:image" content="http://yoursite.com/Pictures/计算机层次抽象（1）.png">
+<meta property="og:image" content="http://yoursite.com/Pictures/计算机层次抽象（2）.png">
+<meta property="og:image" content="http://yoursite.com/Pictures/冯诺依曼计算机硬件框图.png">
+<meta property="og:image" content="http://yoursite.com/Pictures/以存储器为中心的计算机硬件框图.png">
+<meta property="og:image" content="http://yoursite.com/Pictures/现代计算机硬件框图.png">
+<meta property="og:image" content="http://yoursite.com/Pictures/主存.png">
+<meta property="og:image" content="http://yoursite.com/Pictures/运算器.png">
+<meta property="og:image" content="http://yoursite.com/Pictures/各类运算中运算数的保存情况.png">
+<meta property="og:image" content="http://yoursite.com/Pictures/加法操作.png">
+<meta property="og:image" content="http://yoursite.com/Pictures/加法指令.png">
+<meta property="og:image" content="http://yoursite.com/Pictures/减法操作.png">
+<meta property="og:image" content="http://yoursite.com/Pictures/减法指令.png">
+<meta property="og:image" content="http://yoursite.com/Pictures/乘法操作.png">
+<meta property="og:image" content="http://yoursite.com/Pictures/乘法指令.png">
+<meta property="og:image" content="http://yoursite.com/Pictures/控制器的基本组成.png">
+<meta property="og:image" content="http://yoursite.com/Pictures/硬件系统的结构图.png">
+<meta property="og:image" content="http://yoursite.com/Pictures/取数指令的执行过程.png">
+<meta property="og:image" content="http://yoursite.com/Pictures/存数指令过程.png">
+<meta property="og:image" content="http://yoursite.com/Pictures/吉普森法.png">
+<meta property="og:image" content="http://yoursite.com/Pictures/总线上信息的传送.png">
+<meta property="og:image" content="http://yoursite.com/Pictures/单总线结构框图.png">
+<meta property="og:image" content="http://yoursite.com/Pictures/双总线结构框图.png">
+<meta property="og:image" content="http://yoursite.com/Pictures/双总线结构.png">
+<meta property="og:image" content="http://yoursite.com/Pictures/总线的物理实现.png">
+<meta property="og:image" content="http://yoursite.com/Pictures/总线标准.png">
+<meta property="og:image" content="http://yoursite.com/Pictures/总线标准表.png">
+<meta property="og:image" content="http://yoursite.com/Pictures/双总线结构1.png">
+<meta property="og:image" content="http://yoursite.com/Pictures/三总线结构">
+<meta property="og:image" content="http://yoursite.com/Pictures/三总线结构的另一种形式.png">
+<meta property="og:image" content="http://yoursite.com/Pictures/四总线结构.png">
+<meta property="og:image" content="http://yoursite.com/Pictures/传统微型机总线结构.png">
+<meta property="og:image" content="http://yoursite.com/Pictures/VESA总线结构.png">
+<meta property="og:image" content="http://yoursite.com/Pictures/PCI总线结构.png">
+<meta property="og:image" content="http://yoursite.com/Pictures/多层PCI总线结构.png">
+<meta property="og:image" content="http://yoursite.com/Pictures/链式查询方式.png">
+<meta property="og:image" content="http://yoursite.com/Pictures/计数器定时查询.png">
+<meta property="og:image" content="http://yoursite.com/Pictures/独立请求方式.png">
+<meta property="og:image" content="http://yoursite.com/Pictures/同步式数据输入.png">
+<meta property="og:image" content="http://yoursite.com/Pictures/同步式数据输出.png">
+<meta property="og:image" content="http://yoursite.com/Pictures/不互锁.png">
+<meta property="og:image" content="http://yoursite.com/Pictures/半互锁.png">
+<meta property="og:updated_time" content="2020-09-30T04:45:24.715Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="计算机组成原理.md">
+<meta name="twitter:description" content="计算机组成原理第一章 计算机系统概论1.1. 计算机系统简介计算机的软硬件概念  计算机系统   硬件： 计算机的实体，如主机、外设等 软件： 具有各类特殊功能的信息（程序）组成 系统软件：用来管理整个计算机系统 语言处理程序、操作系统、服务性程序、数据库管理系统、网络软件  应用软件：按任务需要编制成的各种程序     计算机系统的层次结构   系统复杂性管理的方法：**抽象** 对于一个过程的">
+<meta name="twitter:image" content="http://yoursite.com/Pictures/计算机层次抽象（1）.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="https://weizheblog.gitee.io/Pictures/timg.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+
+  <script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+  <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+  
+      <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("your_app_id", "your_app_key");</script>
+<script src="/js/Counter.js"></script>
+  
+</head></html>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="https://weizheblog.gitee.io/Pictures/timg.ico" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Weizhe Yang</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">Weizhe</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/GavinWz/" title="github">github</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/HPC/" style="font-size: 20px;">HPC</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/学习记录/" style="font-size: 15px;">学习记录</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.iczc.me/">iczc</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">A student of the College of Computer Engineering of Weifang University. I&#39;m learning hard on Information Technology, and this is where I save my study records.Not all the essays here are my original works, but some of them have helped me a lot in the past time, so I recorded them to share with everyone and it also remind me what should I do if I face the same situations which I have met in the past but forgot how to operate now.</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Weizhe Yang</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="https://weizheblog.gitee.io/Pictures/timg.ico" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Weizhe Yang</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">Weizhe</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/GavinWz/" title="github">github</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-计算机组成原理" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/09/28/计算机组成原理/" class="article-date">
+  	<time datetime="2020-09-28T02:04:27.000Z" itemprop="datePublished">2020-09-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      计算机组成原理.md
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习记录/">学习记录</a></li></ul>
+	</div>
+
+        
+
+        
+          
+<div class="counter-tag counter">
+    <span id="/2020/09/28/计算机组成原理/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="计算机组成原理.md">
+         &nbsp;
+        view
+    </span>
+</div>
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="计算机组成原理"><a href="#计算机组成原理" class="headerlink" title="计算机组成原理"></a>计算机组成原理</h1><h2 id="第一章-计算机系统概论"><a href="#第一章-计算机系统概论" class="headerlink" title="第一章 计算机系统概论"></a>第一章 计算机系统概论</h2><h3 id="1-1-计算机系统简介"><a href="#1-1-计算机系统简介" class="headerlink" title="1.1. 计算机系统简介"></a>1.1. 计算机系统简介</h3><p><strong>计算机的软硬件概念</strong></p>
+<ol>
+<li>计算机系统</li>
+</ol>
+<ul>
+<li>硬件： 计算机的实体，如主机、外设等</li>
+<li>软件： 具有各类特殊功能的信息（程序）组成<ul>
+<li>系统软件：用来管理整个计算机系统<br> 语言处理程序、操作系统、服务性程序、数据库管理系统、网络软件 </li>
+<li>应用软件：按任务需要编制成的各种程序</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li>计算机系统的层次结构</li>
+</ol>
+<ul>
+<li>系统复杂性管理的方法：<code>**抽象**</code><ul>
+<li>对于一个过程的某些细节有目的的隐藏，以便把其他方面、细节或者结构表达地更清楚。 –百度百科</li>
+<li>指高级的模型，和低级的实体相对。 –维基百科</li>
+<li>隐藏系统中不重要的细节。 David Haris</li>
+</ul>
+</li>
+<li>从程序的角度对计算机的层次进行抽象<br>  <img src="/Pictures/计算机层次抽象（1）.png" alt="计算机层次抽象"><br>  <img src="/Pictures/计算机层次抽象（2）.png" alt="计算机层次抽象"><br>  软件与硬件之间的虚线表示计算机系统软硬件的接口</li>
+</ul>
+<ol start="3">
+<li>计算机组成与计算机体系结构从研究内容上来说的区别 <ul>
+<li>计算机体系结构：机器语言程序员所见到的计算机系统的属性、概念性的结构和功能特性。定义了计算机系统软硬件的交界面，定义了软硬件交互的接口。</li>
+<li>计算机组成：实现计算机体系结构所体现的属性</li>
+</ul>
+</li>
+</ol>
+<h3 id="1-2-计算机的基本组成"><a href="#1-2-计算机的基本组成" class="headerlink" title="1.2. 计算机的基本组成"></a>1.2. 计算机的基本组成</h3><ol>
+<li>冯·诺依曼计算机的特点</li>
+</ol>
+<ul>
+<li>计算机由五大部件组成：运算器、控制器、存储器、输入设备、输出设备</li>
+<li>指令和数据已同等地位存与存储器中，可按地址访问</li>
+<li>指令和数据用二进制表示</li>
+<li>指令由<strong>操作码</strong>和<strong>地址码</strong>组成</li>
+<li><em>存储程序</em>（核心特征）</li>
+<li>以运算器为中心</li>
+</ul>
+<ol start="2">
+<li><p>冯诺依曼计算机硬件框图<br><img src="/Pictures/冯诺依曼计算机硬件框图.png" alt="冯诺依曼计算机硬件框图"></p>
+<ul>
+<li>运算器：完成算数运算、逻辑运算</li>
+<li>存储器：存放数据和程序</li>
+<li>控制器：指挥程序运行</li>
+<li>输入设备：将信息转换为机器能识别的信息</li>
+<li>输出设备：将计算机处理的结果转换成人们熟悉的形式</li>
+</ul>
+<p>存在的问题：</p>
+<ul>
+<li>以运算器为中心会使得运算器比较繁忙</li>
+<li>该框图比较乱，不具有层次化的特征</li>
+</ul>
+</li>
+<li><p>计算机硬件框图</p>
+<ul>
+<li><p>以存储器为中心的计算机硬件框图</p>
+<p><img src="/Pictures/以存储器为中心的计算机硬件框图.png" alt="以存储器为中心的计算机硬件框图"></p>
+</li>
+<li>现代计算机硬件框图<br><img src="/Pictures/现代计算机硬件框图.png" alt="现代计算机硬件框图"> </li>
+<li>层次化（Hierachy）：将被设计的系统划分为多个模块和子模块</li>
+<li>模块化（Modularity）：有明确定义的功能和接口</li>
+<li>规则性（Regularity）：使模块更容易被重用</li>
+</ul>
+</li>
+</ol>
+<h3 id="计算机的工作过程"><a href="#计算机的工作过程" class="headerlink" title="计算机的工作过程"></a>计算机的工作过程</h3><ol>
+<li><p>主存储器的基本组成<br><img src="/Pictures/主存.png" alt="主存"></p>
+<p>存储体由多个存储单元组成，每个存储单元又包含若干个存储原件，每个存储原件能寄存一位二进制代码‘0’或‘1’。存储单元按地址寻访</p>
+<ul>
+<li>存储单元：存放一串二进制代码</li>
+<li>存储字：存储单元中二进制代码的组合</li>
+<li>存储字长：存储单元中二进制代码的位数</li>
+</ul>
+<p><strong>主存</strong></p>
+<ol>
+<li>存储体</li>
+<li>MAR（存储器地址寄存器）：反映存储单元的个数</li>
+<li>MDR（存储器数据寄存器）：反映存储字长</li>
+</ol>
+</li>
+<li><p>运算器的基本组成与操作过程</p>
+<p> <img src="/Pictures/运算器.png" alt="运算器"> </p>
+<p>运算器的组成ALU+至少3个寄存器：</p>
+<ol>
+<li>算数逻辑单元（ALU）（运算器的核心）</li>
+<li>寄存器：保存参与运算的数据<ul>
+<li>累加器（ACC）</li>
+<li>数据寄存器（X）</li>
+<li>乘商寄存器（MQ）</li>
+</ul>
+</li>
+</ol>
+<p>各类寄存器中存放的各类操作数：</p>
+<p><img src="/Pictures/各类运算中运算数的保存情况.png" alt="各类运算中运算数的保存情况"></p>
+</li>
+</ol>
+<ul>
+<li><p>加法</p>
+<p><img src="/Pictures/加法操作.png" alt="加法操作"></p>
+<ul>
+<li><p>加法指令中，地址码M给出加数在内存中的地址</p>
+<p><img src="/Pictures/加法指令.png" alt="加法指令"> </p>
+</li>
+<li>初态：被加数被存入到ACC中，加数存在X寄存器中</li>
+<li>操作1：将加数从M内存单元中取出，存入X寄存器</li>
+<li>操作2：ALU对[ACC]和[X]进行加法操作</li>
+<li>操作3：ALU将结果保存在ACC寄存器中</li>
+</ul>
+</li>
+<li><p>减法<br><img src="/Pictures/减法操作.png" alt="减法操作"></p>
+<ul>
+<li>减法指令中，地址码M给出减数的地址<br><img src="/Pictures/减法指令.png" alt="减法指令"> </li>
+<li>初态：被减数被存入到ACC中，减数存在内存单元为M的地址中</li>
+<li>操作1：将加数从M内存单元中取出，存入X寄存器</li>
+<li>操作2：ALU对[ACC]和[X]进行减法操作</li>
+<li>操作3：ALU将结果保存在ACC寄存器中</li>
+</ul>
+</li>
+<li><p>乘法<br><img src="/Pictures/乘法操作.png" alt="乘法操作"></p>
+<ul>
+<li>乘法指令中，地址码M给出乘数的地址<br><img src="/Pictures/乘法指令.png" alt="乘法指令"></li>
+<li>初态：被乘数被存入到ACC中</li>
+<li>操作1：将乘数从M内存中取出，存入MQ寄存器 </li>
+<li>操作2：将ACC的内容送到X寄存器中</li>
+<li>操作3：把累加初值0存入ACC中，即把ACC清零</li>
+<li>操作4：进行乘法操作，将结果的高位存入ACC，将低位存入MQ</li>
+</ul>
+</li>
+<li><p>除法</p>
+<ul>
+<li>除法指令中，地址码M给出除数的地址</li>
+<li>初态：被除数被存入到ACC中</li>
+<li>操作1：将除数从M内存中取出，存入MQ寄存器 </li>
+<li>操作2：将除数从M内存单元中取出，存入X寄存器</li>
+<li>操作3：进行除法操作，将商保存在MQ寄存器中，余数保存在ACC中</li>
+</ul>
+</li>
+</ul>
+<ol start="3">
+<li><p>控制器的基本结构</p>
+<p> <img src="/Pictures/控制器的基本组成.png" alt="控制器的基本组成"></p>
+</li>
+</ol>
+<ul>
+<li>控制器的功能<ul>
+<li>解释指令</li>
+<li>保证指令的按序执行</li>
+</ul>
+</li>
+<li><p>完成一条指令需要进行的操作</p>
+<ul>
+<li>取指令<ul>
+<li>程序计数器PC：存放当前将要执行的指令的地址，执行完当前指令后将移动到下一条指令的地址，因此PC应具有计数功能（PC) + 1 -&gt; PC</li>
+</ul>
+</li>
+<li>分析指令<ul>
+<li>指令寄存器IR：存放当前将要执行的指令</li>
+</ul>
+</li>
+<li>执行指令<ul>
+<li>控制器CU将指令从IR寄存器中取出，执行完毕后，PC指向下一条指令的地址</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>硬件系统的结构图<br><img src="/Pictures/硬件系统的结构图.png" alt="硬件系统的结构图"> </p>
+</li>
+</ul>
+<ol start="4">
+<li>主机完成一条指令的过程</li>
+</ol>
+<p>以取数指令为例</p>
+<p><img src="/Pictures/取数指令的执行过程.png" alt="取数指令的执行过程"></p>
+<ul>
+<li>第一步：取指令<ol>
+<li>PC将指令的地址送给MAR</li>
+<li>由MAR将指令的地址送给存储体</li>
+<li>在控制器的控制之下，存储体把指定存储单元中保存的取数指令取出，送入MDR中</li>
+<li>MDR将取出的指令送入IR</li>
+</ol>
+</li>
+<li><p>第二步：分析指令</p>
+<ol start="5">
+<li>将IR寄存器中保存的指令的操作码部分送入CU。经过译码后由CU将指令的地址部分送给存储器，将保存在M内存单元中的数据取出到ACC寄存器中</li>
+<li>从IR的地址码部分将地址取出送入MAR。IR中保存了当前要执行的指令和当前这条指令操作数的地址。</li>
+<li>由MAR将地址送入存储体</li>
+<li>在控制器的控制之下，从存储体中将取数指令要求的数据取出，存入到MDR中</li>
+<li>MDR将该输入送入ACC寄存器</li>
+</ol>
+</li>
+</ul>
+<p>以存数指令为例：</p>
+<p>  <img src="/Pictures/存数指令过程.png" alt="存数指令过程"></p>
+<ul>
+<li>第一步：取指令。将指令从存储体中取出。<ol>
+<li>PC将指令的地址送给MAR</li>
+<li>由MAR将指令的地址送给存储体</li>
+<li>在CU的控制之下将地址中指定的地址从存储体中取出放入到MDR中</li>
+<li>MDR将取出的指令送入IR</li>
+</ol>
+</li>
+<li>第二步：分析指令<ol start="5">
+<li>将IR中保存的指令的操作码部分送给CU，CU对指令进行分析后发出相应的控制信号</li>
+</ol>
+</li>
+<li>第三步：执行指令<ol start="6">
+<li>CU由控制将IR中的指令的地址码部分送入到MAR中</li>
+<li>MAR将地码送入存储体。告诉存储体将要存数据，并给出数据的地址</li>
+<li>将ACC中的内容存入MDR中。ACC中保存从存储体中输入和输出的数据</li>
+<li>在控制器的控制之下，将MDR中的数据保存到存储体中</li>
+</ol>
+</li>
+</ul>
+<p>(ax^2+bx+c)程序运行过程</p>
+<ul>
+<li>将程序通过输入设备送至计算机</li>
+<li>将程序首地址存入PC</li>
+<li><p>启动程序运行</p>
+<p>取数指令：将数据取出到ACC中</p>
+</li>
+<li><p>取指令操作：PC-&gt;MAR-&gt;M（存储体）-&gt;MDR-&gt;IR，(PC)+1-&gt;PC <code>将地址从PC中取出后PC将移动到下一条指令的地址</code></p>
+</li>
+<li>分析指令，取操作码OP(IR)-&gt;CU</li>
+<li>执行指令，取地址码AD(IR)-&gt;MAR-&gt;M-&gt;MDR-&gt;ACC</li>
+<li>…</li>
+<li><p>…</p>
+<p>经过以上三步，取数指令完成，一次进行乘法指令、加法指令循环经过这三步的指令传送后完成此程序的计算，经过最后的保存指令后即可通过打印指令输出结果。</p>
+</li>
+</ul>
+<h3 id="1-3-计算机硬件的主要技术指标"><a href="#1-3-计算机硬件的主要技术指标" class="headerlink" title="1.3. 计算机硬件的主要技术指标"></a>1.3. 计算机硬件的主要技术指标</h3><p>机器字长：CPU一次能处理数据的位数，与CPU中的寄存器位数有关（ACC、X、MQ）</p>
+<p>运算速度:</p>
+<ul>
+<li>主频</li>
+<li>核心数，以及每个核心支持的线程数</li>
+<li><p>吉普森法：<img src="/Pictures/吉普森法.png" alt="吉普森法"></p>
+<p>fi代表每条指令在程序中出现的频率，计算方法有两种</p>
+<ul>
+<li>静态使用频率：通过程序清单计算某条指令出现的频率</li>
+<li>动态使用频率：计算程序的执行过程当中每条指令出现的频率</li>
+</ul>
+</li>
+<li>CPI：执行一条指令需要的时钟周期数。通过加权平均的方法计算。</li>
+<li>IPC：一个执行周期可完成的指令数</li>
+<li>MIPS：每秒执行的百万条指令数</li>
+<li><p>FLOPS：每秒浮点运算的次数（较为合理的指标）</p>
+<p>衡量机器的运行速度的较为合理的指标：在相同的时间里，完成了多少算数或者是逻辑运算</p>
+</li>
+</ul>
+<p>存储容量：存放二进制信息的总位数</p>
+<ul>
+<li><p>主存容量：</p>
+<ul>
+<li><p>存储单元个数 × 存储字长</p>
+<p>如：</p>
+<p>|MAR| MDR| 容量|<br>|–|–|–|<br>|10|8|1K × 8位|<br>|16|32|64K × 32位|</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>字节数</p>
+<p>如：</p>
+<p>  $2^{13} b = 1KB$</p>
+<p>  $2^{21} b = 256KB$</p>
+<ul>
+<li>辅存容量</li>
+</ul>
+</li>
+<li>字节数： 80GB</li>
+</ul>
+<h2 id="第二章-计算机的发展及应用"><a href="#第二章-计算机的发展及应用" class="headerlink" title="第二章 计算机的发展及应用"></a>第二章 计算机的发展及应用</h2><h3 id="略"><a href="#略" class="headerlink" title="略"></a>略</h3><h2 id="第三章-系统总线"><a href="#第三章-系统总线" class="headerlink" title="第三章 系统总线"></a>第三章 系统总线</h2><h3 id="3-1-总线的基本概念"><a href="#3-1-总线的基本概念" class="headerlink" title="3.1 总线的基本概念"></a>3.1 总线的基本概念</h3><ol>
+<li><p>总线(Bus)是链接各个部件的信息传输线，是各个部件共享的传输介质</p>
+</li>
+<li><p>使用总线的原因：解决分散连接的问题</p>
+</li>
+</ol>
+<ul>
+<li>缩减通信线路数量</li>
+<li>减少设备间连接的接口</li>
+<li>避免系统难以扩展</li>
+</ul>
+<ol start="3">
+<li><p>总线上信息的传送</p>
+<p><img src="/Pictures/总线上信息的传送.png" alt="总线上信息的传送"></p>
+</li>
+</ol>
+<ul>
+<li>串行：发送方把将要传输的数据一位一位地送到总线上，接收方一位一位地从总线上取数据</li>
+<li>并行：发送方把将要传输的数据多位同时送到总线上，接收方同时接受多位数据</li>
+</ul>
+<p>传输距离较长，平行的线与线之间会产生干扰，会导致数据的变形。</p>
+<ul>
+<li>并行传输通常适用于短距离传输，可集中在计算机内部</li>
+<li>串行传输通常用于机器与机器、其他设备之间的数据传输</li>
+</ul>
+<ol start="4">
+<li><p>总线结构举例</p>
+<ol>
+<li><p>单总线结构框图 </p>
+<p><img src="/Pictures/单总线结构框图.png" alt="单总线结构框图"></p>
+<ul>
+<li>在任何时刻只能有一个部件在使用系统总线，会发生总线的争用</li>
+<li>远端传输延迟高</li>
+</ul>
+</li>
+<li><p>面向CPU的双总线结构框图</p>
+<p>为CPU和主存设计专有的数据传输总线</p>
+<p><img src="/Pictures/双总线结构框图.png" alt="双总线结构框图"> </p>
+<ul>
+<li>主存和IO设备之间无连接，只能通过CPU相互通信，会打断CPU的计算</li>
+</ul>
+</li>
+<li><p>以存储器为中心的双总线结构</p>
+<p>主存同时与系统总线和存储总线连接 </p>
+<p><img src="/Pictures/双总线结构.png" alt="双总线结构"></p>
+<ul>
+<li>现有技术暂未实现系统总线和存储总线的同时工作，但与面向CPU的双总线结构相比仍有较大优势</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="3-2-总线的分类"><a href="#3-2-总线的分类" class="headerlink" title="3.2 总线的分类"></a>3.2 总线的分类</h3><ol>
+<li>片内总线：芯片内部的总线，完成芯片内部不同部件的连接</li>
+<li><p>系统总线：计算机各个部件之间的信息传输总线</p>
+<p> 根据系统总线上传输的信号的不同可分为以下三类： </p>
+<ul>
+<li>数据总线：双向，与机器字长、存储字长有关。通常情况下，总线的宽度 &lt;= 机器字长</li>
+<li>地址总线：单向，与存储地址、I/O地址有关。由CPU或主设备发出。通常地址总线的条数和地址单元的个数相关</li>
+<li>控制总线：有入有出，向系统的各个部件传输控制信号，或系统的各个部件将自己的状态信号向外传输。<blockquote>
+<p>有出，如：存储器读取、存储器写入、总选允许、中断确认<br>有如，如：中断请求、总线请求</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>通信总线：用于<strong>计算机与系统之间</strong>或<strong>计算机系统与其他系统</strong>之间的通信。</p>
+<p> 传输方式：</p>
+<ul>
+<li>串行通信总线</li>
+<li>并行通信总线</li>
+</ul>
+</li>
+</ol>
+<h3 id="3-3-总线的特性以及性能指标"><a href="#3-3-总线的特性以及性能指标" class="headerlink" title="3.3. 总线的特性以及性能指标"></a>3.3. 总线的特性以及性能指标</h3><ol>
+<li>总线物理实现<br> <img src="/Pictures/总线的物理实现.png" alt="总线的物理实现"></li>
+<li>总线特性<ol>
+<li>机械特性：尺寸、形状、管脚数、排列顺序</li>
+<li>电气特性：传输方向和有效的电平范围</li>
+<li>功能特性：每根传输线的功能，即传输何种信号：地址信号、数据信号、控制信号</li>
+<li>时间特性：信号的时序关系</li>
+</ol>
+</li>
+<li>总线的性能指标<ol>
+<li>总线宽度：同时可以传输多少位数据。也就是数据线的条数</li>
+<li>标准传输率：<strong>每秒</strong>传输的<strong>最大字节数</strong>（MBps）</li>
+<li>时钟同步/异步：同步、不同步</li>
+<li>总线复用：<strong>地址线</strong>与<strong>数据线复用</strong>（共用）</li>
+<li>信号线数：地址线、数据线和控制线的总和</li>
+<li>总线控制方式：突发、自动、仲裁、逻辑、计数</li>
+<li>其他指标：负载能力等</li>
+</ol>
+</li>
+<li><p>总线标准</p>
+<p><img src="/Pictures/总线标准.png" alt="总线标准"></p>
+<p>总线标准表：</p>
+<p><img src="/Pictures/总线标准表.png" alt="总线标准表"></p>
+<ol>
+<li>ISA：工业标准体系结构</li>
+<li>EISA：在ISA基础上增加总线宽度</li>
+<li>VESA：视频电子标准协会</li>
+<li>PCI：外设部件互联标准</li>
+<li>AGP：点对点的局部总线，主要连接控制芯片和显卡</li>
+<li>RS-232：串行通信总线标准</li>
+<li>USB：通用串行总线</li>
+</ol>
+</li>
+</ol>
+<h3 id="3-4-总线结构"><a href="#3-4-总线结构" class="headerlink" title="3.4. 总线结构"></a>3.4. 总线结构</h3><ol>
+<li><p>单总线结构</p>
+<p>见3.1.4.1</p>
+</li>
+<li><p>多总线结构</p>
+<ol>
+<li><p>双总线结构</p>
+<p><img src="/Pictures/双总线结构1.png" alt="双总线结构1"></p>
+</li>
+<li><p>三总线结构</p>
+<p><img src="/Pictures/三总线结构" alt="三总线结构"></p>
+<p>DMA：直接存储器访问。高速设备和内存之间进行信息交换时可以通过DMA总线</p>
+<p>但低速设备依然要通过I/O总线</p>
+</li>
+<li><p>三总线结构的另一种形式</p>
+<p><img src="/Pictures/三总线结构的另一种形式.png" alt="三总线结构的另一种形式"></p>
+<p>在CPU与主存之间添加一个低容量的高速缓存，用来缓存主存中的数据</p>
+<p>添加一条扩展总线与系统总线相连，用于连接外部设备</p>
+<p>但所有外设全部连接在扩展总线上，势必会影响高速外设的速度</p>
+</li>
+<li><p>四总线结构</p>
+<p><img src="/Pictures/四总线结构.png" alt="四总线结构"></p>
+<p>特点：将高速设备和低速设备进行分类组织</p>
+</li>
+</ol>
+</li>
+<li><p>总线结构举例</p>
+<ol>
+<li><p>传统微型机总线结构</p>
+<p><img src="/Pictures/传统微型机总线结构.png" alt="传统微型机总线结构"></p>
+</li>
+<li><p>VESA</p>
+<p><img src="/Pictures/VESA总线结构.png" alt="VESA总线结构"></p>
+</li>
+<li><p>PCI总线结构</p>
+<p><img src="/Pictures/PCI总线结构.png" alt="PCI总线结构"></p>
+</li>
+<li><p>多层PCI总线结构</p>
+<p><img src="/Pictures/多层PCI总线结构.png" alt="多层PCI总线结构"></p>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="3-5-总线控制"><a href="#3-5-总线控制" class="headerlink" title="3.5. 总线控制"></a>3.5. 总线控制</h3><ol>
+<li>总线判优控制</li>
+</ol>
+<ul>
+<li><p>基本概念</p>
+<p>根据是否能提出总线请求，可将总线上的设备分为两类</p>
+<ul>
+<li>主设备(模块)：对总线有控制权，即可以提出总线的占用申请，且在占用了总线后可以控制和另外一台设备之间的通信</li>
+<li>从设备（模块）：只能相应从主设备发来的总线命令。不能对总线进行控制，也不能提出对总线的占用申请。</li>
+</ul>
+</li>
+<li><p>总线判优控制</p>
+<ul>
+<li>集中式：将总线的判优逻辑集成在一个部件上<ul>
+<li>链式查询</li>
+<li>计数器定时查询</li>
+<li>独立请求方式</li>
+</ul>
+</li>
+<li>分布式：将判优逻辑分布到各个设备或各个设备的端口上</li>
+</ul>
+</li>
+<li><p>链式查询方式</p>
+<p><img src="/Pictures/链式查询方式.png" alt="链式查询方式"> </p>
+<p>BR：设备发出占用请求后通过BR想总线控制部件提出占用请求</p>
+<p>BG：链式查询发出总线占用请求的设备，并为其分配总线的使用权。BG的查询顺序为各个I/O设备占用总线的优先级的先后顺序</p>
+<p>BS：设备获得总线的使用权后，通过BS设置总线忙</p>
+<p>优点：</p>
+<ul>
+<li>结构简单</li>
+<li>容易实现可靠性设计</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>对电路故障非常敏感，尤其是BG。</li>
+<li>速度慢</li>
+</ul>
+</li>
+<li><p>计数器定时查询</p>
+<p><img src="/Pictures/计数器定时查询.png" alt="计数器定时查询"></p>
+<p>总线控制部件中存在一个<strong>计数器</strong>，计数器的值比较灵活，可以从0开始。也可以从上一次停止计数的设备的序号开始</p>
+<p>将要占用总线的设备通过BR提出占用请求，总线控制器若同意让出总线控制权，则启动计数器，通过<strong>设备地址线</strong>向外查找与计数器值对应的设备是否提出总线占用请求，查找一个设备后计数器自增1，若该设备提出了总线占用请求，则通过<strong>BS线</strong>应答。</p>
+<p><strong>设备地址线的宽度</strong>和<strong>设备数</strong>有关。若有n个设备进行二进制编码的话，则至少需要$\log_2(n)$（向上取整）位，即设备地址也需要$\log_2(n)$（向上取整）条线</p>
+<p>优点：</p>
+<ul>
+<li>优先级确定，非常灵活</li>
+<li>可以通过软件的方式设置优先级顺序</li>
+<li>可以通过软件的方式设置总线控制部件</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>按顺序查找，速度较慢</li>
+</ul>
+</li>
+<li><p>独立请求方式</p>
+<p><img src="/Pictures/独立请求方式.png" alt="独立请求方式"></p>
+<p>所有的IO接口都增加了两条线：$BR_i$（提出总线占用请求）和$BG_i$（应答信号）</p>
+<p>可根据BG直接将总线的控制权分配给获得授权的设备</p>
+<p>总线控制部件中设置排队器控制设备优先级的排队</p>
+<p>优先级可以事先确定，还可以设置自适应优先级，根据实际情况分配合理的优先级</p>
+</li>
+</ul>
+<p>总线的判优控制解决了由哪一个主设备占用总线和使用总线</p>
+<ol start="2">
+<li>总线通信控制</li>
+</ol>
+<p>主设备获得总线的使用权后，将与从设备进行信息交换</p>
+<p>总线通信控制：解决主设备和从设备<strong>协调控制</strong>的问题</p>
+<ul>
+<li><p>总线的传输周期</p>
+<p>主设备和从设备之间完成一次完整的、可靠的通信所需要的时间</p>
+<ul>
+<li>申请分配阶段：主设备申请，总线总裁决定（总线判优）</li>
+<li>寻址阶段：主设备向从设备发出地址和命令</li>
+<li>数据传输阶段：主设备和从设备交换数据</li>
+<li>结束阶段：主从模块撤销有关信息</li>
+</ul>
+</li>
+<li>总线通信的四总方式<ul>
+<li>同步通信：有统一的（定宽，定距）的时标控制数据的传送</li>
+<li>异步通信：采用应答方式，没有公共适中标准</li>
+<li>半同步通信：同步、异步结合，解决不同速度的两个设备之间通信的问题</li>
+<li>分离式通信：充分挖掘系统总线每个瞬间的潜力，让系统总线发挥最大效能</li>
+</ul>
+</li>
+</ul>
+<h4 id="同步通信"><a href="#同步通信" class="headerlink" title="同步通信"></a>同步通信</h4><ul>
+<li><p>同步式数据输入</p>
+<p><img src="/Pictures/同步式数据输入.png" alt="同步式数据输入"></p>
+<p>整个总线周期由四个时钟周期构成 </p>
+<ul>
+<li>在T1时钟周期的上升沿，主设备给出从设备地址信息</li>
+<li>在T2时钟周期的上升沿，主设备给出读取命令</li>
+<li>在T3时钟周期的上升沿到来之前，从设备必须给出数据信号</li>
+<li>在T4时钟周期的上升沿，撤销控制信号和数据信号。在T4结束时候撤销地址信号</li>
+</ul>
+<p>特点：</p>
+<ul>
+<li>定宽定距的时钟控制数据传输的过程</li>
+<li>在给定的时间点上要完成相应的操作</li>
+</ul>
+</li>
+<li><p>同步式数据输出</p>
+<p><img src="/Pictures/同步式数据输出.png" alt="同步式数据输出"></p>
+<ul>
+<li>在T1时钟周期的上升沿，给出地址信号，下降沿，给出数据</li>
+<li>在T2时钟周期的上升沿，给出写命令</li>
+<li>在T3时钟周期的上升沿，做写入操作</li>
+<li>在T4时钟周期的上升沿，主设备撤销写入命令，T4结束时撤销数据信号</li>
+</ul>
+<p>所有的从模块都用同一个时标控制，主从模块强制同步，对多个速度不同的模块需要选择速度最慢的模块设计时标，影响总线的工作效率，设计具有局限性，且缺乏灵活性</p>
+<p>同步通信一般应用于总线长度较短，且各个模块存储时间比较一致的情况。</p>
+<p>总线传输周期越短，数据线的位数越多</p>
+</li>
+</ul>
+<h3 id="异步通信"><a href="#异步通信" class="headerlink" title="异步通信"></a>异步通信</h3><p>没有公共的时钟标准，不要求所有部件严格的统一操作时间，采用应答方式通信</p>
+<ul>
+<li><p>不互锁</p>
+<p><img src="/Pictures/不互锁.png" alt="不互锁"></p>
+<p>主设备发出请求后不必等待从设备的相应，经过一段时间后自动撤销请求信号。从设备发出应答后，经过一段时间自动撤销应答信号</p>
+<p>通信的可靠性低</p>
+</li>
+<li><p>半互锁</p>
+<p><img src="/Pictures/半互锁.png" alt="半互锁"></p>
+<p>主设备发出请求后，等待从设备发出的应答信号，接收到后则撤销请求信号，否则一直保留。但从设备应答后，经过一段时间自动撤销应答信号。</p>
+<p>可能会造成请求信号的长时间保留</p>
+</li>
+<li><p>主设备发出请求信号，从设备接收到请求后发出应答信号，主设备收到应答信号后撤销请求信号，从设备获知请求信号已撤销后，才会撤销应答信号。</p>
+<p>可以完成较为可靠的数据传输。</p>
+</li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/12/31/Welcome/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          Welcome
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/08/08/动态链接库/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">动态链接库(DLL)</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="ds-share share" data-thread-key="计算机组成原理" data-title="计算机组成原理.md" data-url="http://yoursite.com/2020/09/28/计算机组成原理/" data-images="https://weizheblog.gitee.io/Pictures/timg.ico" data-content="计算机组成原理.md">
+    <div class="ds-share-inline">
+      <ul class="ds-share-icons-16">
+      	<li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+        <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+        <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+        <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+        <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+      </ul>
+      <div class="ds-share-icons-more">
+      </div>
+    </div>
+ </div>
+ 
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2020 Weizhe Yang
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/smackgg/hexo-theme-smackdown" target="_blank">Smackdown</a>
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="/js/main.js"></script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js"></script>
+
+
+  </div>
+</body>
+</html>

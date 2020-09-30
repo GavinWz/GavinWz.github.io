@@ -3,7 +3,7 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>Gavin-MPI学习记录 | Gavin</title>
+  <title>Gavin-MPI学习记录 | Blog</title>
 
   <!-- keywords -->
   
@@ -12,19 +12,19 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="MPI_Learning_Record环境下载:http://www.mpich.org/downloads/  程序的开始与结束  1int MPI_Init(int *argc, char **argv) 通过MPI_Init函数进入MPI环境并完成初始化工作，标志并行代码的开始, 前后两个参数为main函数的默认参数。1int MPI_Finalize(void) 通过MPI_Finaliz">
-<meta name="keywords" content="Gavin">
+<meta name="keywords" content="HPC">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MPI学习记录">
 <meta property="og:url" content="http://yoursite.com/2020/02/29/MPI/index.html">
-<meta property="og:site_name" content="Gavin">
+<meta property="og:site_name" content="Blog">
 <meta property="og:description" content="MPI_Learning_Record环境下载:http://www.mpich.org/downloads/  程序的开始与结束  1int MPI_Init(int *argc, char **argv) 通过MPI_Init函数进入MPI环境并完成初始化工作，标志并行代码的开始, 前后两个参数为main函数的默认参数。1int MPI_Finalize(void) 通过MPI_Finaliz">
 <meta property="og:locale" content="English & Chinese">
-<meta property="og:updated_time" content="2020-07-27T04:03:17.115Z">
+<meta property="og:updated_time" content="2020-09-30T04:43:22.717Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MPI学习记录">
 <meta name="twitter:description" content="MPI_Learning_Record环境下载:http://www.mpich.org/downloads/  程序的开始与结束  1int MPI_Init(int *argc, char **argv) 通过MPI_Init函数进入MPI环境并完成初始化工作，标志并行代码的开始, 前后两个参数为main函数的默认参数。1int MPI_Finalize(void) 通过MPI_Finaliz">
   
-    <link rel="alternative" href="/atom.xml" title="Gavin" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Blog" type="application/atom+xml">
   
   
     <link rel="icon" href="https://weizheblog.gitee.io/Pictures/timg.ico">
@@ -60,7 +60,7 @@
 		</hgroup>
 
 		
-		<p class="header-subtitle">Gavin</p>
+		<p class="header-subtitle">Weizhe</p>
 		
 
 		
@@ -129,7 +129,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/HPC/" style="font-size: 10px;">HPC</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a>
+						<a href="/tags/HPC/" style="font-size: 20px;">HPC</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/学习记录/" style="font-size: 15px;">学习记录</a>
 					</div>
 				</section>
 				
@@ -171,7 +171,7 @@
 			  <h1 class="header-author">Weizhe Yang</h1>
 			</hgroup>
 			
-			<p class="header-subtitle">Gavin</p>
+			<p class="header-subtitle">Weizhe</p>
 			
 			<nav class="header-menu">
 				<ul>
@@ -219,6 +219,10 @@
       
       <div class="article-info article-info-post">
         
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HPC/">HPC</a></li></ul>
+	</div>
+
         
 
         
@@ -248,7 +252,7 @@
 <li>获取进程的数量：</li>
 </ol>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">MPI_Comm_size</span><span class="params">(MPI_Comm comm, <span class="keyword">int</span> *rank)</span></span></span><br></pre></td></tr></table></figure>
-<p>通信子：一组可以相互发送消息的进程集合。通常由MPI_Init()在用户启动程序时， 定义由用户自动的所有进程组成的通信子， 缺省值为MPI_COMM_WORLD。这个参数是MPI通信操作函数中必不可少的参数，用户限定参加通信的进程的范围。</p>
+<p>通信子：一组可以相互发送消息的进程集合。通常由MPI_Init()在用户启动程序时， 定义由用户自动的所有进程组成的通信子，缺省值为MPI_COMM_WORLD。<br>这个参数是MPI通信操作函数中必不可少的参数，用户限定参加通信的进程的范围。</p>
 <p>参数: 第一个参数是通信子， 第二个参数返回进程的个数</p>
 <ol start="3">
 <li>获取进程id</li>
