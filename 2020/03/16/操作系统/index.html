@@ -11,13 +11,13 @@
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="操作系统[toc] 操作系统的基本概念 操作系统以下是硬件，以上是编译系统等一些支撑软件或者系统使用软件，再往上是实现各个具体应用任务的应用软件。操作系统是最贴近硬件层的系统软件。  操作系统是人机交互的桥梁，为用户提供人机界面，提供便捷、高效的运行环境和服务。  操作系统管理所有硬件资源；控制调度所有程序的运行过程；通过软件的管理方法虚拟地扩充硬件功能  操作系统的概念：一种管理系统资源、控制程">
+  <meta name="description" content="操作系统  操作系统 操作系统的基本概念 操作系统的处理方式 操作系统的内核（kernel） 操作系统的主要特征 作业管理模块 操作系统接口 作业调度 进程 进程的状态转换   进程状态转换原语 创建与撤销原语 阻塞与唤醒原语 挂起与激活原语 父进程与子进程 进程调度 实时系统的任务调度 线程 处理机的四级调度 同步和互斥 解决进程互斥 死锁 存储管理   连续存储管理：一个进程装入连续的一块内存">
 <meta name="keywords" content="学习记录">
 <meta property="og:type" content="article">
 <meta property="og:title" content="操作系统">
 <meta property="og:url" content="http://yoursite.com/2020/03/16/操作系统/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="操作系统[toc] 操作系统的基本概念 操作系统以下是硬件，以上是编译系统等一些支撑软件或者系统使用软件，再往上是实现各个具体应用任务的应用软件。操作系统是最贴近硬件层的系统软件。  操作系统是人机交互的桥梁，为用户提供人机界面，提供便捷、高效的运行环境和服务。  操作系统管理所有硬件资源；控制调度所有程序的运行过程；通过软件的管理方法虚拟地扩充硬件功能  操作系统的概念：一种管理系统资源、控制程">
+<meta property="og:description" content="操作系统  操作系统 操作系统的基本概念 操作系统的处理方式 操作系统的内核（kernel） 操作系统的主要特征 作业管理模块 操作系统接口 作业调度 进程 进程的状态转换   进程状态转换原语 创建与撤销原语 阻塞与唤醒原语 挂起与激活原语 父进程与子进程 进程调度 实时系统的任务调度 线程 处理机的四级调度 同步和互斥 解决进程互斥 死锁 存储管理   连续存储管理：一个进程装入连续的一块内存">
 <meta property="og:locale" content="English & Chinese">
 <meta property="og:image" content="http://yoursite.com/Pictures/操作系统在计算机系统中的地位.png">
 <meta property="og:image" content="http://yoursite.com/Pictures/操作系统的作用.png">
@@ -114,10 +114,10 @@
 <meta property="og:image" content="http://yoursite.com/Pictures/段页式地址重定位.png">
 <meta property="og:image" content="http://yoursite.com/Pictures/段页式地址保护.png">
 <meta property="og:image" content="http://yoursite.com/Pictures/段页式地址字结构的计算.png">
-<meta property="og:updated_time" content="2020-10-26T13:27:45.550Z">
+<meta property="og:updated_time" content="2020-10-26T13:54:30.912Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="操作系统">
-<meta name="twitter:description" content="操作系统[toc] 操作系统的基本概念 操作系统以下是硬件，以上是编译系统等一些支撑软件或者系统使用软件，再往上是实现各个具体应用任务的应用软件。操作系统是最贴近硬件层的系统软件。  操作系统是人机交互的桥梁，为用户提供人机界面，提供便捷、高效的运行环境和服务。  操作系统管理所有硬件资源；控制调度所有程序的运行过程；通过软件的管理方法虚拟地扩充硬件功能  操作系统的概念：一种管理系统资源、控制程">
+<meta name="twitter:description" content="操作系统  操作系统 操作系统的基本概念 操作系统的处理方式 操作系统的内核（kernel） 操作系统的主要特征 作业管理模块 操作系统接口 作业调度 进程 进程的状态转换   进程状态转换原语 创建与撤销原语 阻塞与唤醒原语 挂起与激活原语 父进程与子进程 进程调度 实时系统的任务调度 线程 处理机的四级调度 同步和互斥 解决进程互斥 死锁 存储管理   连续存储管理：一个进程装入连续的一块内存">
 <meta name="twitter:image" content="http://yoursite.com/Pictures/操作系统在计算机系统中的地位.png">
   
     <link rel="alternative" href="/atom.xml" title="Blog" type="application/atom+xml">
@@ -373,7 +373,41 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h1><p>[toc]</p>
+        <h1 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h1><!-- TOC -->
+<ul>
+<li><a href="#操作系统">操作系统</a><ul>
+<li><a href="#操作系统的基本概念">操作系统的基本概念</a></li>
+<li><a href="#操作系统的处理方式">操作系统的处理方式</a></li>
+<li><a href="#操作系统的内核kernel">操作系统的内核（kernel）</a></li>
+<li><a href="#操作系统的主要特征">操作系统的主要特征</a><ul>
+<li><a href="#作业管理模块">作业管理模块</a></li>
+<li><a href="#操作系统接口">操作系统接口</a></li>
+<li><a href="#作业调度">作业调度</a></li>
+<li><a href="#进程">进程</a></li>
+<li><a href="#进程的状态转换">进程的状态转换</a></li>
+</ul>
+</li>
+<li><a href="#进程状态转换原语">进程状态转换原语</a></li>
+<li><a href="#创建与撤销原语">创建与撤销原语</a></li>
+<li><a href="#阻塞与唤醒原语">阻塞与唤醒原语</a></li>
+<li><a href="#挂起与激活原语">挂起与激活原语</a><ul>
+<li><a href="#父进程与子进程">父进程与子进程</a></li>
+<li><a href="#进程调度">进程调度</a></li>
+<li><a href="#实时系统的任务调度">实时系统的任务调度</a></li>
+<li><a href="#线程">线程</a></li>
+<li><a href="#处理机的四级调度">处理机的四级调度</a></li>
+<li><a href="#同步和互斥">同步和互斥</a></li>
+<li><a href="#解决进程互斥">解决进程互斥</a></li>
+<li><a href="#死锁">死锁</a></li>
+<li><a href="#存储管理">存储管理</a></li>
+</ul>
+</li>
+<li><a href="#连续存储管理一个进程装入连续的一块内存空间">连续存储管理：一个进程装入连续的一块内存空间</a></li>
+<li><a href="#非连续存储管理">非连续存储管理</a></li>
+</ul>
+</li>
+</ul>
+<!-- /TOC -->
 <h3 id="操作系统的基本概念"><a href="#操作系统的基本概念" class="headerlink" title="操作系统的基本概念"></a>操作系统的基本概念</h3><ul>
 <li><p>操作系统以下是硬件，以上是编译系统等一些支撑软件或者系统使用软件，再往上是实现各个具体应用任务的应用软件。操作系统是最贴近硬件层的系统软件。</p>
 </li>
