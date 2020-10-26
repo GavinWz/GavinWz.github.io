@@ -230,11 +230,11 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-nvme" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-计算机组成原理" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/07/17/nvme/" class="article-date">
-  	<time datetime="2019-07-17T01:18:14.000Z" itemprop="datePublished">2019-07-17</time>
+      <a href="/2020/09/28/计算机组成原理/" class="article-date">
+  	<time datetime="2020-09-28T02:04:27.000Z" itemprop="datePublished">2020-09-28</time>
 </a>
     </div>
   
@@ -247,8 +247,8 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/17/nvme/">
-        无M.2的老台式实现NVME固态硬盘支持
+      <a class="article-title" href="/2020/09/28/计算机组成原理/">
+        计算机组成原理.md
         
       </a>
     </h1>
@@ -259,195 +259,974 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="无M-2的老台式实现NVME固态硬盘支持"><a href="#无M-2的老台式实现NVME固态硬盘支持" class="headerlink" title="无M.2的老台式实现NVME固态硬盘支持"></a>无M.2的老台式实现NVME固态硬盘支持</h2><p>在升级自己老式台式机时总会遇见接口过于古老或协议不支持的情况，比如给一些老式主板升级的话不想接SATA这种相对NVME慢几倍的固态硬盘，而主板上又没有M.2的接口，甚至不支持NVME协议，老主板刷BIOS的话也会有风险，处境就非常尴尬。这篇就将介绍如何给无M.2接口甚至不支持NVME协议的主板升级NVME固态硬盘。</p>
-<h3 id="工具"><a href="#工具" class="headerlink" title="工具:"></a>工具:</h3><ol>
-<li><p>M.2转PCI-E 3.0*4转接卡(淘宝搜索后购买)</p>
+        <h1 id="计算机组成原理"><a href="#计算机组成原理" class="headerlink" title="计算机组成原理"></a>计算机组成原理</h1><ul>
+<li><a href="#计算机组成原理">计算机组成原理</a><ul>
+<li><a href="#1-第一章-计算机系统概论">1. 第一章 计算机系统概论</a><ul>
+<li><a href="#11-计算机系统简介">1.1. 计算机系统简介</a></li>
+<li><a href="#12-计算机的基本组成">1.2. 计算机的基本组成</a><ul>
+<li><a href="#121-计算机的工作过程">1.2.1. 计算机的工作过程</a></li>
+</ul>
 </li>
-<li><p>U盘 (只需要200M就够了，是块U盘就可以)</p>
+<li><a href="#13-计算机硬件的主要技术指标">1.3. 计算机硬件的主要技术指标</a></li>
+</ul>
 </li>
-<li><p>软件：BD Utility(Boot Disk Utility)</p>
+<li><a href="#2-第二章-计算机的发展及应用">2. 第二章 计算机的发展及应用</a><ul>
+<li><a href="#21-略">2.1. 略</a></li>
+</ul>
+</li>
+<li><a href="#3-第三章-系统总线">3. 第三章 系统总线</a><ul>
+<li><a href="#31-总线的基本概念">3.1. 总线的基本概念</a></li>
+<li><a href="#32-总线的分类">3.2. 总线的分类</a></li>
+<li><a href="#33-总线的特性以及性能指标">3.3. 总线的特性以及性能指标</a></li>
+<li><a href="#34-总线结构">3.4. 总线结构</a></li>
+<li><a href="#35-总线控制">3.5. 总线控制</a><ul>
+<li><a href="#351-同步通信">3.5.1. 同步通信</a></li>
+<li><a href="#352-异步通信">3.5.2. 异步通信</a></li>
+<li><a href="#353-半同步通信同步异步结合">3.5.3. 半同步通信（同步、异步结合）</a></li>
+<li><a href="#354-分离式通信">3.5.4. 分离式通信</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#4-第四章-存储器">4. 第四章 存储器</a><ul>
+<li><a href="#41-概述">4.1. 概述</a><ul>
+<li><a href="#411-存储器分类">4.1.1. 存储器分类</a></li>
+<li><a href="#412-存储器的层次结构">4.1.2. 存储器的层次结构</a></li>
+</ul>
+</li>
+<li><a href="#42-主存储器">4.2. 主存储器</a><ul>
+<li><a href="#421-概述">4.2.1. 概述</a></li>
+<li><a href="#422-半导体存储芯片">4.2.2. 半导体存储芯片</a></li>
+<li><a href="#423-随机存取存储器">4.2.3. 随机存取存储器</a></li>
+<li><a href="#424-只读存储器rom">4.2.4. 只读存储器(ROM)</a></li>
+<li><a href="#425-存储器与cpu的连接">4.2.5. 存储器与CPU的连接</a></li>
+<li><a href="#426-存储器的校验">4.2.6. 存储器的校验</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="1-第一章-计算机系统概论"><a href="#1-第一章-计算机系统概论" class="headerlink" title="1. 第一章 计算机系统概论"></a>1. 第一章 计算机系统概论</h2><h3 id="1-1-计算机系统简介"><a href="#1-1-计算机系统简介" class="headerlink" title="1.1. 计算机系统简介"></a>1.1. 计算机系统简介</h3><ol>
+<li>计算机系统</li>
+</ol>
+<ul>
+<li>硬件： 计算机的实体，如主机、外设等</li>
+<li>软件： 具有各类特殊功能的信息（程序）组成<ul>
+<li>系统软件：用来管理整个计算机系统<br> 语言处理程序、操作系统、服务性程序、数据库管理系统、网络软件 </li>
+<li>应用软件：按任务需要编制成的各种程序</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li>计算机系统的层次结构</li>
+</ol>
+<ul>
+<li>系统复杂性管理的方法：<code>抽象</code><ul>
+<li>对于一个过程的某些细节有目的的隐藏，以便把其他方面、细节或者结构表达地更清楚。 –百度百科</li>
+<li>指高级的模型，和低级的实体相对。 –维基百科</li>
+<li>隐藏系统中不重要的细节。 David Haris</li>
+</ul>
+</li>
+<li>从程序的角度对计算机的层次进行抽象<br>  <img src="./Pictures/计算机层次抽象（1）.png" alt="计算机层次抽象"><br>  <img src="Pictures/计算机层次抽象（2）.png" alt="计算机层次抽象"><br>  软件与硬件之间的虚线表示计算机系统软硬件的接口</li>
+</ul>
+<ol start="3">
+<li>计算机组成与计算机体系结构从研究内容上来说的区别 <ul>
+<li>计算机体系结构：机器语言程序员所见到的计算机系统的属性、概念性的结构和功能特性。定义了计算机系统软硬件的交界面，定义了软硬件交互的接口。</li>
+<li>计算机组成：实现计算机体系结构所体现的属性</li>
+</ul>
 </li>
 </ol>
-<h3 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a>步骤：</h3><p>将硬盘装在转接卡上连接主机</p>
-<p>下载BDUtility：官网为<a href="http://cvad-mac.narod.ru/index/bootdiskutility_exe/0-5" target="_blank" rel="noopener">http://cvad-mac.narod.ru/index/bootdiskutility_exe/0-5</a><br>也可以到网盘下载：链接：<a href="https://pan.baidu.com/s/1SVR6RPyh6U2pnNwYxPpQeQ" target="_blank" rel="noopener">https://pan.baidu.com/s/1SVR6RPyh6U2pnNwYxPpQeQ</a>提取码：wtn6</p>
-<p>下载完成后解压，插上U盘，打开BDUtility，选择U盘，点击Format，软件会从服务器下载各种模块安装，等几分钟后显示All done就表示引导盘已经做好。</p>
-<p><strong><em>关键部分</em></strong>：BootDiskUtility将U盘分成了一个200MB的FAT32分区CLOVER和一个未分区区块，引导装在这个CLOVER分区中，打开它，找到<code>EFI\CLOVER\drivers-Off\drivers64UEFI</code>文件夹下的<code>NVMExpressDxe-64.efi</code>文件, 分别将它复制到： </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">EFI\CLOVER\drivers64  </span><br><span class="line">EFI\CLOVER\drivers64UEFI</span><br></pre></td></tr></table></figure>
-<p>两个目录下，就大功告成了！</p>
-<p>最后，重启电脑，进入BIOS，将刚做好的U盘引导盘作为第一启动盘，从U盘引导启动，启动后会出现引导菜单，默认第一个盘符就是NVME的引导分区，按回车选择或者等待自动选择就会成功进入系统。</p>
-<p>至于固态硬盘中的系统，我的是在另一个电脑上装好之后才插到老台式上的，如果硬盘没有操作系统，需要装系统的话，插上另一个系统引导盘按常规操作来就行。如果装系统时系统引导U盘找不到NVME的分区的话还是建议在另一台电脑上装好系统后直接引导。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        
-<div class="counter-tag counter">
-    <span id="/2019/07/17/nvme/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="无M.2的老台式实现NVME固态硬盘支持">
-         &nbsp;
-        view
-    </span>
-</div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-HotKey" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/06/08/HotKey/" class="article-date">
-  	<time datetime="2019-06-08T03:18:21.000Z" itemprop="datePublished">2019-06-08</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/08/HotKey/">
-        HotKey
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="利用AutoHotKey实现常用操作的快捷键设置（充分利用CapsLock键）"><a href="#利用AutoHotKey实现常用操作的快捷键设置（充分利用CapsLock键）" class="headerlink" title="利用AutoHotKey实现常用操作的快捷键设置（充分利用CapsLock键）"></a>利用AutoHotKey实现常用操作的快捷键设置（充分利用CapsLock键）</h1><ol>
-<li>下载AutoHotKey:<a href="https://www.autohotkey.com/" target="_blank" rel="noopener">https://www.autohotkey.com/</a></li>
-<li>在任一目录下右击-&gt;新建-&gt;AutoHotKey Script-&gt;输入文件名（或新建.txt文本文档，将扩展名改为.ahk）eg: AutoHotKey.ahk</li>
-<li>右击新建好的文件AutoHotKey.ahk，选择打开方式，选择AutoHotKey，勾选始终用此应用打开.ahk文件</li>
-<li>编辑AutoHotKey.ahk，此操作可以有多种方法<ul>
-<li>直接右键点编辑</li>
-<li>VsCode打开 （推荐）</li>
-</ul>
-</li>
-<li>在编辑器中打开后,进入<br><a href="https://github.com/GavinWz/DailyCodes/blob/master/HotKey/CapsLock.ahk" target="_blank" rel="noopener">https://github.com/GavinWz/DailyCodes/blob/master/HotKey/CapsLock.ahk</a><br>将AutoHotKey.ahk中的代码复制下来粘贴到自己的文件中，并保存。</li>
-<li>打开自己的AutoHotKey.ahk文件，即可运用其中的所有快捷键。</li>
-<li>每次开机都需要运行一遍的话会比较麻烦，将源文件放到开机自启文件夹中即可</li>
+<h3 id="1-2-计算机的基本组成"><a href="#1-2-计算机的基本组成" class="headerlink" title="1.2. 计算机的基本组成"></a>1.2. 计算机的基本组成</h3><ol>
+<li>冯·诺依曼计算机的特点</li>
 </ol>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        
-<div class="counter-tag counter">
-    <span id="/2019/06/08/HotKey/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="HotKey">
-         &nbsp;
-        view
-    </span>
-</div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-hexo" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/06/07/hexo/" class="article-date">
-  	<time datetime="2019-06-07T04:48:55.000Z" itemprop="datePublished">2019-06-07</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/07/hexo/">
-        hexo
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="使用Hexo搭建静态博客"><a href="#使用Hexo搭建静态博客" class="headerlink" title="使用Hexo搭建静态博客"></a>使用Hexo搭建静态博客</h1><p>安装<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">nodejs</a></p>
-<p>Node的官方模块仓库网速太慢，模块仓库需要切换到阿里的源。<br>设置npm的镜像：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm config set registry https://registry.npm.taobao.org/</span><br></pre></td></tr></table></figure>
-<p>执行命令确认是否切换成功：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm config get registry</span><br></pre></td></tr></table></figure></p>
-<p>安装hexo  </p>
 <ul>
-<li><p>先创建个文件夹“MyBlog”，然后cd到这个文件夹的目录下，输入命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<li>计算机由五大部件组成：运算器、控制器、存储器、输入设备、输出设备</li>
+<li>指令和数据已同等地位存与存储器中，可按地址访问</li>
+<li>指令和数据用二进制表示</li>
+<li>指令由<strong>操作码</strong>和<strong>地址码</strong>组成</li>
+<li><em>存储程序</em>（核心特征）</li>
+<li>以运算器为中心</li>
+</ul>
+<ol start="2">
+<li><p>冯诺依曼计算机硬件框图<br><img src="./Pictures/冯诺依曼计算机硬件框图.png" alt="冯诺依曼计算机硬件框图"></p>
+<ul>
+<li>运算器：完成算数运算、逻辑运算</li>
+<li>存储器：存放数据和程序</li>
+<li>控制器：指挥程序运行</li>
+<li>输入设备：将信息转换为机器能识别的信息</li>
+<li>输出设备：将计算机处理的结果转换成人们熟悉的形式</li>
+</ul>
+<p>存在的问题：</p>
+<ul>
+<li>以运算器为中心会使得运算器比较繁忙</li>
+<li>该框图比较乱，不具有层次化的特征</li>
+</ul>
 </li>
-<li><p>初始化 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init myblog  #此处myblog可任意，为MyBlog目录下的一个博客的根目录</span><br></pre></td></tr></table></figure>
+<li><p>计算机硬件框图</p>
+<ul>
+<li><p>以存储器为中心的计算机硬件框图</p>
+<p><img src="./Pictures/以存储器为中心的计算机硬件框图.png" alt="以存储器为中心的计算机硬件框图"></p>
+</li>
+<li>现代计算机硬件框图<br><img src="./Pictures/现代计算机硬件框图.png" alt="现代计算机硬件框图"> </li>
+<li>层次化（Hierachy）：将被设计的系统划分为多个模块和子模块</li>
+<li>模块化（Modularity）：有明确定义的功能和接口</li>
+<li>规则性（Regularity）：使模块更容易被重用</li>
+</ul>
+</li>
+</ol>
+<h4 id="1-2-1-计算机的工作过程"><a href="#1-2-1-计算机的工作过程" class="headerlink" title="1.2.1. 计算机的工作过程"></a>1.2.1. 计算机的工作过程</h4><ol>
+<li><p>主存储器的基本组成<br><img src="./Pictures/主存.png" alt="主存"></p>
+<p>存储体由多个存储单元组成，每个存储单元又包含若干个存储原件，每个存储原件能寄存一位二进制代码‘0’或‘1’。存储单元按地址寻访</p>
+<ul>
+<li>存储单元：存放一串二进制代码</li>
+<li>存储字：存储单元中二进制代码的组合</li>
+<li>存储字长：存储单元中二进制代码的位数</li>
+</ul>
+<p><strong>主存</strong></p>
+<ol>
+<li>存储体：保存程序、指令、数据</li>
+<li>MAR（存储器地址寄存器）：反映存储单元的个数</li>
+<li>MDR（存储器数据寄存器）：反映存储字长</li>
+</ol>
+</li>
+<li><p>运算器的基本组成与操作过程</p>
+<p> <img src="./Pictures/运算器.png" alt="运算器"> </p>
+<p>运算器的组成ALU+至少3个寄存器：</p>
+<ol>
+<li>算数逻辑单元（ALU）（运算器的核心）</li>
+<li>寄存器：保存参与运算的数据<ul>
+<li>累加器（ACC）</li>
+<li>数据寄存器（X）</li>
+<li>乘商寄存器（MQ）</li>
+</ul>
+</li>
+</ol>
+<p>各类寄存器中存放的各类操作数：</p>
+<p><img src="./Pictures/各类运算中运算数的保存情况.png" alt="各类运算中运算数的保存情况"></p>
+</li>
+</ol>
+<ul>
+<li><p>加法</p>
+<p><img src="./Pictures/加法操作.png" alt="加法操作"></p>
+<ul>
+<li><p>加法指令中，地址码M给出加数在内存中的地址</p>
+<p><img src="./Pictures/加法指令.png" alt="加法指令"> </p>
+</li>
+<li>初态：被加数被存入到ACC中，加数存在X寄存器中</li>
+<li>操作1：将加数从M内存单元中取出，存入X寄存器</li>
+<li>操作2：ALU对[ACC]和[X]进行加法操作</li>
+<li>操作3：ALU将结果保存在ACC寄存器中</li>
+</ul>
+</li>
+<li><p>减法<br><img src="./Pictures/减法操作.png" alt="减法操作"></p>
+<ul>
+<li>减法指令中，地址码M给出减数的地址<br><img src="./Pictures/减法指令.png" alt="减法指令"> </li>
+<li>初态：被减数被存入到ACC中，减数存在内存单元为M的地址中</li>
+<li>操作1：将加数从M内存单元中取出，存入X寄存器</li>
+<li>操作2：ALU对[ACC]和[X]进行减法操作</li>
+<li>操作3：ALU将结果保存在ACC寄存器中</li>
+</ul>
+</li>
+<li><p>乘法<br><img src="./Pictures/乘法操作.png" alt="乘法操作"></p>
+<ul>
+<li>乘法指令中，地址码M给出乘数的地址<br><img src="./Pictures/乘法指令.png" alt="乘法指令"></li>
+<li>初态：被乘数被存入到ACC中</li>
+<li>操作1：将乘数从M内存中取出，存入MQ寄存器 </li>
+<li>操作2：将ACC的内容送到X寄存器中</li>
+<li>操作3：把累加初值0存入ACC中，即把ACC清零</li>
+<li>操作4：进行乘法操作，将结果的高位存入ACC，将低位存入MQ</li>
+</ul>
+</li>
+<li><p>除法</p>
+<ul>
+<li>除法指令中，地址码M给出除数的地址</li>
+<li>初态：被除数被存入到ACC中</li>
+<li>操作1：将除数从M内存中取出，存入MQ寄存器 </li>
+<li>操作2：将除数从M内存单元中取出，存入X寄存器</li>
+<li>操作3：进行除法操作，将商保存在MQ寄存器中，余数保存在ACC中</li>
+</ul>
 </li>
 </ul>
-<p>登录github，用户名为’GavinWz’，新建repository，repository name必须为’用户名.github.io’的形式。eg：GavinWz.github.io</p>
-<p>进入myblog文件夹:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cd myblog  # 进入博客目录</span><br></pre></td></tr></table></figure></p>
-<p>修改配置文件’_config.yml’:</p>
+<ol start="3">
+<li><p>控制器的基本结构</p>
+<p> <img src="./Pictures/控制器的基本组成.png" alt="控制器的基本组成"></p>
+</li>
+</ol>
 <ul>
-<li>title:浏览器标签页上的小标题</li>
-<li>重要的是最后的三项：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">type: git</span><br><span class="line">repo: https://github.com/GavinWz/GavinWz.github.io  #即为新建的repository</span><br><span class="line">branch: master</span><br></pre></td></tr></table></figure>
+<li>控制器的功能<ul>
+<li>解释指令</li>
+<li>保证指令的按序执行</li>
+</ul>
+</li>
+<li><p>完成一条指令需要进行的操作</p>
+<ul>
+<li>取指令<ul>
+<li>程序计数器PC：存放当前将要执行的指令的地址，执行完当前指令后将移动到下一条指令的地址，因此PC应具有计数功能（PC) + 1 -&gt; PC</li>
+</ul>
+</li>
+<li>分析指令<ul>
+<li>指令寄存器IR：存放当前将要执行的指令</li>
+</ul>
+</li>
+<li>执行指令<ul>
+<li>控制器CU将指令从IR寄存器中取出，执行完毕后，PC指向下一条指令的地址</li>
+</ul>
 </li>
 </ul>
-<p>完善：</p>
-<ul>
-<li>用’hexo new’新建的markdown源文件保存在source目录下的_posts文件夹下，进入目录打开即可编辑</li>
-<li>文章编辑完后可进行一下操作  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ npm install  # 安装npm包</span><br><span class="line">$ hexo g  # 生成静态页面</span><br><span class="line">$ hexo d  #部署页面</span><br><span class="line">$ hexo s  # 开启本地预览服务</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>硬件系统的结构图<br><img src="./Pictures/硬件系统的结构图.png" alt="硬件系统的结构图"> </p>
 </li>
 </ul>
-<p>主题修改：</p>
+<ol start="4">
+<li>主机完成一条指令的过程</li>
+</ol>
+<p>以取数指令为例</p>
+<p><img src="./Pictures/取数指令的执行过程.png" alt="取数指令的执行过程"></p>
 <ul>
-<li><a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a>进入网页选择合适的主题根据各主题教程安装相应的主题。</li>
-<li>主题安装完成后打开配置文件’_config.yml’，找到theme: 并将其后面的主题名称改为新主题名称，重新生成静态页面并部署。</li>
+<li>第一步：取指令<ol>
+<li>PC将指令的地址送给MAR</li>
+<li>由MAR将指令的地址送给存储体</li>
+<li>在控制器的控制之下，存储体把指定存储单元中保存的取数指令取出，送入MDR中</li>
+<li>MDR将取出的指令送入IR</li>
+</ol>
+</li>
+<li><p>第二步：分析指令</p>
+<ol start="5">
+<li>将IR寄存器中保存的指令的操作码部分送入CU。经过译码后由CU将指令的地址部分送给存储器，将保存在M内存单元中的数据取出到ACC寄存器中</li>
+<li>从IR的地址码部分将地址取出送入MAR。IR中保存了当前要执行的指令和当前这条指令操作数的地址。</li>
+<li>由MAR将地址送入存储体</li>
+<li>在控制器的控制之下，从存储体中将取数指令要求的数据取出，存入到MDR中</li>
+<li>MDR将该输入送入ACC寄存器</li>
+</ol>
+</li>
 </ul>
-<p>如果仅是修改文章内容则只需在每次编辑过后进行生成和部署即可：<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g    </span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure></p>
+<p>以存数指令为例：</p>
+<p>  <img src="./Pictures/存数指令过程.png" alt="存数指令过程"></p>
+<ul>
+<li>第一步：取指令。将指令从存储体中取出。<ol>
+<li>PC将指令的地址送给MAR</li>
+<li>由MAR将指令的地址送给存储体</li>
+<li>在CU的控制之下将地址中指定的地址从存储体中取出放入到MDR中</li>
+<li>MDR将取出的指令送入IR</li>
+</ol>
+</li>
+<li>第二步：分析指令<ol start="5">
+<li>将IR中保存的指令的操作码部分送给CU，CU对指令进行分析后发出相应的控制信号</li>
+</ol>
+</li>
+<li>第三步：执行指令<ol start="6">
+<li>CU由控制将IR中的指令的地址码部分送入到MAR中</li>
+<li>MAR将地码送入存储体。告诉存储体将要存数据，并给出数据的地址</li>
+<li>将ACC中的内容存入MDR中。ACC中保存从存储体中输入和输出的数据</li>
+<li>在控制器的控制之下，将MDR中的数据保存到存储体中</li>
+</ol>
+</li>
+</ul>
+<p>(ax^2+bx+c)程序运行过程</p>
+<ul>
+<li>将程序通过输入设备送至计算机</li>
+<li>将程序首地址存入PC</li>
+<li><p>启动程序运行</p>
+<p>取数指令：将数据取出到ACC中</p>
+</li>
+<li><p>取指令操作：PC-&gt;MAR-&gt;M（存储体）-&gt;MDR-&gt;IR，(PC)+1-&gt;PC <code>将地址从PC中取出后PC将移动到下一条指令的地址</code></p>
+</li>
+<li>分析指令，取操作码OP(IR)-&gt;CU</li>
+<li>执行指令，取地址码AD(IR)-&gt;MAR-&gt;M-&gt;MDR-&gt;ACC</li>
+<li>…</li>
+<li><p>…</p>
+<p>经过以上三步，取数指令完成，一次进行乘法指令、加法指令循环经过这三步的指令传送后完成此程序的计算，经过最后的保存指令后即可通过打印指令输出结果。</p>
+</li>
+</ul>
+<h3 id="1-3-计算机硬件的主要技术指标"><a href="#1-3-计算机硬件的主要技术指标" class="headerlink" title="1.3. 计算机硬件的主要技术指标"></a>1.3. 计算机硬件的主要技术指标</h3><p>机器字长：CPU一次能处理数据的位数，与CPU中的寄存器位数有关（ACC、X、MQ）</p>
+<p>运算速度:</p>
+<ul>
+<li>主频</li>
+<li>核心数，以及每个核心支持的线程数</li>
+<li><p>吉普森法：<img src="./Pictures/吉普森法.png" alt="吉普森法"></p>
+<p>fi代表每条指令在程序中出现的频率，计算方法有两种</p>
+<ul>
+<li>静态使用频率：通过程序清单计算某条指令出现的频率</li>
+<li>动态使用频率：计算程序的执行过程当中每条指令出现的频率</li>
+</ul>
+</li>
+<li>CPI：执行一条指令需要的时钟周期数。通过加权平均的方法计算。</li>
+<li>IPC：一个执行周期可完成的指令数</li>
+<li>MIPS：每秒执行的百万条指令数</li>
+<li><p>FLOPS：每秒浮点运算的次数（较为合理的指标）</p>
+<p>衡量机器的运行速度的较为合理的指标：在相同的时间里，完成了多少算数或者是逻辑运算</p>
+</li>
+</ul>
+<p>存储容量：存放二进制信息的总位数</p>
+<ul>
+<li><p>主存容量：</p>
+<ul>
+<li><p>存储单元个数 × 存储字长</p>
+<p>如：</p>
+<p>|MAR| MDR| 容量|<br>|–|–|–|<br>|10|8|1K × 8位|<br>|16|32|64K × 32位|</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>字节数</p>
+<p>如：</p>
+<p>  $2^{13} b = 1KB$</p>
+<p>  $2^{21} b = 256KB$</p>
+<ul>
+<li>辅存容量</li>
+</ul>
+</li>
+<li>字节数： 80GB</li>
+</ul>
+<h2 id="2-第二章-计算机的发展及应用"><a href="#2-第二章-计算机的发展及应用" class="headerlink" title="2. 第二章 计算机的发展及应用"></a>2. 第二章 计算机的发展及应用</h2><h3 id="2-1-略"><a href="#2-1-略" class="headerlink" title="2.1. 略"></a>2.1. 略</h3><h2 id="3-第三章-系统总线"><a href="#3-第三章-系统总线" class="headerlink" title="3. 第三章 系统总线"></a>3. 第三章 系统总线</h2><h3 id="3-1-总线的基本概念"><a href="#3-1-总线的基本概念" class="headerlink" title="3.1. 总线的基本概念"></a>3.1. 总线的基本概念</h3><ol>
+<li><p>总线(Bus)是连接各个部件的信息传输线，是各个部件共享的传输介质</p>
+</li>
+<li><p>使用总线的原因：解决分散连接的问题</p>
+</li>
+</ol>
+<ul>
+<li>缩减通信线路数量</li>
+<li>减少设备间连接的接口</li>
+<li>避免系统难以扩展</li>
+</ul>
+<ol start="3">
+<li><p>总线上信息的传送</p>
+<p><img src="./Pictures/总线上信息的传送.png" alt="总线上信息的传送"></p>
+</li>
+</ol>
+<ul>
+<li>串行：发送方把将要传输的数据一位一位地送到总线上，接收方一位一位地从总线上取数据</li>
+<li>并行：发送方把将要传输的数据多位同时送到总线上，接收方同时接受多位数据</li>
+</ul>
+<p>在同一时刻，只允许有一个部件向总线发送信息，而多个部件可以同时从总线上接收相同的信息</p>
+<p>传输距离较长，平行的线与线之间会产生干扰，会导致数据的变形。</p>
+<ul>
+<li>并行传输通常适用于短距离传输，可集中在计算机内部</li>
+<li>串行传输通常用于机器与机器、其他设备之间的数据传输</li>
+</ul>
+<ol>
+<li><p>总线结构举例</p>
+<ol>
+<li><p>单总线结构框图 </p>
+<p><img src="./Pictures/单总线结构框图.png" alt="单总线结构框图"></p>
+<ul>
+<li>在任何时刻只能有一个部件在使用系统总线，会发生总线的争用</li>
+<li>远端传输延迟高</li>
+</ul>
+</li>
+<li><p>面向CPU的双总线结构框图</p>
+<p>为CPU和主存设计专有的数据传输总线</p>
+<p><img src="./Pictures/双总线结构框图.png" alt="双总线结构框图"> </p>
+<ul>
+<li>主存和IO设备之间无连接，只能通过CPU相互通信，会打断CPU的计算</li>
+</ul>
+</li>
+<li><p>以存储器为中心的双总线结构</p>
+<p>主存同时与系统总线和存储总线连接 </p>
+<p><img src="./Pictures/双总线结构.png" alt="双总线结构"></p>
+<ul>
+<li>现有技术暂未实现系统总线和存储总线的同时工作，但与面向CPU的双总线结构相比仍有较大优势</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="3-2-总线的分类"><a href="#3-2-总线的分类" class="headerlink" title="3.2. 总线的分类"></a>3.2. 总线的分类</h3><ol>
+<li>片内总线：芯片内部的总线，完成芯片内部不同部件的连接</li>
+<li><p>系统总线：计算机各个部件之间的信息传输总线</p>
+<p> 根据系统总线上传输的信号的不同可分为以下三类： </p>
+<ul>
+<li>数据总线：双向，与机器字长、存储字长有关。通常情况下，总线的宽度 &lt;= 机器字长</li>
+<li>地址总线：单向，与存储地址、I/O地址有关。由CPU或主设备发出。通常地址总线的条数和地址单元的个数相关</li>
+<li>控制总线：有入有出，向系统的各个部件传输控制信号，或系统的各个部件将自己的状态信号向外传输。<blockquote>
+<p>有出，如：存储器读取、存储器写入、总选允许、中断确认<br>有入，如：中断请求、总线请求</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>通信总线：用于<strong>计算机与系统之间</strong>或<strong>计算机系统与其他系统</strong>之间的通信。</p>
+<p> 传输方式：</p>
+<ul>
+<li>串行通信总线</li>
+<li>并行通信总线</li>
+</ul>
+</li>
+</ol>
+<h3 id="3-3-总线的特性以及性能指标"><a href="#3-3-总线的特性以及性能指标" class="headerlink" title="3.3. 总线的特性以及性能指标"></a>3.3. 总线的特性以及性能指标</h3><ol>
+<li>总线物理实现<br> <img src="./Pictures/总线的物理实现.png" alt="总线的物理实现"></li>
+<li>总线特性<ol>
+<li>机械特性：尺寸、形状、管脚数、排列顺序</li>
+<li>电气特性：传输方向和有效的电平范围</li>
+<li>功能特性：每根传输线的功能，即传输何种信号：地址信号、数据信号、控制信号</li>
+<li>时间特性：信号的时序关系</li>
+</ol>
+</li>
+<li>总线的性能指标<ol>
+<li>总线宽度：同时可以传输多少位数据。也就是数据线的条数</li>
+<li>标准传输率：<strong>每秒</strong>传输的<strong>最大字节数</strong>（Mbps）</li>
+<li>时钟同步/异步：同步、不同步</li>
+<li>总线复用：<strong>地址线</strong>与<strong>数据线复用</strong>（共用）</li>
+<li>信号线数：地址线、数据线和控制线的总和</li>
+<li>总线控制方式：突发、自动、仲裁、逻辑、计数</li>
+<li>其他指标：负载能力等</li>
+</ol>
+</li>
+<li><p>总线标准</p>
+<p><img src="./Pictures/总线标准.png" alt="总线标准"></p>
+<p>总线标准表：</p>
+<p><img src="./Pictures/总线标准表.png" alt="总线标准表"></p>
+<ol>
+<li>ISA：工业标准体系结构</li>
+<li>EISA：在ISA基础上增加总线宽度</li>
+<li>VESA：视频电子标准协会</li>
+<li>PCI：外设部件互联标准</li>
+<li>AGP：点对点的局部总线，主要连接控制芯片和显卡</li>
+<li>RS-232：串行通信总线标准</li>
+<li>USB：通用串行总线</li>
+</ol>
+</li>
+</ol>
+<h3 id="3-4-总线结构"><a href="#3-4-总线结构" class="headerlink" title="3.4. 总线结构"></a>3.4. 总线结构</h3><ol>
+<li><p>单总线结构</p>
+<p>见3.1.4.1</p>
+</li>
+<li><p>多总线结构</p>
+<ol>
+<li><p>双总线结构</p>
+<p><img src="./Pictures/双总线结构1.png" alt="双总线结构1"></p>
+</li>
+<li><p>三总线结构</p>
+<p><img src="./Pictures/三总线结构.png" alt="三总线结构"></p>
+<p>DMA：直接存储器访问。高速设备和内存之间进行信息交换时可以通过DMA总线</p>
+<p>但低速设备依然要通过I/O总线</p>
+</li>
+<li><p>三总线结构的另一种形式</p>
+<p><img src="./Pictures/三总线结构的另一种形式.png" alt="三总线结构的另一种形式"></p>
+<p>在CPU与主存之间添加一个低容量的高速缓存，用来缓存主存中的数据</p>
+<p>添加一条扩展总线与系统总线相连，用于连接外部设备</p>
+<p>但所有外设全部连接在扩展总线上，势必会影响高速外设的速度</p>
+</li>
+<li><p>四总线结构</p>
+<p><img src="./Pictures/四总线结构.png" alt="四总线结构"></p>
+<p>特点：将高速设备和低速设备进行分类组织</p>
+</li>
+</ol>
+</li>
+<li><p>总线结构举例</p>
+<ol>
+<li><p>传统微型机总线结构</p>
+<p><img src="./Pictures/传统微型机总线结构.png" alt="传统微型机总线结构"></p>
+</li>
+<li><p>VESA</p>
+<p><img src="./Pictures/VESA总线结构.png" alt="VESA总线结构"></p>
+</li>
+<li><p>PCI总线结构</p>
+<p><img src="./Pictures/PCI总线结构.png" alt="PCI总线结构"></p>
+</li>
+<li><p>多层PCI总线结构</p>
+<p><img src="./Pictures/多层PCI总线结构.png" alt="多层PCI总线结构"></p>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="3-5-总线控制"><a href="#3-5-总线控制" class="headerlink" title="3.5. 总线控制"></a>3.5. 总线控制</h3><ol>
+<li>总线判优控制</li>
+</ol>
+<ul>
+<li><p>基本概念</p>
+<p>根据是否能提出总线请求，可将总线上的设备分为两类</p>
+<ul>
+<li>主设备(模块)：对总线有控制权，即可以提出总线的占用申请，且在占用了总线后可以控制和另外一台设备之间的通信</li>
+<li>从设备（模块）：只能相应从主设备发来的总线命令。不能对总线进行控制，也不能提出对总线的占用申请。</li>
+</ul>
+</li>
+<li><p>总线判优控制</p>
+<ul>
+<li>集中式：将总线的判优逻辑集成在一个部件上<ul>
+<li>链式查询</li>
+<li>计数器定时查询</li>
+<li>独立请求方式</li>
+</ul>
+</li>
+<li>分布式：将判优逻辑分布到各个设备或各个设备的端口上</li>
+</ul>
+</li>
+<li><p>链式查询方式</p>
+<p><img src="./Pictures/链式查询方式.png" alt="链式查询方式"> </p>
+<p>BR：设备发出占用请求后通过BR想总线控制部件提出占用请求</p>
+<p>BG：链式查询发出总线占用请求的设备，并为其分配总线的使用权。BG的查询顺序为各个I/O设备占用总线的优先级的先后顺序</p>
+<p>BS：设备获得总线的使用权后，通过BS设置总线忙</p>
+<p>优点：</p>
+<ul>
+<li>结构简单</li>
+<li>容易实现可靠性设计</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>对电路故障非常敏感，尤其是BG。</li>
+<li>速度慢</li>
+</ul>
+</li>
+<li><p>计数器定时查询</p>
+<p><img src="./Pictures/计数器定时查询.png" alt="计数器定时查询"></p>
+<p>总线控制部件中存在一个<strong>计数器</strong>，计数器的值比较灵活，可以从0开始。也可以从上一次停止计数的设备的序号开始</p>
+<p>将要占用总线的设备通过BR提出占用请求，总线控制器若同意让出总线控制权，则启动计数器，通过<strong>设备地址线</strong>向外查找与计数器值对应的设备是否提出总线占用请求，查找一个设备后计数器自增1，若该设备提出了总线占用请求，则通过<strong>BS线</strong>应答。</p>
+<p><strong>设备地址线的宽度</strong>和<strong>设备数</strong>有关。若有n个设备进行二进制编码的话，则至少需要$\log_2(n)$（向上取整）位，即设备地址也需要$\log_2(n)$（向上取整）条线</p>
+<p>优点：</p>
+<ul>
+<li>优先级确定，非常灵活</li>
+<li>可以通过软件的方式设置优先级顺序</li>
+<li>可以通过软件的方式设置总线控制部件</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>按顺序查找，速度较慢</li>
+</ul>
+</li>
+<li><p>独立请求方式</p>
+<p><img src="./Pictures/独立请求方式.png" alt="独立请求方式"></p>
+<p>所有的IO接口都增加了两条线：$BR_i$（提出总线占用请求）和$BG_i$（应答信号）</p>
+<p>可根据BG直接将总线的控制权分配给获得授权的设备</p>
+<p>总线控制部件中设置排队器控制设备优先级的排队</p>
+<p>优先级可以事先确定，还可以设置自适应优先级，根据实际情况分配合理的优先级</p>
+</li>
+</ul>
+<p>总线的判优控制解决了由哪一个主设备占用总线和使用总线</p>
+<ol start="2">
+<li>总线通信控制</li>
+</ol>
+<p>主设备获得总线的使用权后，将与从设备进行信息交换</p>
+<p>总线通信控制：解决主设备和从设备<strong>协调控制</strong>的问题</p>
+<ul>
+<li><p>总线的传输周期</p>
+<p>主设备和从设备之间完成一次完整的、可靠的通信所需要的时间</p>
+<ul>
+<li>申请分配阶段：主设备申请，总线总裁决定（总线判优）</li>
+<li>寻址阶段：主设备向从设备发出地址和命令</li>
+<li>数据传输阶段：主设备和从设备交换数据</li>
+<li>结束阶段：主从模块撤销有关信息</li>
+</ul>
+</li>
+<li>总线通信的四种方式<ul>
+<li>同步通信：有统一的（定宽，定距）的时标控制数据的传送</li>
+<li>异步通信：采用应答方式，没有公共适中标准</li>
+<li>半同步通信：同步、异步结合，解决不同速度的两个设备之间通信的问题</li>
+<li>分离式通信：充分挖掘系统总线每个瞬间的潜力，让系统总线发挥最大效能</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-5-1-同步通信"><a href="#3-5-1-同步通信" class="headerlink" title="3.5.1. 同步通信"></a>3.5.1. 同步通信</h4><ul>
+<li><p>同步式数据输入</p>
+<p><img src="./Pictures/同步式数据输入.png" alt="同步式数据输入"></p>
+<p>整个总线周期由四个时钟周期构成 </p>
+<ul>
+<li>在T1时钟周期的上升沿，主设备给出从设备地址信息</li>
+<li>在T2时钟周期的上升沿，主设备给出读取命令</li>
+<li>在T3时钟周期的上升沿到来之前，从设备必须给出数据信号</li>
+<li>在T4时钟周期的上升沿，撤销控制信号和数据信号。在T4结束时候撤销地址信号</li>
+</ul>
+<p>特点：</p>
+<ul>
+<li>定宽定距的时钟控制数据传输的过程</li>
+<li>在给定的时间点上要完成相应的操作</li>
+</ul>
+</li>
+<li><p>同步式数据输出</p>
+<p><img src="./Pictures/同步式数据输出.png" alt="同步式数据输出"></p>
+<ul>
+<li>在T1时钟周期的上升沿，给出地址信号，下降沿，给出数据</li>
+<li>在T2时钟周期的上升沿，给出写命令</li>
+<li>在T3时钟周期的上升沿，做写入操作</li>
+<li>在T4时钟周期的上升沿，主设备撤销写入命令，T4结束时撤销数据信号</li>
+</ul>
+<p>所有的从模块都用同一个时标控制，主从模块强制同步，对多个速度不同的模块需要选择速度最慢的模块设计时标，影响总线的工作效率，设计具有局限性，且缺乏灵活性</p>
+<p>同步通信一般应用于总线长度较短，且各个模块存储时间比较一致的情况。</p>
+<p>总线传输周期越短，数据线的位数越多</p>
+</li>
+</ul>
+<h4 id="3-5-2-异步通信"><a href="#3-5-2-异步通信" class="headerlink" title="3.5.2. 异步通信"></a>3.5.2. 异步通信</h4><p>没有公共的时钟标准，不要求所有部件严格的统一操作时间，采用应答方式通信</p>
+<p><img src="./Pictures/异步通信.png" alt="异步通信"></p>
+<ul>
+<li><p>不互锁</p>
+<p>主设备发出请求后不必等待从设备的相应，经过一段时间后自动撤销请求信号。从设备发出应答后，经过一段时间自动撤销应答信号</p>
+<p>通信的可靠性低</p>
+</li>
+<li><p>半互锁</p>
+<p>主设备发出请求后，等待从设备发出的应答信号，接收到后则撤销请求信号，否则一直保留。但从设备应答后，经过一段时间自动撤销应答信号。</p>
+<p>可能会造成请求信号的长时间保留</p>
+</li>
+<li><p>全互锁</p>
+<p>主设备发出请求信号，从设备接收到请求后发出应答信号，主设备收到应答信号后撤销请求信号，从设备获知请求信号已撤销后，才会撤销应答信号。</p>
+<p>可以完成较为可靠的数据传输。</p>
+</li>
+</ul>
+<h4 id="3-5-3-半同步通信（同步、异步结合）"><a href="#3-5-3-半同步通信（同步、异步结合）" class="headerlink" title="3.5.3. 半同步通信（同步、异步结合）"></a>3.5.3. 半同步通信（同步、异步结合）</h4><ul>
+<li><p>同步的特征：存在定宽定距的时钟管理通信的过程</p>
+<ul>
+<li>发送方用系统时钟前沿发出信号</li>
+<li>接收方用系统时钟后沿判断、识别</li>
+</ul>
+</li>
+<li><p>异步的特征：</p>
+<ul>
+<li>允许不同速度的模块和谐工作</li>
+<li>为了调整主从设备速度的差距，增加一条“等待”相应信号，$\overline{\text{WAIT}}$</li>
+</ul>
+</li>
+<li><p>以输入为例的半同步通信时序图</p>
+<p><img src="./Pictures/以输入为例的半同步通信时序图.png" alt="以输入为例的半同步通信时序图"> </p>
+<p>在T3上升沿到来之前，从模块若无法向主模块提供数据，则发出$\overline{\text{WAIT}}$信号，低电平有效。主模块若检测到$\overline{\text{WAIT}}$为低电平，则等待一个时钟周期T，如此循环，直到主模块检测到$\overline{\text{WAIT}}$为高电平，表示从模块已经准备好。则进入T3。</p>
+<ul>
+<li>$T1$  主模块发地址</li>
+<li>$T2$  主模块发命令</li>
+<li>$T_w$ 当$\overline{\text{WAIT}}$$为低电平时，等待一个T</li>
+<li>$T_w$ 当$\overline{\text{WAIT}}$$为低电平时，等待一个T</li>
+<li>···</li>
+<li>···</li>
+<li>$T3$ 从模块提供数据</li>
+<li>$T4$ 从模块撤销数据，主模块撤销命令</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-5-4-分离式通信"><a href="#3-5-4-分离式通信" class="headerlink" title="3.5.4. 分离式通信"></a>3.5.4. 分离式通信</h4><p>充分挖掘系统总线每个瞬间的潜力</p>
+<ul>
+<li><p>三种通信的共同点：</p>
+<ul>
+<li>主模块发地址、命令，需要占用总线</li>
+<li>从模块准备数据，不需要占用总线，总线空闲</li>
+<li>从模块想主模块发送数据，需要占用总线</li>
+</ul>
+</li>
+<li><p>将一个总线的传输周期分成两个子周期：</p>
+<ul>
+<li>子周期1：主设备申请占用总线，使用完后放弃总线的使用权</li>
+<li>子周期2：从设备完成准备工作后，申请占用总线，将各种信息发送至总线上</li>
+</ul>
+</li>
+<li><p>分离式通信的特点</p>
+<ul>
+<li>各个模块都有权申请占用总线</li>
+<li>采用同步方式通信，不等待对方应答</li>
+<li>各个模块准备数据时，不占用总线</li>
+<li>总线被占用时，无空闲</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-第四章-存储器"><a href="#4-第四章-存储器" class="headerlink" title="4. 第四章 存储器"></a>4. 第四章 存储器</h2><h3 id="4-1-概述"><a href="#4-1-概述" class="headerlink" title="4.1. 概述"></a>4.1. 概述</h3><h4 id="4-1-1-存储器分类"><a href="#4-1-1-存储器分类" class="headerlink" title="4.1.1. 存储器分类"></a>4.1.1. 存储器分类</h4><ol>
+<li>按存储介质分类<ul>
+<li>半导体存储器<ul>
+<li>TTL（晶体管-晶体管逻辑电路）：集成度低，功耗高，速度快</li>
+<li>MOS（金属氧化物半导体）：功耗低，集成度高。</li>
+</ul>
+</li>
+<li>磁表面存储器：磁头、磁载体</li>
+<li>磁芯存储器：硬磁材料、环状元件</li>
+<li>光盘存储器</li>
+</ul>
+</li>
+<li>按存取方式分类<ul>
+<li>存取时间与物理地址无关（随机访问）<ul>
+<li>随机存储器（RAM）：在程序执行过程中可读可写</li>
+<li>只读存储器：在程序的执行过程中只可读</li>
+</ul>
+</li>
+<li>存取时间与物理地址有关（串行访问）<ul>
+<li>顺序存取存储器，如：磁带</li>
+<li>直接存取存储器，如：磁盘</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>按存储器在计算机中的作用分类<ul>
+<li>主存储器<ul>
+<li>随机访问存储器RAM<ul>
+<li>静态RAM</li>
+<li>动态RAM</li>
+</ul>
+</li>
+<li>只读存储器ROM<ul>
+<li>MROM：掩模式</li>
+<li>PROM：可编程</li>
+<li>EPROM：电可编程</li>
+<li>EEPROM：电可擦写</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Flash Memory：半导体存储器，可作为：<ul>
+<li>便携式存储器（U盘）</li>
+<li>硬盘（SSD）</li>
+<li>辅存的缓存</li>
+</ul>
+</li>
+<li>高速缓冲存储器（Cache）：在CPU和主存之间的缓存</li>
+<li>辅助存储器</li>
+</ul>
+</li>
+</ol>
+<h4 id="4-1-2-存储器的层次结构"><a href="#4-1-2-存储器的层次结构" class="headerlink" title="4.1.2. 存储器的层次结构"></a>4.1.2. 存储器的层次结构</h4><ol>
+<li>存储器的层次结构<br><img src="./Pictures/存储器的层次结构.png" alt="存储器的层次结构"></li>
+<li>缓存-主存层次和主存-辅存层次<ul>
+<li>缓存-主存层次<ul>
+<li>主要解决CPU和主存<strong>速度</strong>不匹配的问题。</li>
+<li>采用<strong>硬件</strong>的方法实现。</li>
+<li>地址空间为主存的地址（实地址）（物理地址）</li>
+</ul>
+</li>
+<li>主存-辅存层次<ul>
+<li>主要解决存储系统<strong>容量</strong>的问题。</li>
+<li>采用<strong>软硬件相结合</strong>的方法实现。</li>
+<li>地址空间为虚拟地址（逻辑地址）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="4-2-主存储器"><a href="#4-2-主存储器" class="headerlink" title="4.2. 主存储器"></a>4.2. 主存储器</h3><h4 id="4-2-1-概述"><a href="#4-2-1-概述" class="headerlink" title="4.2.1. 概述"></a>4.2.1. 概述</h4><ol>
+<li><p>主存的基本组成</p>
+<p><img src="./Pictures/主存的基本组成.png" alt="主存的基本组成"></p>
+<p>MAR中的存储单元的地址需要译码器译译码后才能找到所需访问的单元。</p>
+<p>MDR中存储将要被读出或写入的数据。经过读写电路和控制电路控制读或写。若是读出，则将MAR指定的存储单元中的数据送到MDR中。若是写入，则将MDR中的数据送入到MAR指定的存储单元中</p>
+</li>
+<li><p>主存和CPU的联系</p>
+<p><img src="./Pictures/主存和CPU的联系.png" alt="主存和CPU的联系"></p>
+<p>数据总线：双向连在MDR寄存器上，完成了CPU和主存之间的信息传输。</p>
+<p>地址总线：单向连在MAR寄存器和主存的地址总线之间，给出了将要访问的内存单元的地址</p>
+<p>控制总线：读写等</p>
+</li>
+<li><p>主存中存储单元的地址分配</p>
+<p><img src="./Pictures/大端法小端法.png" alt="大端法小端法"></p>
+<ul>
+<li>大端法：高位存放高地址，低位存放低地址</li>
+<li>小端法：高位存放低地址，低位存放高地址</li>
+</ul>
+</li>
+<li><p>主存的技术指标</p>
+</li>
+</ol>
+<ul>
+<li>存储容量：主存中存放的二进制数的总位数</li>
+<li><p>存储速度：</p>
+<ul>
+<li><p>存取时间：存储器的访问时间</p>
+<p>从存储器给出地址信号开始，到得到稳定的数据输出/输入所经历的时间</p>
+<ul>
+<li>读出时间</li>
+<li>写入时间</li>
+</ul>
+</li>
+<li>存取周期：<strong>连续</strong>两次<strong>独立</strong>的存储器操作（读或写）所需要的<strong>最小</strong>时间间隔</li>
+</ul>
+<p>一般来说，存取周期比存取时间长。因为连续的存取之间存在一段恢复时间</p>
+</li>
+<li><p>存储器带宽：单位时间里能够向存储器中读取/写入的数据的位数。</p>
+<p>单位：位/秒</p>
+</li>
+</ul>
+<h4 id="4-2-2-半导体存储芯片"><a href="#4-2-2-半导体存储芯片" class="headerlink" title="4.2.2. 半导体存储芯片"></a>4.2.2. 半导体存储芯片</h4><ol>
+<li><p>半导体存储芯片的基本结构<br><img src="./Pictures/半导体存储芯片的基本结构.png" alt="半导体存储芯片的基本结构"></p>
+<ul>
+<li><p>地址线单向输入（n条），数据线双向（m条）。 </p>
+<p>芯片容量为$2^n×m$</p>
+</li>
+<li><p>片选线：选择存储芯片。因为一个半导体存储器是由多个存储芯片构成。</p>
+<p>两种标识方式（一横表示低电平有效）</p>
+<ul>
+<li>$\overline{\text{CS}}$：芯片选择</li>
+<li>$\overline{\text{CE}}$：芯片使能</li>
+</ul>
+</li>
+<li><p>读/写控制线：决定芯片进行读还是写操作</p>
+<p>一根线：</p>
+<ul>
+<li>$\overline{\text{WE}}$：低电平写，高电平读</li>
+</ul>
+<p>两根线</p>
+<ul>
+<li>$\overline{\text{OE}}$：读</li>
+<li>$\overline{\text{WE}}$：写</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="4-2-3-随机存取存储器"><a href="#4-2-3-随机存取存储器" class="headerlink" title="4.2.3. 随机存取存储器"></a>4.2.3. 随机存取存储器</h4><ol>
+<li><p>静态RAM(SRAM)</p>
+<ul>
+<li><p>静态RAM基本电路</p>
+<p><img src="./Pictures/静态RAM基本电路.png" alt="静态RAM基本电路"></p>
+<p>T1-T6只是静态RAM的一个基本单元电路，有多行多列的基本单元一起构成静态RAM</p>
+<p>T1-T4为一个双稳态的触发器，存放0/1信息。A高A’低时为‘1’；A低A’高时为‘0’</p>
+<p>T5、T6用于决定读或写。T5、T6打开后该单元才能进行读/写。行开关</p>
+<p>T7、T8用于决定有效输入/输出的列。T7、T8打开后，该列对应的基本单元的读/写操作有效</p>
+<p>行地址选择线选择对基本单元矩阵中的哪一行的触发器进行操作，行有效时，将这一行中基本单元的T5和T6打开。</p>
+<p>列地址选择线决定哪一列的输入输出操作有效，列有效时，将这一列中的T7、T8开关打开。。</p>
+<p><em>所以只有行选择线选择的行和列选择线选择的列才能进行有效输入或输出</em></p>
+</li>
+</ul>
+</li>
+</ol>
+<ol start="2">
+<li>动态RAM(DRAM)</li>
+</ol>
+<ul>
+<li>用电容保存0/1信息</li>
+</ul>
+<p>电容上如果保存了足够的电荷则存储’1’，若没有电荷则保存’0’</p>
+<ul>
+<li><p>动态RAM基本单元电路</p>
+<p>（1）三管MOS动态RAM</p>
+<p><img src="./Pictures/三管MOS动态RAM.png" alt="三管MOS动态RAM"></p>
+<ul>
+<li>信息保存在电容Cg上</li>
+<li>T1、T2、T3为控制读出和写入的控制管</li>
+<li>读选择线有效，则T2导通</li>
+<li>写选择先有效，则T3导通</li>
+</ul>
+<p>读数据时</p>
+<ul>
+<li>预充电信号有效，T4打开</li>
+<li>$V_{DD}$通过T4给读数据线充电，使得读数据线为高电平。</li>
+<li>读选择线有效使T2打开</li>
+<li>此时若Cg未保存电荷（保存信息0），则T1不导通，读数据线持续高电平，输出1</li>
+<li><p>若Cg保存了电荷（保存信息1），则T1导通，读数据线的高电平会通过T1接地，从而变为低电平，输出0.</p>
+<p>输出的信息与Gg中保存的信息相反，通常在读数据线的输出端加一个非门</p>
+</li>
+</ul>
+<p>写数据时</p>
+<ul>
+<li>写选择线有效，T3导通</li>
+<li>写1，则写数据线通过T3向Cg充电</li>
+<li><p>写0，则Cg通过T3放电</p>
+<p>写入的信息与输入的信号是相同的</p>
+</li>
+</ul>
+<p>(2)单管MOS动态RAM</p>
+<p><img src="./Pictures/单管动态RAM.png" alt="单管动态RAM"></p>
+<p>读数据时</p>
+<ul>
+<li>字线有效，T导通</li>
+<li>若Cs中存储了电荷，则数据线上有电流，输出1</li>
+<li>若Cs中未存储电荷，则数据线上无电流，输出0</li>
+</ul>
+<p>写数据时</p>
+<ul>
+<li>字线有效，T导通</li>
+<li>写1，数据线通过T向Cs充电，输入1</li>
+<li>写0，Cs通过T放电，出入0</li>
+</ul>
+</li>
+<li><p>动态RAM刷新</p>
+</li>
+</ul>
+<p>刷新：现将原存信息读出，再由刷新放大器形成原信息并重新写入的再生过程。刷新只与行地址有关</p>
+<ul>
+<li>集中刷新</li>
+<li>分散刷新</li>
+<li>异步刷新</li>
+</ul>
+<ul>
+<li><p>动态RAM和静态RAM的比较<br>||DRAM|SRAM|<br>|–|–|–|<br>|存储原理|电容|触发器|<br>|集成度|高|低|<br>|芯片引脚|少|多|<br>|功耗|低|高|<br>|价格|低|高|<br>|速度|较慢|快|<br>|刷新|需要|不需要|</p>
+<p>通常DRAM用于做主存，SRAM用于做缓存</p>
+</li>
+</ul>
+<h4 id="4-2-4-只读存储器-ROM"><a href="#4-2-4-只读存储器-ROM" class="headerlink" title="4.2.4. 只读存储器(ROM)"></a>4.2.4. 只读存储器(ROM)</h4><ol>
+<li><p>掩模ROM（MROM）</p>
+<p> 行列选择线交叉处：</p>
+<ul>
+<li>有MOS管，则输出为1</li>
+<li>无MOS管，则输出为0</li>
+</ul>
+</li>
+<li><p>PROM（一次性编程）</p>
+<p> 行线为基极，发射极与列线之间有一条熔丝：</p>
+<ul>
+<li>熔丝通，则为1</li>
+<li>熔丝短，则为0</li>
+</ul>
+</li>
+<li><p>EPROM（可多次编程）</p>
+<p><img src="./Pictures/EPROM.png" alt="EPROM"></p>
+<ul>
+<li>D端加正电压，形成浮动栅，S与D不导通，为0</li>
+<li><p>D端不加正电压，不形成浮动栅，S与D导通，为1</p>
+<p>信息的擦除：驱散浮动栅。用紫外线擦除 </p>
+</li>
+</ul>
+</li>
+<li><p>EEPROM（可多次编程）</p>
+<ul>
+<li>电可擦写</li>
+<li>局部擦写</li>
+<li>全部擦写</li>
+</ul>
+</li>
+<li>FlashMemory(闪速型存储器)</li>
+</ol>
+<p>总结：</p>
+<ul>
+<li>EPROM：价格便宜，集成度高</li>
+<li>EEPROM：电可擦写</li>
+<li>FlashMemory：比EEPROM快，具备RAM功能</li>
+</ul>
+<h4 id="4-2-5-存储器与CPU的连接"><a href="#4-2-5-存储器与CPU的连接" class="headerlink" title="4.2.5. 存储器与CPU的连接"></a>4.2.5. 存储器与CPU的连接</h4><ol>
+<li>存储容量的扩展</li>
+</ol>
+<ul>
+<li><p>位扩展（增加存储字长）</p>
+<p>例：用2片1K×4位存储芯片组成1K×8位存储器 </p>
+<p><img src="./Pictures/位扩展.png" alt="位扩展"></p>
+<p>1K表示有10根地址线，8位表示8根数据线。</p>
+<ul>
+<li>两个芯片地址线连接方式相同</li>
+<li>数据线各自负责按序的四位存储</li>
+<li>将两个芯片的<strong>片选线</strong>和<strong>读写信号线</strong>连接在一起，使得两个芯片同时工作。</li>
+</ul>
+</li>
+<li><p>字扩展</p>
+<p>例：用2片1K×8位存储芯片组成2K×8位存储器 </p>
+<p><img src="./Pictures/字扩展.png" alt="字扩展"></p>
+<p>2K表示有11根地址线，8位表示8根数据线。表示8位数据，所以两芯片不能同时被选中。原有的两个芯片有10根地址线A0-A9，组成的存储器增加了一条A10地址线。控制两个芯片的片选信号，A10为1，则选第一个芯片；A10为0，则选第二个芯片。</p>
+<ul>
+<li>从000 0000 0000开始，到011 1111 1111为第一个芯片的1K的空间</li>
+<li>从100 0000 0000开始，到111 1111 1111为第二个芯片的1K的空间</li>
+</ul>
+</li>
+<li><p>字、位扩展<br><img src="./Pictures/字位扩展.png" alt="字位扩展"></p>
+<ul>
+<li><p>先完成位的扩展</p>
+<p>用两个1K×4位的芯片组成一个1K×8位的存储器。所以可将八个1K×4位的芯片组成4组这样的存储器。每组的两个芯片的片选线相连。</p>
+</li>
+<li><p>再完成字的扩展</p>
+<p>原芯片1K地址线为10根，4K芯片地址线为12根。多出的两根地址线A10和A11通过2-4译码器控制每一组的片选。</p>
+</li>
+</ul>
+<p>以上操作即完成了字、位扩展</p>
+</li>
+</ul>
+<ol start="2">
+<li>存储器与CPU的连接</li>
+</ol>
+<ul>
+<li><p>地址线的连接  </p>
+<p>存储芯片的容量不同，其地址线数也不同，CPU的地址线数往往比存储芯片的地址线数多。通常将CPU地址线的低位与存储芯片的地址线相连；高位用于扩充和其他用途</p>
+</li>
+<li><p>数据线的连接<br>CPU与存储芯片的数据线数不等时，必须对存储芯片扩展位，使得其数据位数与CPU的数据线数相等</p>
+</li>
+<li><p>读/写命令线的连接</p>
+<p>CPU的读写命令线一般可直接与存储芯片的读写控制端相连</p>
+</li>
+<li>片选线的连接</li>
+<li><p>合理选择存储芯片</p>
+<p>指存储芯片类型（RAM或ROM）和数量的选择</p>
+</li>
+</ul>
+<h4 id="4-2-6-存储器的校验"><a href="#4-2-6-存储器的校验" class="headerlink" title="4.2.6. 存储器的校验"></a>4.2.6. 存储器的校验</h4><ul>
+<li>编码的检测能力和纠错能力与任意两组合法代码之间<strong>二进制位</strong>的<strong>最少差异数</strong>有关</li>
+</ul>
 
       
     </div>
@@ -456,7 +1235,7 @@
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习记录/">学习记录</a></li></ul>
 	</div>
 
       
@@ -464,296 +1243,7 @@
       
         
 <div class="counter-tag counter">
-    <span id="/2019/06/07/hexo/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="hexo">
-         &nbsp;
-        view
-    </span>
-</div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-ScoopAndGow" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/06/06/ScoopAndGow/" class="article-date">
-  	<time datetime="2019-06-06T13:16:03.000Z" itemprop="datePublished">2019-06-06</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/06/ScoopAndGow/">
-        ScoopAndGow
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Scoop与gow的安装与实现"><a href="#Scoop与gow的安装与实现" class="headerlink" title="Scoop与gow的安装与实现"></a>Scoop与gow的安装与实现</h1><h2 id="Scoop-在windows下的命令行式软件安装工具"><a href="#Scoop-在windows下的命令行式软件安装工具" class="headerlink" title="Scoop: 在windows下的命令行式软件安装工具"></a>Scoop: 在windows下的命令行式软件安装工具</h2><h3 id="安装scoop："><a href="#安装scoop：" class="headerlink" title="安装scoop："></a><strong><em>安装scoop：</em></strong></h3><ol>
-<li><p>在PowerShell中输入命令，设置允许本地脚本执行：  </p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ Set-ExecutionPolicy RemoteSigned -scope CurrentUser</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>执行安装命令：  </p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ iex (new-object net.webclient).downloadstring(&apos;https://get.scoop.sh&apos;)</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>注意：scoop要在PowerShell中使用，不能在cmd环境下使用。</p>
-<p>常用命令：</p>
-<ul>
-<li><p>搜索软件：’scoop search 软件名’ :</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ scoop search gcc</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装软件：’scoop install 软件名’ :</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ scoop install gcc</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装主库之外的软件：</p>
-<ul>
-<li><p>安装官方维护额库中的软件：<br>主库里没有的软件可以添加bucket去下载官方库中的软件，官方维护的库：<a href="https://github.com/lukesampson/scoop/blob/master/buckets.json" target="_blank" rel="noopener">https://github.com/lukesampson/scoop/blob/master/buckets.json</a></p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ scoop bucket add bucket名</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装社区维护的库中的软件：<br>社区维护的库：<a href="https://github.com/rasa/scoop-directory/blob/master/by-score.md" target="_blank" rel="noopener">https://github.com/rasa/scoop-directory/blob/master/by-score.md</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ scoop bucket add bucket名 bucket地址</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-<p>目录与环境变量：  </p>
-<p>安装Scoop后自动在用户目录创建scoop目录，scoop文件夹下的apps存放安装的所有应用。scoop是通过shim来软链接一些应用，并把shim添加到环境变量环境变量，保证应用互相独立。</p>
-<hr>
-<h2 id="Gow："><a href="#Gow：" class="headerlink" title="Gow："></a>Gow：</h2><p>Gow是GUN On Windows的缩写，给Linux软件提供Windows系统的运行环境，可通过Gow实现Linux命令在Windows PowerShell中执行，当然原本的Windows命令依然可以使用。</p>
-<p><strong><em>安装：</em></strong>  </p>
-<p>在安装好scoop的基础上打开命令行，输入安装命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scoop install gow</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        
-<div class="counter-tag counter">
-    <span id="/2019/06/06/ScoopAndGow/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="ScoopAndGow">
-         &nbsp;
-        view
-    </span>
-</div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-Report" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/05/25/Report/" class="article-date">
-  	<time datetime="2019-05-25T08:47:00.000Z" itemprop="datePublished">2019-05-25</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/25/Report/">
-        The report of Boost.Python project
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h1><h3 id="Task-Implement-a-C-interface-for-Python’s-set-type-and-demonstrate-its-use-in-a-Boost-Python-test"><a href="#Task-Implement-a-C-interface-for-Python’s-set-type-and-demonstrate-its-use-in-a-Boost-Python-test" class="headerlink" title="Task: Implement a C++ interface for Python’s set type and demonstrate its use in a Boost.Python test"></a>Task: Implement a C++ interface for Python’s set type and demonstrate its use in a Boost.Python test</h3><h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><blockquote>
-<h3 id="Boost-Python-is-a-C-library-which-enables-seamless-interoperability-between-C-and-the-Python-programming-language-The-library-includes-support-for-exporting-C-Iterators-as-Python-Iterators-So-we-can-use-boost-python-to-call-c-classes-in-Python-to-achieve-seamless-operation-between-C-and-Python"><a href="#Boost-Python-is-a-C-library-which-enables-seamless-interoperability-between-C-and-the-Python-programming-language-The-library-includes-support-for-exporting-C-Iterators-as-Python-Iterators-So-we-can-use-boost-python-to-call-c-classes-in-Python-to-achieve-seamless-operation-between-C-and-Python" class="headerlink" title="Boost.Python is a C++ library which enables seamless interoperability between C++ and the Python programming language. The library includes support for exporting C++ Iterators as Python Iterators. So we can use boost.python to call c++ classes in Python to achieve seamless operation between C++ and Python."></a>Boost.Python is a C++ library which enables seamless interoperability between C++ and the Python programming language. The library includes support for exporting C++ Iterators as Python Iterators. So we can use boost.python to call c++ classes in Python to achieve seamless operation between C++ and Python.</h3></blockquote>
-<h1 id="Theoretical-Background"><a href="#Theoretical-Background" class="headerlink" title="Theoretical Background"></a>Theoretical Background</h1><ul>
-<li><strong><em>Understand the set type in Python, master its main idea, study all the methods in the set type one by one, and understand their usage.</em></strong></li>
-<li><strong><em>Create a set class in C++, and design the data structure according to the characteristics of the set type in Python and define various methods to achieve the same effect as the set class in python.</em></strong></li>
-<li><strong><em>Install the boost library, compile boost. python, get dynamic library and static library.</em></strong></li>
-<li><strong><em>Set the configuration file for boost.python.</em></strong></li>
-<li><strong><em>Wrap the written C++ set class source file with the compiled boost.python library.</em></strong></li>
-<li><strong><em>Import the generated file in python, call the set type, and write the test program to demonstrate its usage.</em></strong></li>
-</ul>
-<h1 id="Apparatus-and-procedure"><a href="#Apparatus-and-procedure" class="headerlink" title="Apparatus and procedure"></a>Apparatus and procedure</h1><h3 id="Pre-preparation"><a href="#Pre-preparation" class="headerlink" title="Pre-preparation"></a>Pre-preparation</h3><ul>
-<li>Tools: C++, python3.6, boost.python.</li>
-<li>Procedure: <a href="http://gitlab.wfuhpc.org:28015/Legends/boost.python/blob/master/set_interface.cpp" target="_blank" rel="noopener">set_interface.cpp</a>, <a href="http://gitlab.wfuhpc.org:28015/Legends/boost.python/blob/master/The%20Boost%20python%20wrap" target="_blank" rel="noopener">the Boost python wrap</a>, <a href>python test</a><h3 id="Install-and-compile-the-boost-library"><a href="#Install-and-compile-the-boost-library" class="headerlink" title="Install and compile the boost library"></a>Install and compile the boost library</h3></li>
-<li>Download the boos library: <a href="https://dl.bintray.com/boostorg/release/1.68.0/source/" target="_blank" rel="noopener">https://dl.bintray.com/boostorg/release/1.68.0/source/</a></li>
-<li>Unzip the boost package to “E:\boost\boost_1_68_0”</li>
-<li>Go to the directory on the command line and execute the bootstrap.bat file to generate two files b2.exe and bjam.exe. The two commands have the same effect. bjam is the old version and b2 is the upgrade version.</li>
-<li><p>Modify the configuration file E:\boost\boost_1_68_0\tools\build\example\user-config.jam and copy it to the boost_1_68_0 directory. The contents of the configuration file are as follows:</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">   using python : 3.6  #indicates the python version number installed on this machine</span><br><span class="line">: D:\Python3\\python.exe  # python</span><br><span class="line">: D:\Python3\\include  # pythonpython header package</span><br><span class="line">: D:\Python3\\libs  # Dynamic Library Path</span><br><span class="line">: &lt;toolset&gt;msvc  # means to compile boost.python library with Visual Studio</span><br><span class="line">   ;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Compile the boost.python library with msvc14.1:</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">b2 toolset=msvc-14.0 --with-python variant=debug runtime-debugging=on link=static --user-config=user-config.jam stage</span><br></pre></td></tr></table></figure>
-<p>  After the compilation is successful, the dynamic library file will be generated in the “E:\boost\boost_1_68_0\stage\lib” directory.</p>
-</li>
-<li>Create a test project in Visual Studio and add the configuration in the project configuration:</li>
-</ul>
-<ol>
-<li>Include the boost header file (E:\boost\boost_1_68_0), python header file (D:\Python3\include)</li>
-<li>Link boost lib (E:\boost\boost_1_68_0\stage\lib), python libs (D:\Python3\libs)</li>
-</ol>
-<p><strong><em>Specific method</em></strong></p>
-<ol>
-<li>In Configuration Properties &gt; C/C++ &gt; General &gt; Additional Include Directories, enter the path to the Boost root directory and python header file directory :<br>  “E:\boost\boost_1_68_0; D:\Python3\include”</li>
-<li>Open Project Properties -&gt; Configuration Properties -&gt; Linker -&gt; General, add dynamic library directory for boost and python in “Additional Library Directory”:<br>  “E:\boost\boost_1_68_0\stage\lib; D:\Python3\libs”</li>
-</ol>
-<h3 id="Prepare-the-set-class"><a href="#Prepare-the-set-class" class="headerlink" title="Prepare the set class"></a>Prepare the set class</h3><ul>
-<li>Source file : <a href="http://gitlab.wfuhpc.org:28015/Legends/boost.python/blob/master/set_interface.cpp" target="_blank" rel="noopener">set_interface</a></li>
-<li>Class name: set</li>
-<li><p>Data Structure: Linked List</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Typedef struct Node&#123;</span><br><span class="line">    T data;</span><br><span class="line">    Struct Node *next;</span><br><span class="line">&#125; *LinkList;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Functions</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">void add(Elemtype n); //Add elements to the collection</span><br><span class="line">Elemtype begin(); //returns the first element of the collection</span><br><span class="line">Elemtype end (); / / return the last element of the collection</span><br><span class="line">void clear(); //Clear all elements in the collection</span><br><span class="line">set copy(); //returns a copy of the current collection</span><br><span class="line">void print();//output the current collection</span><br><span class="line">int size(); //Get the number of elements in the collection</span><br><span class="line">void discard(Elemtype value);//Delete the element whose value is value in the collection</span><br><span class="line">set difference(set another); //get the difference set</span><br><span class="line">bool empty(); //Check if the current collection is empty</span><br><span class="line">void pop(); // randomly remove an element</span><br><span class="line">void remove(); //delete the element with value</span><br><span class="line">void union_(); // get union</span><br><span class="line">void update(set another); //Add the another collection to the current collection</span><br><span class="line">void update(Elemtype value); //Add the element value to the current collection</span><br><span class="line">set intersection(set another); //get intersection</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="Wrap"><a href="#Wrap" class="headerlink" title="Wrap"></a>Wrap</h3><ul>
-<li>Add a macro definition before all code: #define BOOST_PYTHON_STATIC_LIB //declare that the compiled static link library will be used</li>
-<li>Add code for wrapping in the source file set_interface:  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">  BOOST_PYTHON_MODULE(set_interface) </span><br><span class="line">  &#123;</span><br><span class="line">   using namespace boost::python;</span><br><span class="line">   class_&lt;set&gt;(&quot;set&quot;, init&lt;int&gt;())</span><br><span class="line">.def(&quot;add&quot;, &amp;set::add)</span><br><span class="line">.def(&quot;begin&quot;, &amp;set::begin)</span><br><span class="line">.def(&quot;clear&quot;, &amp;set::clear)</span><br><span class="line">.def(&quot;copy&quot;, &amp;set::copy)</span><br><span class="line">.def(&quot;print&quot;, &amp;set::print)</span><br><span class="line">.def(&quot;size&quot;, &amp;set::size)</span><br><span class="line">.def(&quot;discard&quot;, &amp;set::discard)</span><br><span class="line">.def(&quot;difference&quot;, &amp;set::difference)</span><br><span class="line">.def(&quot;empty&quot;, &amp;set::empty)</span><br><span class="line">.def(&quot;pop&quot;, &amp;set::pop)</span><br><span class="line">.def(&quot;remove&quot;, &amp;set::remove)</span><br><span class="line">.def(&quot;union_&quot;, &amp;set::union_)</span><br><span class="line">.def(&quot;update&quot;, &amp;set::update)</span><br><span class="line">.def(&quot;intersection&quot;, &amp;set::intersection)</span><br><span class="line">;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="General-Dynamic-Library"><a href="#General-Dynamic-Library" class="headerlink" title="General Dynamic Library"></a>General Dynamic Library</h3><ul>
-<li>Open Project Properties -&gt; Configuration Properties -&gt; General and select “Dynamic Library (.dll)” in the Project Defaults -&gt; Configuration Type on the right. This will cause VS to generate dll dynamic library files instead of exe executables.</li>
-<li>Select Build -&gt; Build Solution, generate a .dll file, copy the file to the Python project directory, change the suffix to .pyd, and get the Python library file, which can be imported directly via import.<h1 id="Results-and-discussion"><a href="#Results-and-discussion" class="headerlink" title="Results and discussion"></a>Results and discussion</h1></li>
-</ul>
-<h1 id="Conclusions"><a href="#Conclusions" class="headerlink" title="Conclusions"></a>Conclusions</h1>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HPC/">HPC</a></li></ul>
-	</div>
-
-      
-
-      
-        
-<div class="counter-tag counter">
-    <span id="/2019/05/25/Report/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="The report of Boost.Python project">
-         &nbsp;
-        view
-    </span>
-</div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/12/14/hello-world/" class="article-date">
-  	<time datetime="2018-12-14T12:15:40.000Z" itemprop="datePublished">2018-12-14</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/14/hello-world/">
-        Hello world
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        
-<div class="counter-tag counter">
-    <span id="/2018/12/14/hello-world/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="Hello world">
+    <span id="/2020/09/28/计算机组成原理/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="计算机组成原理.md">
          &nbsp;
         view
     </span>
@@ -777,7 +1267,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 </div>
