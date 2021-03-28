@@ -78,7 +78,7 @@
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
 			
-			<img src="/Pictures/timg.ico" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			<img lazy-src="/Pictures/timg.ico" class="js-avatar">
 			
 		</a>
 
@@ -234,7 +234,7 @@
   
     <div class="article-meta">
       <a href="/2020/09/28/计算机组成原理/" class="article-date">
-  	<time datetime="2020-09-28T02:04:27.000Z" itemprop="datePublished">2020-09-28</time>
+  	<time datetime="2020-09-28T02:04:27.952Z" itemprop="datePublished">2020-09-28</time>
 </a>
     </div>
   
@@ -242,20 +242,6 @@
     
       <input type="hidden" class="isFancy">
     
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/28/计算机组成原理/">
-        计算机组成原理.md
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -266,7 +252,7 @@
 <li><a href="#1-1-计算机系统简介">1-1 计算机系统简介</a></li>
 <li><a href="#1-2--计算机的基本组成">1-2  计算机的基本组成</a></li>
 <li><a href="#1-3-计算机的工作过程">1-3 计算机的工作过程</a></li>
-<li><a href="#1-4--计算机硬件的主要技术指标">1-4  计算机硬件的主要技术指标</a></li>
+<li><a href="#1-4-计算机硬件的主要技术指标">1-4 计算机硬件的主要技术指标</a></li>
 </ul>
 </li>
 <li><a href="#第二章-计算机的发展及应用">第二章 计算机的发展及应用</a><ul>
@@ -314,7 +300,7 @@
 <li><a href="#4-4--辅助存储器">4-4  辅助存储器</a></li>
 </ul>
 </li>
-<li><a href="#5-输入输出系统">5. 输入输出系统</a><ul>
+<li><a href="#第五章-输入输出系统">第五章 输入输出系统</a><ul>
 <li><a href="#5-1--概述">5-1  概述</a><ul>
 <li><a href="#5-1-1--输入输出系统的发展概况">5-1-1  输入输出系统的发展概况</a></li>
 <li><a href="#5-1-2--输入输出系统的组成">5-1-2  输入输出系统的组成</a></li>
@@ -332,6 +318,40 @@
 <li><a href="#5-4-程序查询方式">5-4 程序查询方式</a><ul>
 <li><a href="#5-4-1-程序查询流程">5-4-1 程序查询流程</a></li>
 <li><a href="#5-4-2-程序查询方式的接口电路">5-4-2 程序查询方式的接口电路</a></li>
+</ul>
+</li>
+<li><a href="#5-5-程序中断方式">5-5 程序中断方式</a><ul>
+<li><a href="#5-5-1-中断的概念">5-5-1 中断的概念</a></li>
+<li><a href="#5-5-3-程序中断方式的接口电路">5-5-3 程序中断方式的接口电路</a></li>
+<li><a href="#5-5-4">5-5-4</a></li>
+<li><a href="#5-5-5-中断服务程序流程">5-5-5 中断服务程序流程</a></li>
+</ul>
+</li>
+<li><a href="#5-6-dma方式">5-6 DMA方式</a><ul>
+<li><a href="#5-6-1-dma方式的特点">5-6-1 DMA方式的特点</a></li>
+<li><a href="#5-6-2-dma接口的功能和组成">5-6-2 DMA接口的功能和组成</a></li>
+<li><a href="#5-6-3-dma的工作过程">5-6-3 DMA的工作过程</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#第六章-计算机的运算方法">第六章 计算机的运算方法</a><ul>
+<li><a href="#6-1-无符号数和有符号数">6-1 无符号数和有符号数</a><ul>
+<li><a href="#6-1-1-无符号数">6-1-1 无符号数</a></li>
+<li><a href="#6-1-2-有符号数">6-1-2 有符号数</a></li>
+</ul>
+</li>
+<li><a href="#6-2-数的定点表示和浮点表示">6-2 数的定点表示和浮点表示</a><ul>
+<li><a href="#6-2-1-定点表示">6-2-1 定点表示</a></li>
+<li><a href="#6-2-2-浮点表示">6-2-2 浮点表示</a></li>
+</ul>
+</li>
+<li><a href="#6-3-定点运算">6-3 定点运算</a></li>
+</ul>
+</li>
+<li><a href="#第七章-指令系统">第七章 指令系统</a><ul>
+<li><a href="#7-1-机器指令">7-1 机器指令</a><ul>
+<li><a href="#7-7-1-指令的一般格式">7-7-1 指令的一般格式</a></li>
 </ul>
 </li>
 </ul>
@@ -352,19 +372,19 @@
 </ul>
 </li>
 </ul>
-<ol start="2">
+<ol>
 <li>计算机系统的层次结构</li>
 </ol>
 <ul>
 <li>系统复杂性管理的方法：<code>抽象</code><ul>
-<li>对于一个过程的某些细节有目的的隐藏，以便把其他方面、细节或者结构表达地更清楚。 –百度百科</li>
-<li>指高级的模型，和低级的实体相对。 –维基百科</li>
+<li>对于一个过程的某些细节有目的的隐藏，以便把其他方面、细节或者结构表达地更清楚。 —百度百科</li>
+<li>指高级的模型，和低级的实体相对。 —维基百科</li>
 <li>隐藏系统中不重要的细节。 David Haris</li>
 </ul>
 </li>
-<li>从程序的角度对计算机的层次进行抽象<br>  <img src="/Pictures/计算机层次抽象（1）.png" alt="计算机层次抽象"><br>  <img src="/Pictures/计算机层次抽象（2）.png" alt="计算机层次抽象"><br>  软件与硬件之间的虚线表示计算机系统软硬件的接口</li>
+<li>从程序的角度对计算机的层次进行抽象<br>  <img src="./Pictures/计算机层次抽象（1）.png" alt="计算机层次抽象"><br>  <img src="Pictures/计算机层次抽象（2）.png" alt="计算机层次抽象"><br>  软件与硬件之间的虚线表示计算机系统软硬件的接口</li>
 </ul>
-<ol start="3">
+<ol>
 <li>计算机组成与计算机体系结构从研究内容上来说的区别 <ul>
 <li>计算机体系结构：机器语言程序员所见到的计算机系统的属性、概念性的结构和功能特性。定义了计算机系统软硬件的交界面，定义了软硬件交互的接口。</li>
 <li>计算机组成：实现计算机体系结构所体现的属性</li>
@@ -382,8 +402,8 @@
 <li><em>存储程序</em>（核心特征）</li>
 <li>以运算器为中心</li>
 </ul>
-<ol start="2">
-<li><p>冯诺依曼计算机硬件框图<br> <img src="/Pictures/冯诺依曼计算机硬件框图.png" alt="冯诺依曼计算机硬件框图"></p>
+<ol>
+<li><p>冯诺依曼计算机硬件框图<br> <img src="./Pictures/冯诺依曼计算机硬件框图.png" alt="冯诺依曼计算机硬件框图"></p>
 <ul>
 <li>运算器：完成算数运算、逻辑运算</li>
 <li>存储器：存放数据和程序</li>
@@ -400,9 +420,9 @@
 <li><p>计算机硬件框图</p>
 <ul>
 <li><p>以存储器为中心的计算机硬件框图</p>
-<p><img src="/Pictures/以存储器为中心的计算机硬件框图.png" alt="以存储器为中心的计算机硬件框图"></p>
+<p><img src="./Pictures/以存储器为中心的计算机硬件框图.png" alt="以存储器为中心的计算机硬件框图"></p>
 </li>
-<li>现代计算机硬件框图<br><img src="/Pictures/现代计算机硬件框图.png" alt="现代计算机硬件框图"> </li>
+<li>现代计算机硬件框图<br><img src="./Pictures/现代计算机硬件框图.png" alt="现代计算机硬件框图"> </li>
 <li>层次化（Hierachy）：将被设计的系统划分为多个模块和子模块</li>
 <li>模块化（Modularity）：有明确定义的功能和接口</li>
 <li>规则性（Regularity）：使模块更容易被重用</li>
@@ -410,7 +430,7 @@
 </li>
 </ol>
 <h3 id="1-3-计算机的工作过程"><a href="#1-3-计算机的工作过程" class="headerlink" title="1-3 计算机的工作过程"></a>1-3 计算机的工作过程</h3><ol>
-<li><p>主存储器的基本组成<br> <img src="/Pictures/主存.png" alt="主存"></p>
+<li><p>主存储器的基本组成<br> <img src="./Pictures/主存.png" alt="主存"></p>
 <p>存储体由多个存储单元组成，每个存储单元又包含若干个存储原件，每个存储原件能寄存一位二进制代码‘0’或‘1’。存储单元按地址寻访</p>
 <ul>
 <li>存储单元：存放一串二进制代码</li>
@@ -425,7 +445,7 @@
 </ol>
 </li>
 <li><p>运算器的基本组成与操作过程</p>
-<p> <img src="/Pictures/运算器.png" alt="运算器"> </p>
+<p> <img src="./Pictures/运算器.png" alt="运算器"> </p>
 <p>运算器的组成ALU+至少3个寄存器：</p>
 <ol>
 <li>算数逻辑单元（ALU）（运算器的核心）</li>
@@ -438,15 +458,15 @@
 </li>
 </ol>
 <p>各类寄存器中存放的各类操作数：</p>
-<p><img src="/Pictures/各类运算中运算数的保存情况.png" alt="各类运算中运算数的保存情况"></p>
+<p><img src="./Pictures/各类运算中运算数的保存情况.png" alt="各类运算中运算数的保存情况"></p>
 </li>
 </ol>
 <ul>
 <li><p>加法</p>
-<p><img src="/Pictures/加法操作.png" alt="加法操作"></p>
+<p><img src="./Pictures/加法操作.png" alt="加法操作"></p>
 <ul>
 <li><p>加法指令中，地址码M给出加数在内存中的地址</p>
-<p><img src="/Pictures/加法指令.png" alt="加法指令"> </p>
+<p><img src="./Pictures/加法指令.png" alt="加法指令"> </p>
 </li>
 <li>初态：被加数被存入到ACC中，加数存在X寄存器中</li>
 <li>操作1：将加数从M内存单元中取出，存入X寄存器</li>
@@ -454,18 +474,18 @@
 <li>操作3：ALU将结果保存在ACC寄存器中</li>
 </ul>
 </li>
-<li><p>减法<br><img src="/Pictures/减法操作.png" alt="减法操作"></p>
+<li><p>减法<br><img src="./Pictures/减法操作.png" alt="减法操作"></p>
 <ul>
-<li>减法指令中，地址码M给出减数的地址<br><img src="/Pictures/减法指令.png" alt="减法指令"> </li>
+<li>减法指令中，地址码M给出减数的地址<br><img src="./Pictures/减法指令.png" alt="减法指令"> </li>
 <li>初态：被减数被存入到ACC中，减数存在内存单元为M的地址中</li>
 <li>操作1：将加数从M内存单元中取出，存入X寄存器</li>
 <li>操作2：ALU对[ACC]和[X]进行减法操作</li>
 <li>操作3：ALU将结果保存在ACC寄存器中</li>
 </ul>
 </li>
-<li><p>乘法<br><img src="/Pictures/乘法操作.png" alt="乘法操作"></p>
+<li><p>乘法<br><img src="./Pictures/乘法操作.png" alt="乘法操作"></p>
 <ul>
-<li>乘法指令中，地址码M给出乘数的地址<br><img src="/Pictures/乘法指令.png" alt="乘法指令"></li>
+<li>乘法指令中，地址码M给出乘数的地址<br><img src="./Pictures/乘法指令.png" alt="乘法指令"></li>
 <li>初态：被乘数被存入到ACC中</li>
 <li>操作1：将乘数从M内存中取出，存入MQ寄存器 </li>
 <li>操作2：将ACC的内容送到X寄存器中</li>
@@ -483,9 +503,9 @@
 </ul>
 </li>
 </ul>
-<ol start="3">
+<ol>
 <li><p>控制器的基本结构</p>
-<p> <img src="/Pictures/控制器的基本组成.png" alt="控制器的基本组成"></p>
+<p> <img src="./Pictures/控制器的基本组成.png" alt="控制器的基本组成"></p>
 </li>
 </ol>
 <ul>
@@ -510,14 +530,14 @@
 </li>
 </ul>
 </li>
-<li><p>硬件系统的结构图<br><img src="/Pictures/硬件系统的结构图.png" alt="硬件系统的结构图"> </p>
+<li><p>硬件系统的结构图<br><img src="./Pictures/硬件系统的结构图.png" alt="硬件系统的结构图"> </p>
 </li>
 </ul>
-<ol start="4">
+<ol>
 <li>主机完成一条指令的过程</li>
 </ol>
 <p>以取数指令为例</p>
-<p><img src="/Pictures/取数指令的执行过程.png" alt="取数指令的执行过程"></p>
+<p><img src="./Pictures/取数指令的执行过程.png" alt="取数指令的执行过程"></p>
 <ul>
 <li>第一步：取指令<ol>
 <li>PC将指令的地址送给MAR</li>
@@ -527,7 +547,7 @@
 </ol>
 </li>
 <li><p>第二步：分析指令</p>
-<ol start="5">
+<ol>
 <li>将IR寄存器中保存的指令的操作码部分送入CU。经过译码后由CU将指令的地址部分送给存储器，将保存在M内存单元中的数据取出到ACC寄存器中</li>
 <li>从IR的地址码部分将地址取出送入MAR。IR中保存了当前要执行的指令和当前这条指令操作数的地址。</li>
 <li>由MAR将地址送入存储体</li>
@@ -537,7 +557,7 @@
 </li>
 </ul>
 <p>以存数指令为例：</p>
-<p>  <img src="/Pictures/存数指令过程.png" alt="存数指令过程"></p>
+<p>  <img src="./Pictures/存数指令过程.png" alt="存数指令过程"></p>
 <ul>
 <li>第一步：取指令。将指令从存储体中取出。<ol>
 <li>PC将指令的地址送给MAR</li>
@@ -546,11 +566,11 @@
 <li>MDR将取出的指令送入IR</li>
 </ol>
 </li>
-<li>第二步：分析指令<ol start="5">
+<li>第二步：分析指令<ol>
 <li>将IR中保存的指令的操作码部分送给CU，CU对指令进行分析后发出相应的控制信号</li>
 </ol>
 </li>
-<li>第三步：执行指令<ol start="6">
+<li>第三步：执行指令<ol>
 <li>CU由控制将IR中的指令的地址码部分送入到MAR中</li>
 <li>MAR将地码送入存储体。告诉存储体将要存数据，并给出数据的地址</li>
 <li>将ACC中的内容存入MDR中。ACC中保存从存储体中输入和输出的数据</li>
@@ -573,12 +593,13 @@
 <li>…</li>
 <li>经过以上三步，取数指令完成，一次进行乘法指令、加法指令循环经过这三步的指令传送后完成此程序的计算，经过最后的保存指令后即可通过打印指令输出结果。</li>
 </ul>
-<h3 id="1-4-计算机硬件的主要技术指标"><a href="#1-4-计算机硬件的主要技术指标" class="headerlink" title="1-4  计算机硬件的主要技术指标"></a>1-4  计算机硬件的主要技术指标</h3><p>机器字长：CPU一次能处理数据的位数，与CPU中的寄存器位数有关（ACC、X、MQ）</p>
+<h3 id="1-4-计算机硬件的主要技术指标"><a href="#1-4-计算机硬件的主要技术指标" class="headerlink" title="1-4 计算机硬件的主要技术指标"></a>1-4 计算机硬件的主要技术指标</h3><p>机器字长：CPU一次能处理数据的位数，与CPU中的寄存器位数有关（ACC、X、MQ）</p>
 <p>运算速度:</p>
 <ul>
 <li>主频</li>
 <li>核心数，以及每个核心支持的线程数</li>
-<li><p>吉普森法：<img src="/Pictures/吉普森法.png" alt="吉普森法"></p>
+<li><p>吉普森法：</p>
+<p><img src="./Pictures/吉普森法.png" alt="吉普森法"></p>
 <p>fi代表每条指令在程序中出现的频率，计算方法有两种</p>
 <ul>
 <li>静态使用频率：通过程序清单计算某条指令出现的频率</li>
@@ -594,15 +615,34 @@
 </ul>
 <p>存储容量：存放二进制信息的总位数</p>
 <ul>
-<li><p>主存容量：</p>
-<ul>
-<li><p>存储单元个数 × 存储字长</p>
-<p>如：</p>
-<p>|MAR| MDR| 容量|<br>|–|–|–|<br>|10|8|1K × 8位|<br>|16|32|64K × 32位|</p>
-</li>
+<li>主存容量：<ul>
+<li>存储单元个数 × 存储字长</li>
 </ul>
 </li>
 </ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>MAR</th>
+<th>MDR</th>
+<th>容量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10</td>
+<td>8</td>
+<td>1K × 8位</td>
+</tr>
+<tr>
+<td>16</td>
+<td>32</td>
+<td>64K × 32位</td>
+</tr>
+</tbody>
+</table>
+</div>
 <ul>
 <li><p>字节数</p>
 <p>如：</p>
@@ -626,9 +666,9 @@
 <li>减少设备间连接的接口</li>
 <li>避免系统难以扩展</li>
 </ul>
-<ol start="3">
+<ol>
 <li><p>总线上信息的传送</p>
-<p><img src="/Pictures/总线上信息的传送.png" alt="总线上信息的传送"></p>
+<p><img src="./Pictures/总线上信息的传送.png" alt="总线上信息的传送"></p>
 </li>
 </ol>
 <ul>
@@ -645,7 +685,7 @@
 <li><p>总线结构举例</p>
 <ol>
 <li><p>单总线结构框图 </p>
-<p><img src="/Pictures/单总线结构框图.png" alt="单总线结构框图"></p>
+<p><img src="./Pictures/单总线结构框图.png" alt="单总线结构框图"></p>
 <ul>
 <li>在任何时刻只能有一个部件在使用系统总线，会发生总线的争用</li>
 <li>远端传输延迟高</li>
@@ -653,14 +693,14 @@
 </li>
 <li><p>面向CPU的双总线结构框图</p>
 <p>为CPU和主存设计专有的数据传输总线</p>
-<p><img src="/Pictures/双总线结构框图.png" alt="双总线结构框图"> </p>
+<p><img src="./Pictures/双总线结构框图.png" alt="双总线结构框图"> </p>
 <ul>
 <li>主存和IO设备之间无连接，只能通过CPU相互通信，会打断CPU的计算</li>
 </ul>
 </li>
 <li><p>以存储器为中心的双总线结构</p>
 <p>主存同时与系统总线和存储总线连接 </p>
-<p><img src="/Pictures/双总线结构.png" alt="双总线结构"></p>
+<p><img src="./Pictures/双总线结构.png" alt="双总线结构"></p>
 <ul>
 <li>现有技术暂未实现系统总线和存储总线的同时工作，但与面向CPU的双总线结构相比仍有较大优势</li>
 </ul>
@@ -690,7 +730,7 @@
 </li>
 </ol>
 <h3 id="3-3-总线的特性以及性能指标"><a href="#3-3-总线的特性以及性能指标" class="headerlink" title="3-3  总线的特性以及性能指标"></a>3-3  总线的特性以及性能指标</h3><ol>
-<li>总线物理实现<br> <img src="/Pictures/总线的物理实现.png" alt="总线的物理实现"></li>
+<li>总线物理实现<br> <img src="./Pictures/总线的物理实现.png" alt="总线的物理实现"></li>
 <li>总线特性<ol>
 <li>机械特性：尺寸、形状、管脚数、排列顺序</li>
 <li>电气特性：传输方向和有效的电平范围</li>
@@ -709,9 +749,9 @@
 </ol>
 </li>
 <li><p>总线标准</p>
-<p><img src="/Pictures/总线标准.png" alt="总线标准"></p>
+<p><img src="./Pictures/总线标准.png" alt="总线标准"></p>
 <p>总线标准表：</p>
-<p><img src="/Pictures/总线标准表.png" alt="总线标准表"></p>
+<p><img src="./Pictures/总线标准表.png" alt="总线标准表"></p>
 <ol>
 <li>ISA：工业标准体系结构</li>
 <li>EISA：在ISA基础上增加总线宽度</li>
@@ -730,21 +770,21 @@
 <li><p>多总线结构</p>
 <ol>
 <li><p>双总线结构</p>
-<p><img src="/Pictures/双总线结构1.png" alt="双总线结构1"></p>
+<p><img src="./Pictures/双总线结构1.png" alt="双总线结构1"></p>
 </li>
 <li><p>三总线结构</p>
-<p><img src="/Pictures/三总线结构.png" alt="三总线结构"></p>
+<p><img src="./Pictures/三总线结构.png" alt="三总线结构"></p>
 <p>DMA：直接存储器访问。高速设备和内存之间进行信息交换时可以通过DMA总线</p>
 <p>但低速设备依然要通过I/O总线</p>
 </li>
 <li><p>三总线结构的另一种形式</p>
-<p><img src="/Pictures/三总线结构的另一种形式.png" alt="三总线结构的另一种形式"></p>
+<p><img src="./Pictures/三总线结构的另一种形式.png" alt="三总线结构的另一种形式"></p>
 <p>在CPU与主存之间添加一个低容量的高速缓存，用来缓存主存中的数据</p>
 <p>添加一条扩展总线与系统总线相连，用于连接外部设备</p>
 <p>但所有外设全部连接在扩展总线上，势必会影响高速外设的速度</p>
 </li>
 <li><p>四总线结构</p>
-<p><img src="/Pictures/四总线结构.png" alt="四总线结构"></p>
+<p><img src="./Pictures/四总线结构.png" alt="四总线结构"></p>
 <p>特点：将高速设备和低速设备进行分类组织</p>
 </li>
 </ol>
@@ -752,16 +792,16 @@
 <li><p>总线结构举例</p>
 <ol>
 <li><p>传统微型机总线结构</p>
-<p><img src="/Pictures/传统微型机总线结构.png" alt="传统微型机总线结构"></p>
+<p><img src="./Pictures/传统微型机总线结构.png" alt="传统微型机总线结构"></p>
 </li>
 <li><p>VESA</p>
-<p><img src="/Pictures/VESA总线结构.png" alt="VESA总线结构"></p>
+<p><img src="./Pictures/VESA总线结构.png" alt="VESA总线结构"></p>
 </li>
 <li><p>PCI总线结构</p>
-<p><img src="/Pictures/PCI总线结构.png" alt="PCI总线结构"></p>
+<p><img src="./Pictures/PCI总线结构.png" alt="PCI总线结构"></p>
 </li>
 <li><p>多层PCI总线结构</p>
-<p><img src="/Pictures/多层PCI总线结构.png" alt="多层PCI总线结构"></p>
+<p><img src="./Pictures/多层PCI总线结构.png" alt="多层PCI总线结构"></p>
 </li>
 </ol>
 </li>
@@ -789,7 +829,7 @@
 </ul>
 </li>
 <li><p>链式查询方式</p>
-<p><img src="/Pictures/链式查询方式.png" alt="链式查询方式"> </p>
+<p><img src="./Pictures/链式查询方式.png" alt="链式查询方式"> </p>
 <p>BR：设备发出占用请求后通过BR想总线控制部件提出占用请求</p>
 <p>BG：链式查询发出总线占用请求的设备，并为其分配总线的使用权。BG的查询顺序为各个I/O设备占用总线的优先级的先后顺序</p>
 <p>BS：设备获得总线的使用权后，通过BS设置总线忙</p>
@@ -805,7 +845,7 @@
 </ul>
 </li>
 <li><p>计数器定时查询</p>
-<p><img src="/Pictures/计数器定时查询.png" alt="计数器定时查询"></p>
+<p><img src="./Pictures/计数器定时查询.png" alt="计数器定时查询"></p>
 <p>总线控制部件中存在一个<strong>计数器</strong>，计数器的值比较灵活，可以从0开始。也可以从上一次停止计数的设备的序号开始</p>
 <p>将要占用总线的设备通过BR提出占用请求，总线控制器若同意让出总线控制权，则启动计数器，通过<strong>设备地址线</strong>向外查找与计数器值对应的设备是否提出总线占用请求，查找一个设备后计数器自增1，若该设备提出了总线占用请求，则通过<strong>BS线</strong>应答。</p>
 <p><strong>设备地址线的宽度</strong>和<strong>设备数</strong>有关。若有n个设备进行二进制编码的话，则至少需要$\log_2(n)$（向上取整）位，即设备地址也需要$\log_2(n)$（向上取整）条线</p>
@@ -820,7 +860,7 @@
 <li><p>按顺序查找，速度较慢</p>
 </li>
 <li><p>独立请求方式</p>
-<p><img src="/Pictures/独立请求方式.png" alt="独立请求方式"></p>
+<p><img src="./Pictures/独立请求方式.png" alt="独立请求方式"></p>
 <p>所有的IO接口都增加了两条线：$BR_i$（提出总线占用请求）和$BG_i$（应答信号）</p>
 <p>可根据BG直接将总线的控制权分配给获得授权的设备</p>
 <p>总线控制部件中设置排队器控制设备优先级的排队</p>
@@ -828,7 +868,7 @@
 </li>
 </ul>
 <p>总线的判优控制解决了由哪一个主设备占用总线和使用总线</p>
-<ol start="2">
+<ol>
 <li>总线通信控制</li>
 </ol>
 <p>主设备获得总线的使用权后，将与从设备进行信息交换</p>
@@ -853,7 +893,7 @@
 </ul>
 <h4 id="同步通信"><a href="#同步通信" class="headerlink" title="同步通信"></a>同步通信</h4><ul>
 <li><p>同步式数据输入</p>
-<p><img src="/Pictures/同步式数据输入.png" alt="同步式数据输入"></p>
+<p><img src="./Pictures/同步式数据输入.png" alt="同步式数据输入"></p>
 <p>整个总线周期由四个时钟周期构成 </p>
 <ul>
 <li>在T1时钟周期的上升沿，主设备给出从设备地址信息</li>
@@ -868,7 +908,7 @@
 </ul>
 </li>
 <li><p>同步式数据输出</p>
-<p><img src="/Pictures/同步式数据输出.png" alt="同步式数据输出"></p>
+<p><img src="./Pictures/同步式数据输出.png" alt="同步式数据输出"></p>
 <ul>
 <li>在T1时钟周期的上升沿，给出地址信号，下降沿，给出数据</li>
 <li>在T2时钟周期的上升沿，给出写命令</li>
@@ -881,7 +921,7 @@
 </li>
 </ul>
 <h4 id="异步通信"><a href="#异步通信" class="headerlink" title="异步通信"></a>异步通信</h4><p>没有公共的时钟标准，不要求所有部件严格的统一操作时间，采用应答方式通信</p>
-<p><img src="/Pictures/异步通信.png" alt="异步通信"></p>
+<p><img src="./Pictures/异步通信.png" alt="异步通信"></p>
 <ul>
 <li><p>不互锁</p>
 <p>主设备发出请求后不必等待从设备的相应，经过一段时间后自动撤销请求信号。从设备发出应答后，经过一段时间自动撤销应答信号</p>
@@ -910,7 +950,7 @@
 </ul>
 </li>
 <li><p>以输入为例的半同步通信时序图</p>
-<p><img src="/Pictures/以输入为例的半同步通信时序图.png" alt="以输入为例的半同步通信时序图"> </p>
+<p><img src="./Pictures/以输入为例的半同步通信时序图.png" alt="以输入为例的半同步通信时序图"> </p>
 <p>在T3上升沿到来之前，从模块若无法向主模块提供数据，则发出$\overline{\text{WAIT}}$信号，低电平有效。主模块若检测到$\overline{\text{WAIT}}$为低电平，则等待一个时钟周期T，如此循环，直到主模块检测到$\overline{\text{WAIT}}$为高电平，表示从模块已经准备好。则进入T3。</p>
 <ul>
 <li>$T1$  主模块发地址</li>
@@ -1001,7 +1041,7 @@
 </li>
 </ol>
 <h4 id="4-1-2-存储器的层次结构"><a href="#4-1-2-存储器的层次结构" class="headerlink" title="4-1-2  存储器的层次结构"></a>4-1-2  存储器的层次结构</h4><ol>
-<li>存储器的层次结构<br> <img src="/Pictures/存储器的层次结构.png" alt="存储器的层次结构"></li>
+<li>存储器的层次结构<br> <img src="./Pictures/存储器的层次结构.png" alt="存储器的层次结构"></li>
 <li>缓存-主存层次和主存-辅存层次<ul>
 <li>缓存-主存层次<ul>
 <li>主要解决CPU和主存<strong>速度</strong>不匹配的问题。</li>
@@ -1020,18 +1060,18 @@
 </ol>
 <h3 id="4-2-主存储器"><a href="#4-2-主存储器" class="headerlink" title="4-2  主存储器"></a>4-2  主存储器</h3><h4 id="4-2-1-概述"><a href="#4-2-1-概述" class="headerlink" title="4-2-1 概述"></a>4-2-1 概述</h4><ol>
 <li><p>主存的基本组成</p>
-<p><img src="/Pictures/主存的基本组成.png" alt="主存的基本组成"></p>
+<p><img src="./Pictures/主存的基本组成.png" alt="主存的基本组成"></p>
 <p>MAR中的存储单元的地址需要译码器译译码后才能找到所需访问的单元。</p>
 <p>MDR中存储将要被读出或写入的数据。经过读写电路和控制电路控制读或写。若是读出，则将MAR指定的存储单元中的数据送到MDR中。若是写入，则将MDR中的数据送入到MAR指定的存储单元中</p>
 </li>
 <li><p>主存和CPU的联系</p>
-<p><img src="/Pictures/主存和CPU的联系.png" alt="主存和CPU的联系"></p>
+<p><img src="./Pictures/主存和CPU的联系.png" alt="主存和CPU的联系"></p>
 <p>数据总线：双向连在MDR寄存器上，完成了CPU和主存之间的信息传输。</p>
 <p>地址总线：单向连在MAR寄存器和主存的地址总线之间，给出了将要访问的内存单元的地址</p>
 <p>控制总线：读写等</p>
 </li>
 <li><p>主存中存储单元的地址分配</p>
-<p><img src="/Pictures/大端法小端法.png" alt="大端法小端法"></p>
+<p><img src="./Pictures/大端法小端法.png" alt="大端法小端法"></p>
 <ul>
 <li>大端法：高位存放高地址，低位存放低地址</li>
 <li>小端法：高位存放低地址，低位存放高地址</li>
@@ -1060,7 +1100,7 @@
 </li>
 </ul>
 <h4 id="4-2-2-半导体存储芯片"><a href="#4-2-2-半导体存储芯片" class="headerlink" title="4-2-2  半导体存储芯片"></a>4-2-2  半导体存储芯片</h4><ol>
-<li><p>半导体存储芯片的基本结构<br> <img src="/Pictures/半导体存储芯片的基本结构.png" alt="半导体存储芯片的基本结构"></p>
+<li><p>半导体存储芯片的基本结构<br> <img src="./Pictures/半导体存储芯片的基本结构.png" alt="半导体存储芯片的基本结构"></p>
 <ul>
 <li><p>地址线单向输入（n条），数据线双向（m条）。 </p>
 <p>芯片容量为$2^n×m$</p>
@@ -1090,7 +1130,7 @@
 <li><p>静态RAM(SRAM)</p>
 <ul>
 <li><p>静态RAM基本电路</p>
-<p><img src="/Pictures/静态RAM基本电路.png" alt="静态RAM基本电路"></p>
+<p><img src="./Pictures/静态RAM基本电路.png" alt="静态RAM基本电路"></p>
 <p>T1-T6只是静态RAM的一个基本单元电路，有多行多列的基本单元一起构成静态RAM</p>
 <p>T1-T4为一个双稳态的触发器，存放0/1信息。A高A’低时为‘1’；A低A’高时为‘0’</p>
 <p>T5、T6用于决定读或写。T5、T6打开后该单元才能进行读/写。行开关</p>
@@ -1102,7 +1142,7 @@
 </ul>
 </li>
 </ol>
-<ol start="2">
+<ol>
 <li>动态RAM(DRAM)</li>
 </ol>
 <ul>
@@ -1112,7 +1152,7 @@
 <ul>
 <li><p>动态RAM基本单元电路</p>
 <p>（1）三管MOS动态RAM</p>
-<p><img src="/Pictures/三管MOS动态RAM.png" alt="三管MOS动态RAM"></p>
+<p><img src="./Pictures/三管MOS动态RAM.png" alt="三管MOS动态RAM"></p>
 <ul>
 <li>信息保存在电容Cg上</li>
 <li>T1、T2、T3为控制读出和写入的控制管</li>
@@ -1138,7 +1178,7 @@
 </li>
 </ul>
 <p>(2)单管MOS动态RAM</p>
-<p><img src="/Pictures/单管动态RAM.png" alt="单管动态RAM"></p>
+<p><img src="./Pictures/单管动态RAM.png" alt="单管动态RAM"></p>
 <p>读数据时</p>
 <ul>
 <li>字线有效，T导通</li>
@@ -1162,10 +1202,57 @@
 <li>异步刷新</li>
 </ul>
 <ul>
-<li><p>动态RAM和静态RAM的比较<br>||DRAM|SRAM|<br>|–|–|–|<br>|存储原理|电容|触发器|<br>|集成度|高|低|<br>|芯片引脚|少|多|<br>|功耗|低|高|<br>|价格|低|高|<br>|速度|较慢|快|<br>|刷新|需要|不需要|</p>
-<p>通常DRAM用于做主存，SRAM用于做缓存</p>
-</li>
+<li>动态RAM和静态RAM的比较</li>
 </ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th>DRAM</th>
+<th>SRAM</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>存储原理</td>
+<td>电容</td>
+<td>触发器</td>
+</tr>
+<tr>
+<td>集成度</td>
+<td>高</td>
+<td>低</td>
+</tr>
+<tr>
+<td>芯片引脚</td>
+<td>少</td>
+<td>多</td>
+</tr>
+<tr>
+<td>功耗</td>
+<td>低</td>
+<td>高</td>
+</tr>
+<tr>
+<td>价格</td>
+<td>低</td>
+<td>高</td>
+</tr>
+<tr>
+<td>速度</td>
+<td>较慢</td>
+<td>快</td>
+</tr>
+<tr>
+<td>刷新</td>
+<td>需要</td>
+<td>不需要</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>  通常DRAM用于做主存，SRAM用于做缓存</p>
 <h4 id="4-2-4-只读存储器-ROM"><a href="#4-2-4-只读存储器-ROM" class="headerlink" title="4-2-4  只读存储器(ROM)"></a>4-2-4  只读存储器(ROM)</h4><ol>
 <li><p>掩模ROM（MROM）</p>
 <p> 行列选择线交叉处：</p>
@@ -1182,7 +1269,7 @@
 </ul>
 </li>
 <li><p>EPROM（可多次编程）</p>
-<p><img src="/Pictures/EPROM.png" alt="EPROM"></p>
+<p><img src="./Pictures/EPROM.png" alt="EPROM"></p>
 <ul>
 <li>D端加正电压，形成浮动栅，S与D不导通，为0</li>
 <li><p>D端不加正电压，不形成浮动栅，S与D导通，为1</p>
@@ -1211,7 +1298,7 @@
 <ul>
 <li><p>位扩展（增加存储字长）</p>
 <p>例：用2片1K×4位存储芯片组成1K×8位存储器 </p>
-<p><img src="/Pictures/位扩展.png" alt="位扩展"></p>
+<p><img src="./Pictures/位扩展.png" alt="位扩展"></p>
 <p>1K表示有10根地址线，8位表示8根数据线。</p>
 <ul>
 <li>两个芯片地址线连接方式相同</li>
@@ -1221,14 +1308,14 @@
 </li>
 <li><p>字扩展</p>
 <p>例：用2片1K×8位存储芯片组成2K×8位存储器 </p>
-<p><img src="/Pictures/字扩展.png" alt="字扩展"></p>
+<p><img src="./Pictures/字扩展.png" alt="字扩展"></p>
 <p>2K表示有11根地址线，8位表示8根数据线。表示8位数据，所以两芯片不能同时被选中。原有的两个芯片有10根地址线A0-A9，组成的存储器增加了一条A10地址线。控制两个芯片的片选信号，A10为1，则选第一个芯片；A10为0，则选第二个芯片。</p>
 <ul>
 <li>从000 0000 0000开始，到011 1111 1111为第一个芯片的1K的空间</li>
 <li>从100 0000 0000开始，到111 1111 1111为第二个芯片的1K的空间</li>
 </ul>
 </li>
-<li><p>字、位扩展<br><img src="/Pictures/字位扩展.png" alt="字位扩展"></p>
+<li><p>字、位扩展<br><img src="./Pictures/字位扩展.png" alt="字位扩展"></p>
 <ul>
 <li><p>先完成位的扩展</p>
 <p>用两个1K×4位的芯片组成一个1K×8位的存储器。所以可将八个1K×4位的芯片组成4组这样的存储器。每组的两个芯片的片选线相连。</p>
@@ -1240,7 +1327,7 @@
 <p>以上操作即完成了字、位扩展</p>
 </li>
 </ul>
-<ol start="2">
+<ol>
 <li>存储器与CPU的连接</li>
 </ol>
 <ul>
@@ -1284,7 +1371,7 @@
   * 若1的总数为奇数，则$C_i = 1$
 </code></pre><h4 id="4-2-7-提高访存速度的措施"><a href="#4-2-7-提高访存速度的措施" class="headerlink" title="4-2-7  提高访存速度的措施"></a>4-2-7  提高访存速度的措施</h4><ol>
 <li><p>单体多字系统</p>
-<p> <img src="/Pictures/单体多字系统.png" alt="单体多字系统"></p>
+<p> <img src="./Pictures/单体多字系统.png" alt="单体多字系统"></p>
 <p> 在一个存取周期内，从同一地址取出多条指令，然后再逐条将指令送入CPU执行</p>
 <ul>
 <li>缺点：<ul>
@@ -1298,17 +1385,17 @@
 </li>
 </ol>
 <p>（1） 高位交叉，顺序编址</p>
-<p>  <img src="/Pictures/高位交叉.png" alt="高位交叉"></p>
+<p>  <img src="./Pictures/高位交叉.png" alt="高位交叉"></p>
 <p>  高位地址表示存储体编号，低位地址表示存储体内地址 </p>
 <p>  因为程序指令按序执行，连续的指令可能存储在同一个存储体中，可能会导致某些存储体繁忙，其余存储体空闲的情况，并行度低</p>
 <p>  适合存储器容量的扩展，但是并不适合提高存储器的带宽</p>
 <p>（2）低位交叉，各个存储体轮流编址</p>
-<p>  <img src="/Pictures/低位交叉.png" alt="低位交叉"></p>
+<p>  <img src="./Pictures/低位交叉.png" alt="低位交叉"></p>
 <p>  低位地址表示存储体编号，高位地址表示存储体内地址</p>
 <p>  连续的地址分布给不同的存储器，使得CPU可以在同一个访存周期内可以向多个存储体发出读信号，多个存储体在访存周期结束时可以同时向CPU提供数据</p>
 <p>  低位交叉的特点：在不改变存取周期的前提下，增加存储器的带宽</p>
-<p>  <img src="/Pictures/低位交叉的特点.png" alt="低位交叉的特点"></p>
-<ol start="3">
+<p>  <img src="./Pictures/低位交叉的特点.png" alt="低位交叉的特点"></p>
+<ol>
 <li>高性能存储芯片</li>
 </ol>
 <p>（1）SDRAM（Synchronous DRAM，同步DRAM）</p>
@@ -1316,7 +1403,7 @@
 <p>（2）RDRAM</p>
 <p>（3）带Cache的DRAM</p>
 <h3 id="4-3-高速缓冲存储器"><a href="#4-3-高速缓冲存储器" class="headerlink" title="4-3  高速缓冲存储器"></a>4-3  高速缓冲存储器</h3><h4 id="4-3-1-概述"><a href="#4-3-1-概述" class="headerlink" title="4-3-1 概述"></a>4-3-1 概述</h4><ol>
-<li>主存速度的提高跟不上CPU的发展，高速缓存主要解决主存与CPU速度不匹配问题。Cache由静态RAM做成，容量小，速度快。<br><img src="/Pictures/Cache的出现.png" alt="Cache的出现"></li>
+<li>主存速度的提高跟不上CPU的发展，高速缓存主要解决主存与CPU速度不匹配问题。Cache由静态RAM做成，容量小，速度快。<br><img src="./Pictures/Cache的出现.png" alt="Cache的出现"></li>
 </ol>
 <ul>
 <li>时间的局部性<ul>
@@ -1330,12 +1417,12 @@
 </ul>
 </li>
 </ul>
-<ol start="2">
+<ol>
 <li>Cache的工作原理 </li>
 </ol>
 <ul>
 <li><p>主存和缓存的编址</p>
-<p><img src="/Pictures/主存和缓存的编址.png" alt="主存和缓存的编址"></p>
+<p><img src="./Pictures/主存和缓存的编址.png" alt="主存和缓存的编址"></p>
 <p>​    主存和缓存被分为大小相等的块，每个块表示一块连续的内存空间<br>​    主存中有M块<br>​    Cache中有C块<br>​    C远远小于M</p>
 <ul>
 <li><p>内存和Cache的地址可分为两部分</p>
@@ -1366,8 +1453,7 @@
 </li>
 <li><p>Cache-主存系统的效率</p>
 <p>效率e与命中率有关</p>
-<p>$$e = \frac{访问Cache的时间}{平均访问时间} × 100\%$$</p>
-<ul>
+<script type="math/tex; mode=display">e = \frac{访问Cache的时间}{平均访问时间} × 100\%</script><ul>
 <li>访问Cache的时间：CPU访问一次Cache需要的时间<ul>
 <li>平均访问时间：CPU访问主存或Cache每次的平均时间</li>
 </ul>
@@ -1380,9 +1466,9 @@
 <p>$e = \frac{t_c}{2 × h×t_c+(1-h)×t_m} ×100\%$  （CPU先访问Cache再访问主存）</p>
 </li>
 </ul>
-<ol start="3">
+<ol>
 <li><p>Cache的基本结构</p>
-<p><img src="/Pictures/Cache的基本结构.png" alt="Cache的基本结构"></p>
+<p><img src="./Pictures/Cache的基本结构.png" alt="Cache的基本结构"></p>
 <ul>
 <li><p>地址映射变换机构</p>
 <ul>
@@ -1399,7 +1485,7 @@
 <p>（1）读</p>
 </li>
 </ol>
-<p><img src="/Pictures/Cache的读操作.png" alt="Cache的读操作"></p>
+<p><img src="./Pictures/Cache的读操作.png" alt="Cache的读操作"></p>
 <p>​    （2）写</p>
 <ul>
 <li><p>写直达</p>
@@ -1409,7 +1495,7 @@
 <p>写操作时只把数据写入Cache而不写入主存，当Cache数据被替换出去时才写回主存。写操作的时间为访问Cache的时间</p>
 </li>
 </ul>
-<ol start="5">
+<ol>
 <li>Cache的改进</li>
 </ol>
 <p>（1）增加Cache的级数</p>
@@ -1420,7 +1506,7 @@
 <h3 id="4-3-2-Cache-主存地址映射"><a href="#4-3-2-Cache-主存地址映射" class="headerlink" title="4.3.2. Cache-主存地址映射"></a>4.3.2. Cache-主存地址映射</h3><ol>
 <li><p>直接映射</p>
 <p>主存中任意一个给定的块，只能映射到某一个指定的Cache块中</p>
-<p><img src="/Pictures/直接映射.png" alt="直接映射"></p>
+<p><img src=".\Pictures\直接映射.png" alt="直接映射"></p>
 <p>将主存储体划分为若干个与Cache大小相等的区，每个区中包含的字块数与Cache中的字块数相等。每个区从0开始给字块编号。</p>
 <p>映射时，每个区的第0块只能被放入到Cache的第0块；每个区的第一块只能放入Cache的第一块；……</p>
 <p>主存地址被划分为三部分。</p>
@@ -1443,7 +1529,7 @@
 </li>
 <li><p>全相连映射</p>
 <p>主存中的块可放入Cache的任意块中</p>
-<p><img src="/Pictures/全相联映射.png" alt="全相联映射"></p>
+<p><img src="./Pictures/全相联映射.png" alt="全相联映射"></p>
 <p>优点：利用率高</p>
 <p>缺点：</p>
 <ul>
@@ -1452,7 +1538,7 @@
 </ul>
 </li>
 <li><p>组相连映射</p>
-<p> <img src="/Pictures/组相连映射.png" alt="组相联映射"></p>
+<p> <img src="./Pictures/组相连映射.png" alt="组相联映射"></p>
 </li>
 </ol>
 <ul>
@@ -1541,14 +1627,14 @@
 </ul>
 </li>
 </ul>
-<ol start="2">
+<ol>
 <li>磁记录的原理</li>
 </ol>
 <ul>
-<li>写<br><img src="/Pictures/磁记录写.png" alt="磁记录写"></li>
-<li>读<br><img src="/Pictures/磁记录读.png" alt="磁记录读"></li>
+<li>写<br><img src="./Pictures/磁记录写.png" alt="磁记录写"></li>
+<li>读<br><img src="./Pictures/磁记录读.png" alt="磁记录读"></li>
 </ul>
-<ol start="3">
+<ol>
 <li>硬磁盘存储器</li>
 </ol>
 <ul>
@@ -1561,7 +1647,7 @@
 <li>可换盘和固定盘</li>
 </ul>
 </li>
-<li><p>硬磁盘存储器结构<br><img src="/Pictures/硬磁盘存储器结构.png" alt="硬磁盘存储器结构"></p>
+<li><p>硬磁盘存储器结构<br><img src="./Pictures/硬磁盘存储器结构.png" alt="硬磁盘存储器结构"></p>
 <ul>
 <li><p>磁盘控制器：</p>
 <ul>
@@ -1574,10 +1660,10 @@
 </ul>
 </li>
 </ul>
-<ol start="4">
+<ol>
 <li><p>软磁盘存储器</p>
 <p> 不卖了</p>
-<p> ||硬盘|软盘|<br> |–|–|–|<br> |速度|高|低|<br> |磁头|固定、活动，浮动|活动，接触盘片|<br> |硬盘|固定盘|可换盘片|</p>
+<p> ||硬盘|软盘|<br> |—|—|—|<br> |速度|高|低|<br> |磁头|固定、活动，浮动|活动，接触盘片|<br> |硬盘|固定盘|可换盘片|</p>
 </li>
 <li><p>光盘存储器</p>
 <p> 采用光存储技术，利用激光进行读写</p>
@@ -1587,13 +1673,13 @@
 <li>只读型和只写一次型：热作用</li>
 <li>可擦写光盘：热磁效应</li>
 </ul>
-<h2 id="5-输入输出系统"><a href="#5-输入输出系统" class="headerlink" title="5. 输入输出系统"></a>5. 输入输出系统</h2><h3 id="5-1-概述"><a href="#5-1-概述" class="headerlink" title="5-1  概述"></a>5-1  概述</h3><h4 id="5-1-1-输入输出系统的发展概况"><a href="#5-1-1-输入输出系统的发展概况" class="headerlink" title="5-1-1  输入输出系统的发展概况"></a>5-1-1  输入输出系统的发展概况</h4><p>略</p>
+<h2 id="第五章-输入输出系统"><a href="#第五章-输入输出系统" class="headerlink" title="第五章 输入输出系统"></a>第五章 输入输出系统</h2><h3 id="5-1-概述"><a href="#5-1-概述" class="headerlink" title="5-1  概述"></a>5-1  概述</h3><h4 id="5-1-1-输入输出系统的发展概况"><a href="#5-1-1-输入输出系统的发展概况" class="headerlink" title="5-1-1  输入输出系统的发展概况"></a>5-1-1  输入输出系统的发展概况</h4><p>略</p>
 <h4 id="5-1-2-输入输出系统的组成"><a href="#5-1-2-输入输出系统的组成" class="headerlink" title="5-1-2  输入输出系统的组成"></a>5-1-2  输入输出系统的组成</h4><ol>
 <li>I/O软件</li>
 </ol>
 <ul>
 <li><p>I/O指令：机器指令的一类</p>
-<p><img src="/Pictures/IO指令.png" alt="IO指令"></p>
+<p><img src="./Pictures/IO指令.png" alt="IO指令"></p>
 <ul>
 <li>操作码：相当IO指令的标志</li>
 <li>命令码：指出对具体IO设备的操作</li>
@@ -1607,7 +1693,7 @@
 </ul>
 </li>
 </ul>
-<ol start="2">
+<ol>
 <li>I/O硬件</li>
 </ol>
 <ul>
@@ -1617,7 +1703,7 @@
 <p>若采用通道方式，则设备通过设备控制器连接在通道上与主机进行信息交换</p>
 </li>
 </ul>
-<ol start="3">
+<ol>
 <li>I/O设备与主机的联系方式</li>
 </ol>
 <ul>
@@ -1633,7 +1719,8 @@
 </li>
 </ul>
 </li>
-<li>设备选址<ul>
+<li><p>设备选址</p>
+<ul>
 <li>用设备选择电路识别是否被选中</li>
 </ul>
 </li>
@@ -1654,21 +1741,21 @@
 </ul>
 </li>
 </ul>
-<ol start="4">
+<ol>
 <li>I/O设备与主机信息传送的控制方式</li>
 </ol>
 <ul>
 <li><p>程序查询方式</p>
 <p>CPU和I/O设备采用串行方式工作，CPU通过程序不断查询I/O设备是否做好准备。</p>
-<p><img src="/Pictures/程序查询方式.png" alt="程序查询方式"></p>
+<p><img src="./Pictures/程序查询方式.png" alt="程序查询方式"></p>
 <p>CPU的速度比I/O设备快得多，等待I/O设备准备数据将会使CPU的工作效率大大降低</p>
 <p>同时，I/O设备访问内存也必须经过CPU</p>
 </li>
 <li><p>程序中断方式</p>
 <p>I/O准备数据时CPU仍可执行现行程序，I/O准备完成后发出中断请求，CPU转而执行中断服务程序为I/O设备服务，结束后回到原程序继续执行。</p>
-<p><img src="/Pictures/程序中断方式.png" alt="程序中断方式"></p>
+<p><img src="./Pictures/程序中断方式.png" alt="程序中断方式"></p>
 <p>CPU在执行第K条指令时收到了I/O的中断信号，在第K条指令执行结束后立即执行中断服务程序为I/O设备提供服务，执行完毕后转回原来的程序中执行下一条（第K+1条）指令。</p>
-<p><img src="/Pictures/程序中断方式流程.png" alt="程序中断方式流程"></p>
+<p><img src="./Pictures/程序中断方式流程.png" alt="程序中断方式流程"></p>
 <p>实现了CPU和I/O部分的并行工作，但对CPU的解放仍不彻底，</p>
 <ul>
 <li>传输过程中需要CPU参与</li>
@@ -1679,12 +1766,12 @@
 <li><p>DMA方式</p>
 <p>上述两种方法中，I/O设备与内存之间的信息交换仍需通过CPU</p>
 <p>DMA方式在内存与I/O之间建立直接通路，不需要中断现行程序。若CPU和DMA同时访问主存，则CPU将总线占有权让给DMA，时间一般为一个存储周期，称为<strong>窃取周期</strong>或<strong>挪用周期</strong></p>
-<p><img src="/Pictures/DMA方式.png" alt="DMA方式"></p>
+<p><img src="./Pictures/DMA方式.png" alt="DMA方式"></p>
 <p>CPU在程序运行的某个时刻发出启动I/O信号，之后I/O设备在DMA的控制之下完成数据的准备，准备完成后DMA发出总线占用请求，CPU让出一个存取周期的总线控制权给DMA，DMA将数据加载到主存中，期间CPU程序仍可执行，只不过不可以访存而已。</p>
 <p>实现了CPU和I/O的并行工作</p>
 </li>
 <li><p>三种方式的CPU工作效率比较</p>
-<p><img src="/Pictures/三种方式的效率比较.png" alt="三种方式的效率比较"></p>
+<p><img src="./Pictures/三种方式的效率比较.png" alt="三种方式的效率比较"></p>
 <ul>
 <li><p>程序查询方式</p>
 <p>I/O准备及传送的时间里，CPU一直在查询等待I/O设备，效率极低</p>
@@ -1698,7 +1785,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="5-2-外部设备（I-O设备）"><a href="#5-2-外部设备（I-O设备）" class="headerlink" title="5-2 外部设备（I/O设备）"></a>5-2 外部设备（I/O设备）</h3><h4 id="5-2-1-概述"><a href="#5-2-1-概述" class="headerlink" title="5-2-1 概述"></a>5-2-1 概述</h4><p><img src="/Pictures/IO设备.png" alt="I/O设备"></p>
+<h3 id="5-2-外部设备（I-O设备）"><a href="#5-2-外部设备（I-O设备）" class="headerlink" title="5-2 外部设备（I/O设备）"></a>5-2 外部设备（I/O设备）</h3><h4 id="5-2-1-概述"><a href="#5-2-1-概述" class="headerlink" title="5-2-1 概述"></a>5-2-1 概述</h4><p><img src="./Pictures/IO设备.png" alt="I/O设备"></p>
 <p>I/O设备由设备控制器与其机、电、磁、光部件组成，通过I/O接口与主机连接，主机通过I/O接口向设备控制器传输控制命令，控制I/O设备进行相关操作；也通过I/O接口读取设备的状态</p>
 <p>I/O设备可分为三类</p>
 <ol>
@@ -1741,7 +1828,7 @@
 </ul>
 </li>
 <li><p>总线链接方式的I/O接口电路</p>
-<p> <img src="/Pictures/IO接口电路.png" alt="IO接口电路"></p>
+<p> <img src="./Pictures/IO接口电路.png" alt="IO接口电路"></p>
 <ul>
 <li>设备选择线：传输参与本次信息交换的设备的设备码或端口号</li>
 <li>数据线：负责主机与I/O设备之间的数据传输</li>
@@ -1750,20 +1837,49 @@
 </ul>
 </li>
 <li><p>接口的功能和组成</p>
-<p>|功能|组成|<br>|–|–|<br>|选址功能|设备选择电路|<br>|传送命令功能|命令寄存器、命令译码器|<br>|传送数据的功能|数据缓冲器|<br>|反映设备状态的功能|设备状态标记|</p>
-<p>设备状态标记：</p>
+</li>
+</ol>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>功能</th>
+<th>组成</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>选址功能</td>
+<td>设备选择电路</td>
+</tr>
+<tr>
+<td>传送命令功能</td>
+<td>命令寄存器、命令译码器</td>
+</tr>
+<tr>
+<td>传送数据的功能</td>
+<td>数据缓冲器</td>
+</tr>
+<tr>
+<td>反映设备状态的功能</td>
+<td>设备状态标记</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>  设备状态标记：</p>
 <ul>
 <li>完成触发器：D</li>
 <li>工作触发器：B</li>
 <li>中断请求触发器：INTR</li>
 <li>屏蔽触发器：MASK</li>
 </ul>
-</li>
+<ol>
 <li><p>I/O接口的基本组成</p>
-<p> <img src="/Pictures/IO接口的基本组成.png" alt="IO接口的基本组成"></p>
+<p> <img src="./Pictures/IO接口的基本组成.png" alt="IO接口的基本组成"></p>
 </li>
 </ol>
-<ol start="5">
+<ol>
 <li>接口类型</li>
 </ol>
 <ul>
@@ -1790,7 +1906,7 @@
 </ul>
 <h3 id="5-4-程序查询方式"><a href="#5-4-程序查询方式" class="headerlink" title="5-4 程序查询方式"></a>5-4 程序查询方式</h3><h4 id="5-4-1-程序查询流程"><a href="#5-4-1-程序查询流程" class="headerlink" title="5-4-1 程序查询流程"></a>5-4-1 程序查询流程</h4><ol>
 <li><p>单个设备</p>
-<p> <img src="/Pictures/单个设备程序查询.png" alt="单个设备程序查询"></p>
+<p> <img src="./Pictures/单个设备程序查询.png" alt="单个设备程序查询"></p>
 <p> CPU 在发出设备启动命令后循环检查状态标记，判断I/O接口是否准备好数据</p>
 <ul>
 <li>测试指令：检查状态标记</li>
@@ -1800,10 +1916,10 @@
 </li>
 <li><p>多个设备</p>
 <p> 根据设备优先级将设备排序，高优先级的未准备就绪时，检查次优先级的状态标记</p>
-<p> <img src="/Pictures/多个设备程序查询.png" alt="多个设备程序查询"></p>
+<p> <img src="./Pictures/多个设备程序查询.png" alt="多个设备程序查询"></p>
 </li>
 <li><p>程序流程</p>
-<p> <img src="/Pictures/程序流程.png" alt="程序流程"></p>
+<p> <img src="./Pictures/程序流程.png" alt="程序流程"></p>
 <ul>
 <li>保存寄存器内容</li>
 <li>设置计数值：控制传输的数据量</li>
@@ -1818,7 +1934,7 @@
 </li>
 </ol>
 <h4 id="5-4-2-程序查询方式的接口电路"><a href="#5-4-2-程序查询方式的接口电路" class="headerlink" title="5-4-2 程序查询方式的接口电路"></a>5-4-2 程序查询方式的接口电路</h4><p><strong>以输入为例</strong></p>
-<p><img src="/Pictures/程序查询方式的接口电路.png" alt="程序查询方式的接口电路"></p>
+<p><img src="./Pictures/程序查询方式的接口电路.png" alt="程序查询方式的接口电路"></p>
 <ul>
 <li>CPU通过地址线给出外部设备的地址</li>
 <li>设备选择电路将设备码与地址线上的代码比对，若一致，则SEL有效，说明本次启动的设备是连接在该接口电路上的设备</li>
@@ -1829,6 +1945,423 @@
 <li>至此设备工作结束，将B置“0”，将D置“1”，表示数据准备完毕</li>
 <li>CPU执行输入命令，将数据缓冲存储器中的数据经过一系列操作后存入主存</li>
 </ul>
+<h3 id="5-5-程序中断方式"><a href="#5-5-程序中断方式" class="headerlink" title="5-5 程序中断方式"></a>5-5 程序中断方式</h3><h4 id="5-5-1-中断的概念"><a href="#5-5-1-中断的概念" class="headerlink" title="5-5-1 中断的概念"></a>5-5-1 中断的概念</h4><p><img src="./Pictures/中断的概念.png" alt="中断的概念"></p>
+<p>计算机在执行程序的过程中，当出现异常情况或特殊请求时，计算机停止现行程序的运行，转向这些异常情况或特殊请求的处理，处理结束后再返回现行程序的间断处，继续执行原程序。</p>
+<h4 id="5-5-3-程序中断方式的接口电路"><a href="#5-5-3-程序中断方式的接口电路" class="headerlink" title="5-5-3 程序中断方式的接口电路"></a>5-5-3 程序中断方式的接口电路</h4><ol>
+<li><p>配置中断请求触发器和中断屏蔽触发器</p>
+<ul>
+<li>中断请求触发器（INTR）：用于向CPU提出中断请求。<ul>
+<li>1有请求</li>
+</ul>
+</li>
+<li>中断屏蔽触发器（MASK）：若CPU正在执行的任务的重要性要比当前设备提出的中断请求要高，则中断屏蔽触发器将会把本次中断请求屏蔽掉 <ul>
+<li>1被屏蔽<br><img src="./Pictures/中断请求触发器和中断屏蔽触发器.png" alt="中断请求触发器和中断屏蔽触发器"> </li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>排队器</p>
+<p> 当多个中断源同时向CPU发出中断请求时，CPU按优先级顺序给予响应，排队器对所有中断源进行排队 </p>
+<p> <img src="./Pictures/排队器.png" alt="排队器"></p>
+<p> 一旦某个中断源提出中断请求时，就迫使比其优先级低的中断源变为低电平，封锁其中断请求。</p>
+<ul>
+<li><p>以INTR1为例：初始状态下，左侧非门输出1，INTP1’有效，若INTR1为高电平，则$\overline{INTR1}$为低电平，使得右侧与非门输出1，INTP2的左侧非门输出0，INTP2’无效，同理2以后均无效。</p>
+</li>
+<li><p>将INTP’与INTP相与后使得同一时刻只会有一个请求源被选中</p>
+</li>
+</ul>
+</li>
+<li><p>中断向量地址形成部件</p>
+<p> 给出中断服务程序的入口地址，CPU暂停现行程序，转去执行中断程序</p>
+<p> 硬件向量法：由硬件产生向量地址，再油向量地址找到入口地址</p>
+<ul>
+<li>中断向量：可理解为中断服务程序的入口地址</li>
+<li><p>向量地址：中断向量保存的内存单元的地址</p>
+<p><img src="./Pictures/中断向量.png" alt="中断向量"></p>
+<p>排队器的输出（仅有一个高电平）作为该部件的输入，输出对应中断向量地址，指出了中断服务程序的入口地址或跳转指令的地址</p>
+</li>
+</ul>
+</li>
+<li><p>程序中断方式接口电路的基本组成</p>
+</li>
+</ol>
+<h4 id="5-5-4"><a href="#5-5-4" class="headerlink" title="5-5-4"></a>5-5-4</h4><ol>
+<li>CPU相应中断的条件和时间<ul>
+<li>条件：CPU的<strong>允许中断触发器</strong>EINT = 1。<ul>
+<li>可以用开中断指令将EINT置为“1”</li>
+<li>可以用关中断指令将EINT置为“0”，或硬件自动复位</li>
+</ul>
+</li>
+<li>时间<ul>
+<li>外部设备提出中断请求的时间是随机的，只要其准备好数据即可</li>
+<li>CPU不能随时响应中断，一般在每条指令执行阶段的结束时刻发出中断查询信号，将有中断请求的接口的中断请求触发器置为1，送入到排队电路。 </li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<pre><code>![程序中断方式接口电路的基本组成](./Pictures/程序中断方式接口电路的基本组成.png)
+</code></pre><h4 id="5-5-5-中断服务程序流程"><a href="#5-5-5-中断服务程序流程" class="headerlink" title="5-5-5 中断服务程序流程"></a>5-5-5 中断服务程序流程</h4><ol>
+<li>流程<ul>
+<li>保护现场<ul>
+<li>程序断点的保护（由中断隐指令完成）</li>
+<li>寄存器内容的保护（在中断服务程序中可以利用<strong>入栈指令</strong>完成）</li>
+</ul>
+</li>
+<li>中断服务<br> 恢复现场</li>
+<li>中断返回（中断返回指令）</li>
+</ul>
+</li>
+<li>单重中断和多重中断<ul>
+<li>单重中断：不允许现行的中断服务程序</li>
+<li>多重中断（中断嵌套）：允许级别更高的中断源中断现行的中断服务程序</li>
+</ul>
+</li>
+<li><p>主程序和服务程序抢占CPU示意图<br> <img src="./Pictures/主程序和服务程序抢占CPU.png" alt="主程序和服务程序抢占CPU"></p>
+<ul>
+<li>宏观上 CPU和I/O并行工作</li>
+<li>微观上 CPU中断现行程序为I/O服务</li>
+</ul>
+</li>
+</ol>
+<h3 id="5-6-DMA方式"><a href="#5-6-DMA方式" class="headerlink" title="5-6 DMA方式"></a>5-6 DMA方式</h3><h4 id="5-6-1-DMA方式的特点"><a href="#5-6-1-DMA方式的特点" class="headerlink" title="5-6-1 DMA方式的特点"></a>5-6-1 DMA方式的特点</h4><ol>
+<li><p>DMA和程序中断两种方式的数据通路</p>
+<p><img src="./Pictures/DMA数据通路.png" alt="DMA数据通路">  </p>
+<p>主存和DMA接口之间有一条数据通路，主存和设备交换信息时，不需要通过CPU也不需要CPU暂停现行程序</p>
+</li>
+<li><p>DMA与主存交换数据的三种方式</p>
+<ol>
+<li><p>停止CPU访问主存</p>
+<p>CPU放弃总线控制权</p>
+<p><img src="./Pictures/DMA和CPU控制主存时间.png" alt="DMA和CPU控制主存时间"></p>
+<p>优点：</p>
+<ul>
+<li>控制简单</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>CPU处于不工作状态（没有指令可执行）或保持状态（指令已经保存到Cache</li>
+<li><p>未充分发挥CPU对主存的利用率。在数据传输的间隔或数据准备阶段CPU不能访存</p>
+<ol>
+<li>周期挪用（周期窃取） </li>
+</ol>
+<p><img src="./Pictures/周期挪用.png" alt="周期挪用"> </p>
+<p>I/O设备发出DMA请求后，占用一个或几个主存周期的时间。在数据传输的间隔，DMA放弃总线控制权</p>
+</li>
+</ul>
+<ul>
+<li>CPU不需访存：直接将总线使用权分配给DMA</li>
+<li>CPU正在访存：DMA等待</li>
+<li>CPU和DMA同时请求访存：CPU让给DMA</li>
+</ul>
+<ol>
+<li><p>DMA和CPU交替访问</p>
+<p><img src="./Pictures/CPU与DMA交替访存.png" alt="CPU与DMA交替访存"></p>
+<p>将CPU工作周期分为C1和C2两个阶段，C1专供DMA访存，C2专供CPU访存，不需要对总线使用权的申请、建立和归还</p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h4 id="5-6-2-DMA接口的功能和组成"><a href="#5-6-2-DMA接口的功能和组成" class="headerlink" title="5-6-2 DMA接口的功能和组成"></a>5-6-2 DMA接口的功能和组成</h4><ol>
+<li>DMA接口功能<ul>
+<li>向CPU申请DMA传送</li>
+<li>处理总线控制权的转交</li>
+<li>管理系统总线、控制数据传送</li>
+<li>确定数据传送的首地址和长度，修正传送过程中的数据地址和长度</li>
+<li>DMA传送结束时，给出操作完成信号</li>
+</ul>
+</li>
+<li><p>DMA接口组成</p>
+<p> <img src="./Pictures/DMA接口组成.png" alt="DMA接口组成"></p>
+<ul>
+<li>主存地址寄存器（AR）：存放主存中需要交换的数据的地址</li>
+<li>字计数器（WC）：WC用于记录传送数据的总字数。 </li>
+<li>设备地址寄存器（DAR）：<ul>
+<li>存放I/O设备的设备码</li>
+<li>表示设备信息存储区的寻址信息</li>
+</ul>
+</li>
+<li>DMA控制逻辑：管理DMA的传送过程<ul>
+<li>DREQ（设备请求）：I/O设备要进行DMA传输的请求信号</li>
+<li>DACK：DMA控制器对设备的应答信号</li>
+<li>HRQ：DMA向CPU发出的总线请求信号</li>
+<li>HLDA：CPU对总线请求信号的应答信号</li>
+</ul>
+</li>
+<li>中断机构：数据交换完毕后请求CPU作DMA操作的后处理</li>
+</ul>
+</li>
+</ol>
+<h4 id="5-6-3-DMA的工作过程"><a href="#5-6-3-DMA的工作过程" class="headerlink" title="5-6-3 DMA的工作过程"></a>5-6-3 DMA的工作过程</h4><ol>
+<li>DMA传送过程</li>
+</ol>
+<p>  <img src="./Pictures/DMA传送过程.png" alt="DMA传送过程"></p>
+<ul>
+<li>预处理<ul>
+<li>设置数据的传送方向</li>
+<li>确定数据传输的设备地址-&gt;DAR</li>
+<li>确定主存中数据的地址-&gt;AR</li>
+<li>确定传送字数-&gt;WC</li>
+</ul>
+</li>
+<li>数据传送</li>
+<li>后处理（由中断服务程序完成）<ul>
+<li>校验送入主存的数据</li>
+<li>判断是否继续使用DMA</li>
+<li>测试传输过程是否正确，错则转诊断程序</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li><p>DMA接口与系统的连接方式</p>
+<ul>
+<li><p>具有公共请求线的DMA请求</p>
+<p> 多个DMA接口共用一条DMA请求线向CPU申请总线控制权</p>
+</li>
+<li><p>独立的DMA请求</p>
+<p> 每个DMA接口各又一对独立的DMA请求线和DMA响应线</p>
+</li>
+</ul>
+</li>
+<li><p>DMA方式与程序中断方式的比较</p>
+<p> ||中断方式|DMA方式|<br> |—-|—-|—-|<br> |数据传送|程序|硬件|<br> |相应时间|指令执行结束时|存取周期结束时|<br> |处理异常|能|不能|<br> |中断请求|传送数据|后处理|<br> |优先级|低|高|</p>
+</li>
+<li><p>DMA接口类型</p>
+<ul>
+<li><p>选择型</p>
+<p>在物理上连接<strong>多个</strong>设备，在逻辑上同一时间段内只能有<strong>一个</strong>设备使用DMA接口</p>
+</li>
+<li><p>多路型</p>
+<p>在物理上连接<strong>多个</strong>设备，在逻辑上允许连接<strong>多个</strong>设备同时工作，即数据准备阶段可以有多个设备进行数据准备，但是数据传输时只能有一个设备与内存进行数据传输</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="第六章-计算机的运算方法"><a href="#第六章-计算机的运算方法" class="headerlink" title="第六章 计算机的运算方法"></a>第六章 计算机的运算方法</h2><h3 id="6-1-无符号数和有符号数"><a href="#6-1-无符号数和有符号数" class="headerlink" title="6-1 无符号数和有符号数"></a>6-1 无符号数和有符号数</h3><h4 id="6-1-1-无符号数"><a href="#6-1-1-无符号数" class="headerlink" title="6-1-1 无符号数"></a>6-1-1 无符号数</h4><p>寄存器的每一位均可用来存储数值</p>
+<h4 id="6-1-2-有符号数"><a href="#6-1-2-有符号数" class="headerlink" title="6-1-2 有符号数"></a>6-1-2 有符号数</h4><blockquote>
+<p>机器数：把符号“数字化”的数称为机器数。<br>真值：把带“+”或“-”号的数称为真值</p>
+</blockquote>
+<ol>
+<li><p>原码</p>
+<p>将数值绝对值转换为二进制后在高位附上符号位，0代表正数，1代表负数</p>
+</li>
+<li><p>补码</p>
+<p>正数补码即本身</p>
+<p>负数补码，将数值绝对值转换为二进制数x，用“1,000…(n个0)”减去x。(n为寄存器字长)</p>
+<p>+0的补码：0,0000<br>-0的补码：1,0000<br>+0和-0补码不同</p>
+<p>快捷求法：补码 = 反码 + 1</p>
+</li>
+<li><p>反码</p>
+<p>正数反码即本身</p>
+<p>负数反码：根据原码，符号位不变，0变1，1变0</p>
+</li>
+<li><p>移码</p>
+<p>补码符号位取反即为移码。</p>
+<p>+0和-0移码相同</p>
+<p>最小真值的移码为全0</p>
+<p>移码能够方便地判断浮点数的阶码</p>
+</li>
+</ol>
+<h3 id="6-2-数的定点表示和浮点表示"><a href="#6-2-数的定点表示和浮点表示" class="headerlink" title="6-2 数的定点表示和浮点表示"></a>6-2 数的定点表示和浮点表示</h3><h4 id="6-2-1-定点表示"><a href="#6-2-1-定点表示" class="headerlink" title="6-2-1 定点表示"></a>6-2-1 定点表示</h4><ol>
+<li><p>纯小数</p>
+<p> 小数点位于数符与与第一数值位之间</p>
+</li>
+<li><p>纯整数</p>
+<p> 小数点位于所有数值位之后</p>
+</li>
+</ol>
+<p><img src="./Pictures/定点数.png" alt="定点数"></p>
+<h4 id="6-2-2-浮点表示"><a href="#6-2-2-浮点表示" class="headerlink" title="6-2-2 浮点表示"></a>6-2-2 浮点表示</h4><ol>
+<li><p>引入浮点数的原因</p>
+<ul>
+<li>编程困难，程序员需要调节小数点的位置</li>
+<li>数的表示范围小。如果要表示两个大小相差很大的数据，则需要很长的机器字长</li>
+<li>数据存储单元的利用率低</li>
+</ul>
+</li>
+<li><p>浮点表示</p>
+<p> 通常浮点数被表示为</p>
+<p> $N = S × r^j$</p>
+<ul>
+<li>S为尾数，用小数来表示，可正可负</li>
+<li>j为阶码，整数，可正可负，计算机中取2，4，8，16等</li>
+<li><p>r为尾数的基值</p>
+<p>在计算机中首先规定尾数的基值，然后分别规定浮点数的阶码、尾数的符号和位数</p>
+<p><img src="./Pictures/浮点数表示.png" alt="浮点数表示"></p>
+</li>
+<li><p>Sf(数符)：表示浮点数的符号</p>
+</li>
+<li>n(尾数位数)的大小反映了浮点数的精度</li>
+<li>m(阶码位数)的大小反映浮点数的表示范围。</li>
+<li>jf和m共同表示小数点的实际位置</li>
+</ul>
+</li>
+<li><p>浮点数的表示范围</p>
+<p> 最小负数</p>
+<ul>
+<li>$-(1-2^{-n})×2^{(2^m-1)}$</li>
+<li>数符为1，尾数全1；阶符为0，阶码全1。即绝对值最大的负尾数乘2的最大次方</li>
+</ul>
+</li>
+</ol>
+<pre><code>最大负数
+* $-2^{-n}×2^{-(2^m-1)}$
+* 数符为1，尾数最低位为1，高位全0；阶符为1，阶码全1。即绝对值最小的负尾数乘2的负的最大次方
+
+
+最小正数
+* $2^{-n}×2^{-(2^m-1)}$
+* 数符为0，尾数最低位为1，高位全0；阶符为1，阶码全1。即最小的正尾数乘2的负的最大次方
+
+最大正数
+* $(1-2^{-n})×2^{(2^m-1)}$
+* 数符为0，尾数全1；阶符为0， 阶数全1。即最大的尾数乘2的最大次方
+
+上溢出，计算出错；下溢出，按机器零处理
+</code></pre><ol>
+<li><p>浮点数的规格化形式</p>
+<p> 为了尽可能地提高浮点数的精度，需要尾数为规格化形式</p>
+<ul>
+<li>当基数r为2时，尾数的最高位应该为1。</li>
+<li>当基数r为4时，尾数的最高2位不能全为0</li>
+<li>当基数r为8时，尾数的最高3位不能全为0</li>
+</ul>
+</li>
+</ol>
+<pre><code>尾数的基数不同，浮点数的规格化形式不同
+</code></pre><ol>
+<li><p>浮点数的规格化</p>
+<p> 通过左移右移操作使得尾数的最高位为1</p>
+</li>
+</ol>
+<ul>
+<li><p>尾数r = 2  </p>
+<p>左规，尾数左移1位，阶码减1</p>
+<p>右规，尾数右移1位，阶码加1</p>
+</li>
+<li><p>尾数r = 4</p>
+<p>左规，尾数左移2位，阶码减1  </p>
+<p>右规，尾数右移2位，阶码加1</p>
+</li>
+</ul>
+<p>基数r越大，可表示的浮点数的范围越大</p>
+<p>基数r越小，浮点数的精度越低</p>
+<ol>
+<li>IEEE 754标准</li>
+</ol>
+<p><img src="./Pictures/IEEE754补码.png" alt="IEEE754补码"></p>
+<ul>
+<li>将数符和阶符位放在最高位，后接阶码和尾数</li>
+<li>小数点位置在阶码和尾数之间，既可表示阶码的小数点位置，又能表示尾数的小数点位置。</li>
+</ul>
+<p>要求尾数必须用规格化的方式。且表示非零时，尾数有效位最高为1，且此1隐含</p>
+<h3 id="6-3-定点运算"><a href="#6-3-定点运算" class="headerlink" title="6-3 定点运算"></a>6-3 定点运算</h3><p>一、 移位运算</p>
+<p>数据相对于小数点左移或右移</p>
+<ol>
+<li><p>算数移位规则</p>
+<p> 符号位不变。即保持符号位不动，对数值部分进行左右移动</p>
+<p> 原码：</p>
+<ul>
+<li><p>正负数左右移均添0</p>
+<p>补码：</p>
+</li>
+<li>左移添0</li>
+<li><p>右移添符号</p>
+<p>反码：</p>
+</li>
+<li>正数左右移添0</li>
+<li>负数左右移添1</li>
+</ul>
+</li>
+<li><p>算数移位的硬件实现</p>
+<p> <img src="./Pictures/算数移位的硬件实现.png" alt="算数移位的硬件实现"></p>
+</li>
+<li><p>算数移位和逻辑移位的区别</p>
+</li>
+</ol>
+<ul>
+<li>算数移位：有符号数的移位，高位符号位不参与移位运算</li>
+<li>逻辑移位：无符号数的移位，所有位均参与移位运算<ul>
+<li>逻辑左移：低位添0，高位丢</li>
+<li>逻辑右移：高位添0，低位丢<br><img src="./Pictures/逻辑位移电路.png" alt="逻辑位移电路">  </li>
+</ul>
+</li>
+</ul>
+<p>二、补码加减法运算</p>
+<ol>
+<li><p>补码加减法</p>
+<ul>
+<li><p>加法</p>
+<p>整数: [A]补 + [B]补 = [A+B]补（mod $2^{n+1}$）</p>
+<p>小数：[A]补 + [B]补 = [A+B]补（mod 2）</p>
+</li>
+<li><p>减法：A - B = A + (-B)</p>
+<p>整数：[A-B]补 = [A+(-B)]补 = [A]补 + [-B]补（mod $2^{n+1}$）</p>
+<p>小数：[A-B]补 = [A+(-B)]补 = [A]补 + [-B]补（mod 2）</p>
+</li>
+</ul>
+</li>
+<li><p>乘法</p>
+<p>需要三个寄存器：X、ACC、MQ，初态：</p>
+<ul>
+<li>X中存储被乘数的值</li>
+<li>ACC中存储部分积（初值为0）</li>
+<li>MQ中存乘数</li>
+</ul>
+<p>需要进行多次相加和位移操作，每次操作都需要判断MQ寄存器中最低位的值，为1，则ACC = ACC+X；为0，则ACC+0（即ACC不变）。然后将ACC和MQ中的拼接值整体向右移一位（即MQ最低位丢掉，ACC最高低移向MQ的最高位，ACC的最高位补0）。相加和移位的次数由乘数的位数（或MQ寄存器的长度）n决定，执行n次相加和移位操作后，ACC和MQ寄存器中的值拼接即为数值部分的乘法结果，被乘数和乘数的符号位异或后的值即为乘法结果的符号位</p>
+<p>原码乘法</p>
+<p>符号位求异或，数值位相乘</p>
+</li>
+<li><p>除法</p>
+</li>
+</ol>
+<ul>
+<li><p>原码除法</p>
+<ul>
+<li>结果的符号位为被除数与除数符号位<code>异或</code>的结果</li>
+<li>数值部分为被除数与除数的数值部分的绝对值相除</li>
+</ul>
+<p>约定</p>
+<ul>
+<li>对于小数定点除法，被除数绝对值<code>小于</code>除数绝对值。</li>
+<li>对于整数定点除法，被除数绝对值<code>大于</code>除数绝对值。</li>
+<li>被除数不为0</li>
+<li>除数不为0 </li>
+</ul>
+<p>恢复余数法</p>
+</li>
+</ul>
+<h2 id="第七章-指令系统"><a href="#第七章-指令系统" class="headerlink" title="第七章 指令系统"></a>第七章 指令系统</h2><h3 id="7-1-机器指令"><a href="#7-1-机器指令" class="headerlink" title="7-1 机器指令"></a>7-1 机器指令</h3><h4 id="7-7-1-指令的一般格式"><a href="#7-7-1-指令的一般格式" class="headerlink" title="7-7-1 指令的一般格式"></a>7-7-1 指令的一般格式</h4><ol>
+<li>操作码</li>
+</ol>
+<p>操作码指明该指令要完成的操作，长度可以是固定的，也可以是变化的。</p>
+<ul>
+<li><p>扩展操作码技术 </p>
+<p><img src="./Pictures/操作码扩展.png" alt="操作码扩展"></p>
+<ul>
+<li>短操作码一定不能是长操作码的前缀</li>
+<li>每减少一种i地址指令，最多可多构成2^j种i+1地址指令（j为地址码长度）</li>
+<li>高频指令用短操作码，低频指令用长操作码</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>地址码</li>
+</ol>
+<ul>
+<li><p>四地址指令</p>
+<p><img src="./Pictures/四地址指令.png" alt="四地址指令"></p>
+<ul>
+<li>OP: 操作码</li>
+<li>A1：第一操作数地址</li>
+<li>A2：第二操作数地址</li>
+<li>A3：结果的地址</li>
+<li>A4：下一条指令的地址</li>
+</ul>
+</li>
+</ul>
 
       
     </div>
@@ -1836,16 +2369,12 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习记录/">学习记录</a></li></ul>
-	</div>
-
       
 
       
         
 <div class="counter-tag counter">
-    <span id="/2020/09/28/计算机组成原理/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="计算机组成原理.md">
+    <span id="/2020/09/28/计算机组成原理/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title>
          &nbsp;
         view
     </span>
@@ -1877,7 +2406,7 @@
   <div class="outer">
     <div id="footer-info">
       <div class="footer-left">
-        &copy; 2020 Weizhe Yang
+        &copy; 2021 Weizhe Yang
       </div>
         <div class="footer-right">
           <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/smackgg/hexo-theme-smackdown" target="_blank">Smackdown</a>
@@ -1893,8 +2422,8 @@
 <script>
 	var yiliaConfig = {
 		fancybox: true,
-		mathjax: true,
-		animate: false,
+		mathjax: [object Object],
+		animate: true,
 		isHome: true,
 		isPost: false,
 		isArchive: false,
