@@ -284,23 +284,23 @@
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">MPI_Init</span><span class="params">(<span class="keyword">int</span> *argc, <span class="keyword">char</span> **argv)</span></span></span><br></pre></td></tr></table></figure>
 <p>通过MPI_Init函数进入MPI环境并完成初始化工作，标志并行代码的开始, 前后两个参数为main函数的默认参数。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">MPI_Finalize</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br></pre></td></tr></table></figure></p>
 <p>通过MPI_Finalize函数从MPI环境中推出，标志并行代码的结束，如果不是MPI程序的最后一句则运行结果不可知</p>
-<ol start="2">
+<ol>
 <li>获取进程的数量：</li>
 </ol>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">MPI_Comm_size</span><span class="params">(MPI_Comm comm, <span class="keyword">int</span> *rank)</span></span></span><br></pre></td></tr></table></figure>
 <p>通信子：一组可以相互发送消息的进程集合。通常由MPI_Init()在用户启动程序时， 定义由用户自动的所有进程组成的通信子，缺省值为MPI_COMM_WORLD。<br>这个参数是MPI通信操作函数中必不可少的参数，用户限定参加通信的进程的范围。</p>
 <p>参数: 第一个参数是通信子， 第二个参数返回进程的个数</p>
-<ol start="3">
+<ol>
 <li>获取进程id</li>
 </ol>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">MPI_Comm_rank</span><span class="params">(MPI_Comm comm, <span class="keyword">int</span> *rank)</span></span></span><br></pre></td></tr></table></figure>
 <p>获得当前进程在制定通信域中的编号，将自身与其他程序区分。  </p>
 <p>第一个参数是通信子，第二个参数返回进程的编号。</p>
-<ol start="4">
+<ol>
 <li>获取处理器</li>
 </ol>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">MPI_Get_processor_name</span><span class="params">(<span class="keyword">char</span> *name, <span class="keyword">int</span> *resultlen)</span></span></span><br><span class="line"><span class="function"><span class="keyword">char</span> *name</span>;  #返回处理器名</span><br><span class="line"><span class="keyword">int</span> *resultlen;  #在name中返回结果的长度</span><br></pre></td></tr></table></figure>
-<ol start="5">
+<ol>
 <li><p>运行时间</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">MPI_Wtime</span><span class="params">(<span class="keyword">void</span>)</span> <span class="comment">//获取时间</span></span></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">MPI_Wtick</span><span class="params">(<span class="keyword">void</span>)</span> <span class="comment">//查看时间的精度</span></span></span><br></pre></td></tr></table></figure>
 </li>
@@ -308,7 +308,7 @@
 </li>
 </ol>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">MPI_Barrier</span><span class="params">(MPI_Comm comm)</span></span></span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line"><span class="number">7.</span> 时间精度</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">```c</span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">MPI_Wtick</span><span class="params">(<span class="keyword">void</span>)</span> <span class="comment">//查看时间的精度</span></span></span><br></pre></td></tr></table></figure>
-<ol start="8">
+<ol>
 <li>消息传递</li>
 </ol>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">MPI_Send</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">void</span>* msg_buf_p,<span class="comment">//变量指针</span></span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">int</span> msg_size, <span class="comment">//数据量</span></span></span></span><br><span class="line"><span class="function"><span class="params">    MPI_Datatype send_type, <span class="comment">//发送信息的数据类型</span></span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">int</span> dest, <span class="comment">//目标进程的id值</span></span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">int</span> tag, <span class="comment">//消息标签，0打印，1计算</span></span></span></span><br><span class="line"><span class="function"><span class="params">    MPI_Comm communicator<span class="comment">//通信子</span></span></span></span><br><span class="line"><span class="function"><span class="params">)</span></span>;</span><br></pre></td></tr></table></figure>
@@ -326,7 +326,7 @@
 <li>地址偏移量</li>
 </ol>
 <p>MPI_ADDRESS: 获得一个位置在内存中的地址<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">MPI_Address</span><span class="params">(<span class="keyword">void</span> *location, MPI_Aint *address)</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line">void *location: 调用者的内存位置；</span><br><span class="line">MPI_Aint *address: 位置的对应地址</span><br></pre></td></tr></table></figure></p>
-<ol start="10">
+<ol>
 <li>(规约)集合通信函数</li>
 </ol>
 <p>涉及通信子中的所有进程的通信函数称为集合通信。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">MPI_Reduce</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">void</span>* input_data_p,     <span class="comment">//每个线程需要提供的计算数据</span></span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">void</span>* output_data_p,    <span class="comment">//返回计算结果</span></span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">int</span> count,              <span class="comment">//每个线程提供的数据量</span></span></span></span><br><span class="line"><span class="function"><span class="params">    MPI_Datatype datatype,  <span class="comment">//数据类型</span></span></span></span><br><span class="line"><span class="function"><span class="params">    MPI_OP <span class="keyword">operator</span>,        <span class="comment">//归约操作符</span></span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">int</span> dest_process,       <span class="comment">//在指定线程中返回</span></span></span></span><br><span class="line"><span class="function"><span class="params">    MPI_Comm comm</span></span></span><br><span class="line"><span class="function"><span class="params">)</span></span>;</span><br></pre></td></tr></table></figure></p>
@@ -334,6 +334,7 @@
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">MPI_Allreduce</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">void</span>* input_data_p,     <span class="comment">//每个线程需要提供的计算数据</span></span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">void</span>* output_data_p,    <span class="comment">//返回计算结果</span></span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">int</span> count,              <span class="comment">//每个线程提供的数据量</span></span></span></span><br><span class="line"><span class="function"><span class="params">    MPI_Datatype datatype,  <span class="comment">//数据类型</span></span></span></span><br><span class="line"><span class="function"><span class="params">    MPI_OP <span class="keyword">operator</span>,        <span class="comment">//归约操作符</span></span></span></span><br><span class="line"><span class="function"><span class="params">    MPI_Comm comm</span></span></span><br><span class="line"><span class="function"><span class="params">)</span></span>;</span><br></pre></td></tr></table></figure>
 <p>与上面类似，除去dest_process参数。在通信子的所有线程中均返回结果。<br>具体实现：在一个线程中计算出结果后，将结果发布给其他线程。</p>
 <p>MPI_OP:</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -396,26 +397,28 @@
 </tr>
 </tbody>
 </table>
-<ol start="11">
+</div>
+<ol>
 <li>广播<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">MPI_Bcast</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">void</span>* data_p,</span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">int</span> count,</span></span></span><br><span class="line"><span class="function"><span class="params">    MPI_Datatype datatype,</span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">int</span> source_proc,</span></span></span><br><span class="line"><span class="function"><span class="params">    MPI_Comm comm</span></span></span><br><span class="line"><span class="function"><span class="params">)</span></span>;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>进程号为cource_proc的进程将data_p所引用的内存内容发送给通信子comm中的所有进程</p>
-<ol start="12">
+<ol>
 <li>散射</li>
 </ol>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">MPI_Scatter</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">void</span>*           send_buf_p, <span class="comment">//需要处理的整体数据</span></span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">int</span>             send_count, <span class="comment">//发送到每个进程的数据量</span></span></span></span><br><span class="line"><span class="function"><span class="params">    MPI_Datatype    send_type,</span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">void</span>*           recv_buf_p, <span class="comment">//本地定义的数组或其他容器用来存储分得的数据</span></span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">int</span>             recv_count, <span class="comment">//每个进程分得的数据量</span></span></span></span><br><span class="line"><span class="function"><span class="params">    MPI_Datatype    recv_type,</span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">int</span>             src_proc,   <span class="comment">//负责读取和分发数据的进程</span></span></span></span><br><span class="line"><span class="function"><span class="params">    MPI_Comm        comm</span></span></span><br><span class="line"><span class="function"><span class="params">)</span></span>;</span><br></pre></td></tr></table></figure>
 <p>若通信子comm包含comm_sz个进程，那么MPI_Scatter函数会将send_buf_p所引用的数据分成comm_sz份，第一份分给0号进程，第二分分给1号进程……以此类推。</p>
-<ol start="13">
+<ol>
 <li>聚集</li>
 </ol>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">MPI_Gather</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">void</span>*           send_buf_p,</span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">int</span>             send_count,</span></span></span><br><span class="line"><span class="function"><span class="params">    MPI_Datatype    send_type,</span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">void</span>*           recv_buf_p,</span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">int</span>             recv_count,</span></span></span><br><span class="line"><span class="function"><span class="params">    MPI_Datatype    recv_type,</span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">int</span>             dest_proc,</span></span></span><br><span class="line"><span class="function"><span class="params">    MPI_Comm        comm</span></span></span><br><span class="line"><span class="function"><span class="params">)</span></span>;</span><br></pre></td></tr></table></figure>
 <p>在指定线程dest_proc中收集当前线程传来的数据，保存在大小为recv_count的recv_type类型数组recv_count中</p>
-<ol start="14">
+<ol>
 <li>派生数据类型 ???</li>
 </ol>
 <p>一个派生数据类型是由一系列的MPI基本数据类型和每个数据类型的偏移所组成的</p>
 <p>假设一个进程里变量a,b,n和它们在内存中的位置如下</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -438,6 +441,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>则可以用以下的派生数据类型表示这些数据项：</p>
 <p>{(MPI_DOUBLE,0),(MPI_DOUBLE,16),(MPI_INT,24)}</p>
 <p>每组数据的第二个元素是该数据项相对于起始位置的偏移, 即为当前数据与起始数据的内存地址差值。</p>
@@ -447,7 +451,7 @@
 <p>MPI_Aint是个长整数型, address_p返回location_p所指向的内存单元的地址</p>
 <p>生成新的数据类型之后需要调用函数MPI_Type_commit去指定它:<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">MPI_Type_commit</span><span class="params">(MPI_Datatype* new_mpi_t_p)</span></span>;</span><br></pre></td></tr></table></figure></p>
 <p>调用派生数据类型: 以MPI_Bcast测试:<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MPI_Bcast(&amp;a, <span class="number">1</span>, <span class="keyword">input_mpi_t</span>, <span class="number">0</span>, comm);</span><br></pre></td></tr></table></figure></p>
-<ol start="15">
+<ol>
 <li>数据的打包(Pack)</li>
 </ol>
 <p>将不连续的数据或是不相同的数据类型的数据一起发送到其它进程</p>
@@ -455,7 +459,7 @@
 <p>缓冲区的类型任意, 意在分配指定大小的空间足够打包解包时使用, position大小随打包和解包增加和减少</p>
 <p>打包完成后可以通过MPI_Send等发送数据的函数将输入缓冲区<strong>outbuf</strong>发送到其他线程,类型为<strong>MPI_PACKED</strong></p>
 <p>接收函数MPI_Recv等接收到其他线程发来的包后,需要对其进行解包操作,提取出相应的数据后才能进行下一步操作</p>
-<ol start="16">
+<ol>
 <li>组的管理</li>
 </ol>
 <p>组是一个进程的有序集合,在实现中可以看做是进程标识符的一个有序集合,组内的每个进程与一个整数rank相联系,序列号从0开始并且是连续的.我们可以在通信组中使用组来描述通信空间中的参与者并对这些参与者进行分级.</p>
@@ -490,7 +494,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int MPI_Group_free(MPI_Group *group);</span><br></pre></td></tr></table></figure>
 <p>释放指定进程组,组句柄被置为MPI_GROUP_NULL  </p>
 <p>函数允许任何正在使用此组的操作正常完成</p>
-<ol start="17">
+<ol>
 <li>通信子的管理</li>
 </ol>
 <ul>

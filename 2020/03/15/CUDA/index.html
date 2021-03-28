@@ -296,14 +296,14 @@
 <li>显存带宽</li>
 </ul>
 <p>峰值计算性能用来评估计算容量，通常定义为每秒能够处理的单精度或双精度浮点运算的数量。单位通常为GFlops(每秒十亿次运算)或TFlops(每秒万亿次运算)。<br>显存带宽是从内存中读取或写入数据的比率。单位通常为GB/s。</p>
-<ol start="2">
+<ol>
 <li>CPU与GPU的线程与核心</li>
 </ol>
 <p>CPU的线程通常是重量级的实体，操作系统必须交替线程，启用或关闭CPU执行通道，以提供多线程处理功能，上下文切换缓慢且开销大。</p>
 <p>GPU的线程是高度轻量级的，在一个典型的系统中会有成千上万的线程排队等待工作。</p>
 <p>CPU的核心被设计为尽可能减少一个或两个线程运行时间的延迟</p>
 <p>GPU的核心是用来处理大量并发的、轻量级的线程，以最大限度地提高吞吐量</p>
-<ol start="3">
+<ol>
 <li>CPU+GPU异构</li>
 </ol>
 <p>CPU具有处理复杂逻辑和指令级并行的能力   </p>
@@ -316,7 +316,7 @@
 <p><img src="/Pictures/nvcc编译过程.png" alt="nvcc编译过程"></p>
 <p>CUDA的编译器驱动nvcc先将全部源代码分离为主机(host)代码和设备(device)代码。主机代码完全支持C++语法，而设备代码只是部分支持。</p>
 <p>nvcc先将设备代码编译为PTX(Parallel Thread eXecution)伪汇编代码，再将PTX代码编译为二进制的cubin目标代码</p>
-<ol start="2">
+<ol>
 <li>nvcc编译选项</li>
 </ol>
 <ul>
@@ -334,7 +334,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-gencode arch=compute_XY,code=sm_XY</span><br><span class="line">-gencode arch=compute_XY,code=compute_XY</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<ol start="3">
+<ol>
 <li>CUDA程序的基本框架</li>
 </ol>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">头文件包含</span><br><span class="line">宏定义</span><br><span class="line">用户函数和CUDA核函数的声明</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    分配主机与设备内存</span><br><span class="line">    初始化主机中的数据</span><br><span class="line">    将某些数据从主机复制到设备</span><br><span class="line">    调用核函数在设备中进行计算</span><br><span class="line">    将某些数据从设备复制到机</span><br><span class="line">    释放主机与设备内存</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -351,13 +351,13 @@
 <li>该函数会在GPU(device)上执行</li>
 <li>必须返回void</li>
 <li>由主机(host)代码调用:<br><code>fun_name&lt;&lt;&lt;grid_size, block_size&gt;&gt;&gt;()</code></li>
-<li>在调用kernel函数时,函数名后的&lt;&lt;&lt;grid_size, block_size&gt;&gt;&gt;<ul>
+<li>在调用kernel函数时,函数名后的&lt;&lt;<grid_size, block_size>&gt;&gt;<ul>
 <li>gird_size表示网格大小</li>
 <li>block_size表示线程块大小</li>
 </ul>
-</li>
+</grid_size,></li>
 </ul>
-<ol start="2">
+<ol>
 <li>线程索引<br>在核函数内部，程序将配置参数gird_size和block_size这两个参数值分别保存于如下两个内建变量(built-in variable)中：</li>
 </ol>
 <ul>
@@ -366,7 +366,7 @@
 <li>blockIdx.x: 指定一个线程在网格中的线程块指标，取值范围是从0到gridDim.x-1。</li>
 <li>threadIdx.x: 指定一个线程在线程块中的线程指标，取值范围是从0到blockDim.x-1。</li>
 </ul>
-<ol start="3">
+<ol>
 <li>多维网格</li>
 </ol>
 <ul>
@@ -392,7 +392,7 @@
 <ul>
 <li>通常，一个网格会被组织成线程块的二维形式，一个线程块会被组织成线程的三维形式。</li>
 </ul>
-<ol start="4">
+<ol>
 <li>函数执行空间标识符</li>
 </ol>
 <ul>
@@ -403,7 +403,7 @@
 <li>不能同时用<strong>host</strong>和<strong>global</strong>修饰一个函数，即一个函数不能同时为主机函数和核函数。</li>
 <li>编译器把设备函数当做内联函数或非内联函数，可用修饰符<strong>noinline</strong>建议一个设备函数为非内联函数，也可以用修饰符<strong>forceinline</strong>建议一个设备函数为内联函数。</li>
 </ul>
-<ol start="5">
+<ol>
 <li>设备内存的分类</li>
 </ol>
 <p><img src="/Pictures/内存类型.png" alt="设备内存分类"></p>
@@ -431,7 +431,7 @@
 <p><strong>共享内存</strong></p>
 <p>共享内存存在于芯片上，具有仅次于寄存器的读写速度。但它对于整个线程块可见，生命周期也与整个线程块一致。</p>
 <p>共享内存的作用是减少对全局内存的访问。</p>
-<ol start="6">
+<ol>
 <li>检测运行时错误</li>
 </ol>
 <ul>
@@ -443,7 +443,7 @@
 <li>检查核函数<br>捕捉调用核函数时可能发生的错误，需要在调用核函数之后加上如下两句：<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CHECK(cudaGetLastError());</span><br><span class="line">CHECK(cudaDeviceSynchronize());</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<ol start="7">
+<ol>
 <li><p>CUDA-MEMCHECK检查内存错误<br>CUDA-MEMCHECK工具集包括memcheck、rececheck、initcheck、synccheck四个工具。他们可由可执行文件cuda-memcheck调用：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cuda-memcheck --tool memcheck [options] app_name [options]</span><br><span class="line">cuda-memcheck --tool racecheck [options] app_name [options]</span><br><span class="line">cuda-memcheck --tool initcheck [options] app_name [options]</span><br><span class="line">cuda-memcheck --tool synccheck [options] app_name [options]</span><br></pre></td></tr></table></figure>
 </li>
@@ -453,11 +453,11 @@
 </ol>
 <p>创建事件 -&gt; 记录事件的开始 -&gt; 计时部分代码执行 -&gt; 记录事件的结束 -&gt; 计算耗时</p>
 <p><strong>GPU计算核心</strong>和<strong>设备内存</strong>之间的数据传输的传输峰值理论带宽要远大于<strong>CPU</strong>与<strong>GPU</strong>之间数据传输的理论峰值带宽，所以，想要获得可观的加速，就必须减少在数据传输上所花的时间，避免过多的数据经过PCIe传递。</p>
-<ol start="9">
+<ol>
 <li>算数强度</li>
 </ol>
 <p>一个计算问题的算数强度指的是其中<strong>算数操作</strong>的工作量与<strong>必要的内存操作</strong>的工作量之比</p>
-<ol start="10">
+<ol>
 <li>一个CUDA程序获得高性能的必要条件：</li>
 </ol>
 <ul>
@@ -475,24 +475,24 @@
 <li>cudaDeviceRest()</li>
 </ol>
 <p>用来显式地释放和清空当前进程中与当前设备有关的所有资源。</p>
-<ol start="2">
+<ol>
 <li>cudaMalloc</li>
 </ol>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">cudaError_t <span class="title">cudaMalloc</span><span class="params">(<span class="keyword">void</span>** devPtr, <span class="keyword">size_t</span> size)</span></span>;</span><br></pre></td></tr></table></figure>
 <p>同C语言中malloc函数，为变量分配空间。第一个参数为内存分配的对象，第二个是分配的内存空间的<strong>字节</strong>大小。</p>
-<ol start="3">
+<ol>
 <li>cudaMemcpy</li>
 </ol>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">cudaError_t <span class="title">cudaMemcpy</span><span class="params">(<span class="keyword">void</span>* dst, <span class="keyword">const</span> <span class="keyword">void</span>* src, <span class="keyword">size_t</span> count, cudaMemcpuKind kind)</span></span>;</span><br></pre></td></tr></table></figure>
 <p>从src指向的内存空间复制一定字节的数据到dst所指内存中，复制方向由kind指定，kind共有以下几种：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cudaMemcpyHostToHost</span><br><span class="line">cudaMemcpyHostToDevice</span><br><span class="line">cudaMemcpyDeviceToHost</span><br><span class="line">cudaMemcpyDeviceToDevice</span><br></pre></td></tr></table></figure></p>
 <p>该函数以同步方式执行，在函数返回以及传输操作完成之前主机的应用程序是阻塞的。</p>
-<ol start="4">
+<ol>
 <li>cudaGetErrorString</li>
 </ol>
 <p>cudaError_t为枚举类型，此类型变量有两个值：  <strong>cudaSuccess</strong>与<strong>cudaErrorMemoryAllocaion</strong>  </p>
 <p>将错误代码转为可读字符串</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">char</span>* <span class="title">cudaGetErrorString</span><span class="params">(cudaError_t error)</span></span>;</span><br></pre></td></tr></table></figure>
-<ol start="5">
+<ol>
 <li>cudaEventElapsedTime</li>
 </ol>
 <p>计算事件之间经过(Elapse)的时间<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">__<span class="function">host__ cudaError_t <span class="title">cudaEventElapsedTime</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">float</span>* ms,        <span class="comment">//返回事件执行的时间</span></span></span></span><br><span class="line"><span class="function"><span class="params">    cudaEvent_t start, <span class="comment">//事件的开始</span></span></span></span><br><span class="line"><span class="function"><span class="params">    cudaEvent_t end    <span class="comment">//事件的结束</span></span></span></span><br><span class="line"><span class="function"><span class="params">)</span></span>;</span><br></pre></td></tr></table></figure></p>

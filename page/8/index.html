@@ -265,40 +265,40 @@
 </ol>
 <p>clock()函数返回从“开启这个程序进程”到“程序中调用clock()函数”时之间的CPU时钟计时单元(clock<br>tick)数, 在omp程序中多个线程同时运行, 用clock计时并不能得到想要的结果.</p>
 <p>omp_get_wtime()函数返回从某一时间点到调用时所经过的时间</p>
-<ol start="2">
+<ol>
 <li>for指令</li>
 </ol>
 <p>for指令的作用是使一个for循环在多个线程中执行, 一般for指令与parallel指令同时使用, 即parallel for. 此外还可以在parallel指令的并行块中单独使用, 在一个并行快中可以使用多个for指令. 但是单独使用for指令是没有效果的.</p>
-<ol start="3">
+<ol>
 <li>parellel指令</li>
 </ol>
 <p>parallel是构造并行块的指令, 同时也可以配合其它指令如for, sections等一起使用. 在这个指令后需要使用一对大括号来制定并行代码块.<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> omp parallel [for | sections] [子句[子句]...]</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//并行代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<ol start="4">
+<ol>
 <li>num_threads(thread_num)</li>
 </ol>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> omp parallel num_threads(thread_num)</span></span><br></pre></td></tr></table></figure>
 <p>指定执行此代码块的线程数量</p>
-<ol start="5">
+<ol>
 <li>omp_get_num_procs()</li>
 </ol>
 <p>返回调用函数时, 可用的线程数目</p>
-<ol start="6">
+<ol>
 <li>omp_get_num_threads()</li>
 </ol>
 <p>返回当前并行区域中的活动线程个数, 若在并行区域之外调用则返回0</p>
-<ol start="7">
+<ol>
 <li>omp_get_max_threads()</li>
 </ol>
 <p>返回最大的线程数量, 这里的最大线程数量是指在不使用num_threads的情况下OpenMP可以创建的最大线程数量</p>
-<ol start="8">
+<ol>
 <li>sections和section</li>
 </ol>
 <p>sections语句指定一个并行代码块, 并用section语句将此代码块分为多个分块, 各个分块并行执行<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> omp parallel sections</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">pragma</span> omp section</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//section1</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">pragma</span> omp section</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//section2</span></span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<ol start="9">
+<ol>
 <li>omp_in_parallel</li>
 </ol>
 <p>判断当前是否处于并行状态, 返回1表示是, 返回0表示否. </p>
-<ol start="10">
+<ol>
 <li>private子句</li>
 </ol>
 <ul>
@@ -322,19 +322,19 @@
 <li>threadprivate</li>
 </ul>
 <p>将一个变量分别复制一份拷贝给各个线程, 作为各个线程的私有变量, 即各个线程具有各自私有的全局对象, 而不止在并行代码块中有效.<br>此变量只能为全局变量或静态变量(static), 且threadprivate语句要紧跟在变量声明的后边</p>
-<ol start="11">
+<ol>
 <li>shared</li>
 </ol>
 <p>将一个变量声明为共享变量, 并在多个线程内共享. 程序分配一块单独的内存给这个变量, 所有的并行线程共享这块内存空间. 在并行部分进行写操作时, 要求对共享变量进行保护, 否则不要随便使用共享变量, 尽量将共享变量换为私有变量使用.</p>
-<ol start="12">
+<ol>
 <li>reduction</li>
 </ol>
 <p>对一个或多个参数指定一个操作符, 然后每一个线程都会创建这个参数的私有拷贝, 在各自的线程中对其进行操作, 在并行区域结束后, 迭代指定的运算符, 并更新原参数值.<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">reduction(<span class="keyword">operator</span>: <span class="built_in">list</span>);</span><br><span class="line"><span class="comment">//operator为操作符, list为一个变量或多个变量组成的数组*/</span></span><br></pre></td></tr></table></figure></p>
-<ol start="13">
+<ol>
 <li>copyin</li>
 </ol>
 <p>将主线程中的变量值拷贝到各个线程的私有变量中, 但是主线程中的变量值不会改变.<br>只有被声明为threadprivate的变量才可作为copyin子句的参数</p>
-<ol start="14">
+<ol>
 <li>循环调度: schedule</li>
 </ol>
 <p>schedule只能用于循环并行构造中, 作用是控制循环并行结构的任务调度, 将循环迭代分配给各个线程.<br>语法为:<code>schedule(kind, chunk_size)</code></p>
@@ -359,7 +359,7 @@
 </ul>
 <p>runtime表示根据环境变量确定上述调度策略中的某一种, 默认也是静态的(static). </p>
 <p>控制schedule环境变量的是OMP_SCHEDULE环境变量, 值为上面三种类型的一种, 例如:<br>OMP_SCHEDULE=”dynamic, 5”<br>表示schedule(dynamic, 5)</p>
-<ol start="15">
+<ol>
 <li>互斥锁</li>
 </ol>
 <ul>
@@ -374,12 +374,12 @@
 <li><p>尝试获得互斥锁<br><code>bool omp_set_lock(omp_lock_t* lock);</code><br>尝试获得互斥锁, 成功返回1(true), 失败返回0(false)</p>
 </li>
 </ul>
-<ol start="16">
+<ol>
 <li>omp_set_dynamic</li>
 </ol>
 <p>设置是否允许在运行时动态调整并行区域的线程数<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">omp_set_dynamic</span><span class="params">(<span class="keyword">int</span> flag)</span></span>;</span><br></pre></td></tr></table></figure></p>
 <p>参数为非0时,系统会自动调整线程以最佳利用系统资源.<br>当参数为0时, 动态调整被禁用.<br>此参数即相当于一个布尔型(bool)</p>
-<ol start="17">
+<ol>
 <li>omp_get_dynamic</li>
 </ol>
 <p>返回当前程序是否允许动态调整<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">omp_get_dynamic</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure></p>
